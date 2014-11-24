@@ -147,6 +147,10 @@ This framework will integrate state-of-the-art tools like OpenRefine, OpenLink V
 
 T1.1 - User requirements: identify key stakeholders, conduct in-depth interviews in the toursim related field; map requirements and expectations to functionality and develop use scenarios based on these requirements to form the basis of conceptual and functional test models.
 
+TODO
+
+* eventuell beschreiben wie die kunden interviewed wurden.
+
 To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and developing apps in the domain of tourism for several years. During this time both partners gained valuable experience in data creation, maintenance and publication. 
 
 As of today both partners publish there data into a public CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to faciliate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
@@ -154,13 +158,29 @@ As of today both partners publish there data into a public CKAN[^ckan] repositor
 Currently available open data by PAT and RET is available in particular data formats like CSV, KML, XML and JSON. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. With every update of the raw data this process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these Open Data sets and its apps increases.
 
 In interviews with PAT and RET it became clear, that this is one of the big obstacles of the current approach. There is far more knowledge in these data sets available than what is visible and accessible to the open data developer.
-This is best explained by the example of Via Francigena[^viafrancigena], an ancient road and pilgrim route running from France to Rome. In their geographic information system (GIS) RET collects many point of interest (POI) around this ancient road. This dataset is made available to the public but the data alone does not tell the full story of the POI. 
+This is best explained by the example of Via Francigena[^viafrancigena], an ancient road and pilgrim route running from France to Rome. In their geographic information system (GIS) RET collects many point of interest (POI) around this ancient road[^fragis]. This dataset is made available to the public but the data alone does not tell the full story of the POI. 
+
+![Via Francigena](img/Via_Francigena_POI.png "Via Francigena in the RET GIS")
+
+The term point of interest is very generic: It can be something obviously useful in this context like a restaurant or a hotel along the road. A bit less obvious but still useful are other examples like pharmacies where one can treat its blisters from walking or public wireless access to upload the latest pictures to Facebook and Instagram. But a point of interest can also be a snippet of plain text which puts the POI into a historical context. Using this kind of information in a generic, re-usable way is technically much more difficult than the obvious examples. A plaintext example could be that a famous person ate this specific dish back in the days and it became a signature dish since then. As a tourist I might want to know which restaurant along the way provides this dish and where I can buy the particular ingredient for taking it home.
+
+TODO tourism that enhances the cultural, environmental and historical heritage of the historic path, creating opportunities for small enterprises and for a conscious development of the territory. 
+
+### The Data Format War
+
+As mentioned earlier data is available in many different formats. In best case for the app developer the data format is standardized and well supported in ETL tools. Unfortunately this is rarely the case as every data user has his own, mostly proprietary data management tool or application for maintaining it. This can be well seen in the available datasets from the two provinces PAT and RET. There are a few standardized and semantically meaningful data sets in formats like KML[^kml] or Shapefile[^shapefile], which are used for expressing geographic annotation and visualization. In between that there are semantically still understandable XML formats, for example weather data[^weather], altough in a non-standard schema and using italian identifiers for the XML elements. The vast majority of the data is available in semantically poor data formats like CSV or JSON.
+
+TODO insert stats here
+
+The terms "semantically meaningful" and "semantically poor" are indicators of how much work is needed to do something useful within for example a mobile application. Reading, or in app developer terms parsing data in a certain format is just the first and often the easier step. Once the data is in a structure the app developer can handle, she needs to figure out what the data is about, or in other terms understand its semantics. This is where the real work starts and this is harder in semantically poor data formats like CSV and JSON, as the indication about what the field value really means is completely up to the one providing the data and if available, often hard to understand for others.
+
+By using the terms semantically meaningful and semantically poor we describe  the impact of these data formats. The application developer needs to go through many different steps to start doing something useful with this data:
 
 
 
- tourism that enhances the cultural, environmental and historical heritage of the historic path, creating opportunities for small enterprises and for a conscious development of the territory. 
 
 
+### The case for Linked Data
 
 Linked Data can help to solve these problems: Data is made available in a standard format (RDF) which provides among others the following benefits:
 
@@ -169,6 +189,23 @@ Linked Data can help to solve these problems: Data is made available in a standa
 -   which acts as a generalized API for developers.
 -   Standardized vocabularies describe the meaning of the data,
 -   and allow to relate information with each other.
+
+
+
+### TODO
+
+Wine stuff: 
+
+http://www.tastetrentino.it/le-tre-strade/strada-del-vino-e-dei-sapori-del-trentino/home/
+http://www.terreditoscana.regione.toscana.it/stradedelvino/ita/index-ita.html
+
+![Strada del Vino Trentino](img/VinoTrentino.png)
+![Strada del Vino Toscana](img/VinoToscana.png)
+
+
+
+
+
 
 ## Data Identification
 
@@ -195,5 +232,14 @@ Copyright Fusepool P3 Consortium
 * * * * *
 
 [^ckan]: Open Source Software, available at http://ckan.org/
+
 [^viafrancigena]: Via Francigena in [Wikipedia](http://en.wikipedia.org/wiki/Via_Francigena)
+
+[^fragis]: Direct access to the [GIS entry](http://www306.regione.toscana.it/mappe/index_francigena.html?area=francigena_multi_cluster) of Via Francigena
+
+[^weather]: http://dati.toscana.it/dataset/previ-meteo-localita
+
+[^kml]: http://en.wikipedia.org/wiki/Keyhole_Markup_Language
+
+[^shapefile]: http://en.wikipedia.org/wiki/Shapefile
 
