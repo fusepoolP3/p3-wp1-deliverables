@@ -69,6 +69,7 @@ This document describes the TODO.
 | HTTP    | Hypertext Transfer Protocol                  |
 | HTTPS   | Secure Hypertext Transfer Protocol           |
 | IRI     | Internationalized Resource Identifier        |
+| KML     | Keyhole Markup Language                      |
 | LDP     | Linked Data Platform                         |
 | LDP-BC  | Linked Data Platform Basic Container         |
 | LDPC    | Linked Data Platform Container               |
@@ -90,6 +91,7 @@ This document describes the TODO.
 | W3C     | World Wide Web Consortium                    |
 | WG      | Working Group                                |
 | WP      | Work Package                                 |
+| XML     | Extended Markup Language                     |
 
 ## Normative namespaces
 
@@ -147,11 +149,9 @@ This framework will integrate state-of-the-art tools like OpenRefine, OpenLink V
 
 T1.1 - User requirements: identify key stakeholders, conduct in-depth interviews in the toursim related field; map requirements and expectations to functionality and develop use scenarios based on these requirements to form the basis of conceptual and functional test models.
 
-TODO
+To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and developing apps in the domain of tourism for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
-* eventuell beschreiben wie die kunden interviewed wurden.
-
-To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and developing apps in the domain of tourism for several years. During this time both partners gained valuable experience in data creation, maintenance and publication. 
+To answer the questions rised in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by three different persons working for them: Marco Combetto for PAT and Walter Volpi and Davide Bruno for RET. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
 
 As of today both partners publish there data into a public CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to faciliate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
 
@@ -168,13 +168,13 @@ TODO tourism that enhances the cultural, environmental and historical heritage o
 
 ### The Data Format War
 
-As mentioned earlier data is available in many different formats. In best case for the app developer the data format is standardized and well supported in ETL tools. Unfortunately this is rarely the case as every data user has his own, mostly proprietary data management tool or application for maintaining it. This can be well seen in the available datasets from the two provinces PAT and RET. There are a few standardized and semantically meaningful data sets in formats like KML[^kml] or Shapefile[^shapefile], which are used for expressing geographic annotation and visualization. In between that there are semantically still understandable XML formats, for example weather data[^weather], altough in a non-standard schema and using italian identifiers for the XML elements. The vast majority of the data is available in semantically poor data formats like CSV or JSON.
+As mentioned earlier data is available in many different formats. In best case for the app developer the data format is standardized and well supported in ETL tools. Unfortunately this is rarely the case as every data user has his own, mostly proprietary data management tool or application for maintaining it. This can be well seen in the available datasets from the two provinces PAT and RET. There are a few standardized and semantically meaningful data sets in formats like KML[^kml] or Shapefile[^shapefile], which are used for expressing geographic annotation and visualization. In between that there are semantically still quite valuable XML formats. One example is weather data[^weather] about the province, altough in a non-standard schema and using italian identifiers for the XML elements. The vast majority of the data is available in semantically poor data formats like CSV or JSON.
 
 TODO insert stats here
 
-The terms "semantically meaningful" and "semantically poor" are indicators of how much work is needed to do something useful within for example a mobile application. Reading, or in app developer terms parsing data in a certain format is just the first and often the easier step. Once the data is in a structure the app developer can handle, she needs to figure out what the data is about, or in other terms understand its semantics. This is where the real work starts and this is harder in semantically poor data formats like CSV and JSON, as the indication about what the field value really means is completely up to the one providing the data and if available, often hard to understand for others.
+The terms "semantically meaningful" and "semantically poor" are indicators of how much work is needed to do something useful within for example a mobile application. Reading, or in app developer terms parsing data in a certain format is just the first and often the easier step. Once the data is in a structure the app developer can handle, she needs to figure out what the data is about, or in other words understand its semantics. This is where the real work starts and this is harder in semantically poor data formats like CSV and JSON, as the indication about what the field value really means is completely up to the one providing the data and if available, often hard to understand for others.
 
-By using the terms semantically meaningful and semantically poor we describe  the impact of these data formats. The application developer needs to go through many different steps to start doing something useful with this data:
+
 
 
 
