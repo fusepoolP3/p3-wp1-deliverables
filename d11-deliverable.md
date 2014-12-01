@@ -8,6 +8,8 @@ Deliverable 1.1
 | Ver. | Name            | Date        | Remark                              |
 |------|-----------------|-------------|-------------------------------------|
 | v0.1 | Adrian Gschwend | 24.11.2014  | Created initial structure           |
+| v0.2 | Adrian Gschwend | 25.11.2014  | Added first chapter                 |
+| v0.3 | Adrian Gschwend | 01.12.2014  | First spellcheck, more content      |
 
 ## Documentation Information
 
@@ -63,7 +65,7 @@ This document describes the TODO.
 | API     | Application Programming Interface            |
 | BUAS    | Bern University of Applied Sciences          |
 | CKAN    | Comprehensive Knowledge Archive Network      |
-| CSV     | Comma Separated Value                        |
+| CSV     | Comma-separated Values                        |
 | ETL     | Extract, Transform, Load                     |
 | FP3     | Fusepool P3                                  |
 | GIS     | Geographic information system                |
@@ -93,7 +95,7 @@ This document describes the TODO.
 | W3C     | World Wide Web Consortium                    |
 | WG      | Working Group                                |
 | WP      | Work Package                                 |
-| XML     | Extended Markup Language                     |
+| XML     | Extensible Markup Language                   |
 
 ## Normative namespaces
 
@@ -178,28 +180,46 @@ This is one of the main remarks when talking with PAT and RET: While a lot of da
 
 ### The case for Linked Data
 
-Linked Data can help to solve these problems: Data is made available in a standard format (RDF) which provides among others the following benefits:
+Linked Data addresses some of the mentioned problems users see with Open data. It does that by providing a standardized format (RDF) which provides among others the following benefits:
 
--   Every piece of information (data) has its own identifier (URI/IRI).
--   Those identifiers can be resolved via the web (HTTP),
--   which acts as a generalized API for developers.
--   Standardized vocabularies describe the meaning of the data,
--   and allow to relate information with each other.
+- Every piece of information (data) has its own identifier (URI/IRI).
+- Those identifiers can be resolved via the web (HTTP),
+- which acts as a generalized API for developers.
+- Standardized vocabularies describe the meaning of the data,
+- and allow to relate information with each other.
+- SPARQL is its standardized querying language.
+- Built-in support for multiple languages by using language-tagged string literals.
 
-
-
-### TODO
-
-Wine stuff: 
-
-http://www.tastetrentino.it/le-tre-strade/strada-del-vino-e-dei-sapori-del-trentino/home/
-http://www.terreditoscana.regione.toscana.it/stradedelvino/ita/index-ita.html
+Another example from PAT and RET shows how this can be useful for app developers and in the end for tourists visiting the regions. To promote local wines both regions provide a website called *Strada del Vino* where one can find information about specific wines its wineyards. The two websites[^winepat][^wineret] are completely independent of each other and look pretty much different. Also most of the content is only available in Italian language excluding visitors from other countries which minimal or no Italian skills. 
 
 ![Strada del Vino Trentino](img/VinoTrentino.png)
+
+From a data perspective, it would probably be quite straight forward to generalize the information that is made available for the tourist. It could consists of:
+
+* Spacial datasets, providing shapes and/or coordinates of
+    - wineyards
+    - wineregions
+    - wine-cellars
+* Metadata for those data sets like
+    - who provides wine tasting
+    - ratings & prices won by wineyards
+    - pricing, price-ranges
+    - opening hours where appropriate
+    - information about shipping to foreign/overseas countries
+    - import/tax restrictions for foreign countries
+    - information about distributors of this particular wine in foreign countries
+* Generic information about wine like
+    - Types and explanations of different raisins
+    - Characters of wine, related to what is available in the region
+    - Some historical context (could be plaintext)
+    - Linking a specific wine with certain types of meals
+    - Special offers which are available (obviously liked with where where)
+    - Information about rare and special wines, for example addressed at wine connoisseur
+    - which wines did Julius Caesar drink while building the Roman Empire
+
 ![Strada del Vino Toscana](img/VinoToscana.png)
 
-
-
+*Strada del Vino* in PAT and RET just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions which provide the necessary data sets. It would also motivate wineyards to provide more information about themselves to get better visibility in the application and thus generate more revenue.
 
 
 
@@ -238,4 +258,8 @@ Copyright Fusepool P3 Consortium
 [^kml]: http://en.wikipedia.org/wiki/Keyhole_Markup_Language
 
 [^shapefile]: http://en.wikipedia.org/wiki/Shapefile
+
+[^winepat]: http://www.tastetrentino.it/le-tre-strade/strada-del-vino-e-dei-sapori-del-trentino/home/
+
+[^wineret]: http://www.terreditoscana.regione.toscana.it/stradedelvino/ita/index-ita.html
 
