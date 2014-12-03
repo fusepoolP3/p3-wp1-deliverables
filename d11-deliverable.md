@@ -10,6 +10,8 @@ Deliverable 1.1
 | v0.1 | Adrian Gschwend | 24.11.2014  | Created initial structure           |
 | v0.2 | Adrian Gschwend | 25.11.2014  | Added first chapter                 |
 | v0.3 | Adrian Gschwend | 01.12.2014  | First spellcheck, more content      |
+| v0.4 | Adrian Gschwend | 02.12.2014  | Ongoing work on user stories        |
+| v0.5 | Adrian Gschwend | 03.12.2014  | Added schema chapter                |
 
 ## Documentation Information
 
@@ -112,6 +114,7 @@ IRI prefixed:
 | rdfs   | [http://www.w3.org/2000/01/rdf-schema\#](http://www.w3.org/2000/01/rdf-schema) |
 | xsd    | [http://www.w3.org/2001/XMLSchema\#](http://www.w3.org/2001/XMLSchema)  |
 | dct    | [http://purl.org/dc/terms/](http://purl.org/dc/terms/) |
+| geo    | [http://www.w3.org/2003/01/geo/wgs84_pos#](http://www.w3.org/2003/01/geo/wgs84_pos#) |
 | oa     | [http://www.w3.org/ns/oa\#](http://www.w3.org/ns/oa#) |
 | ldp    | [http://www.w3.org/ns/ldp\#](http://www.w3.org/ns/ldp#) |
 | fp3    | [http://vocab.fusepool.info/fp3\#](http://vocab.fusepool.info/fp3#) |
@@ -160,7 +163,7 @@ This framework will integrate state-of-the-art tools like OpenRefine, OpenLink V
 
 To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and developing apps in the domain of tourism for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
-To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by three different persons working for them: Marco Combetto for PAT and Walter Volpi and Davide Bruno for RET. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
+To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by three different persons working for them: M. Combetto for PAT and W. Volpi and D. Bruno for RET. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
 
 As of today both partners publish there data into a public CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
 
@@ -227,13 +230,13 @@ From a data perspective, it would probably be quite straight forward to generali
 *Strada del Vino* in PAT and RET just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions which provide the necessary data sets. It would also motivate wineyards to provide more information about themselves to get better visibility in the application and thus generate more revenue.
 
 
-
-
 ## Data Modeling
 
 >T1.3 - Model the data: Identify existing ontologies/vocabularies to model the data, agree on standard structural and descriptive metadata, and define data models that reuse existing approaches and schemas to model relational and other data sources. 
 
 PAT and RET do not have much experience with RDF. There are a few datasets available in RDF but they use their own, ad-hoc schema and are thus of limited use and not actively maintained. To facilitate the process of creating RDF out of the other sources, they asked to get support in choosing and using the right schemas and ontologies.
+
+### schema.org 
 
 In 2011 several search engine giants launched schema.org[^schemaorg], an initiative to "create and support a common set of schemas for structured data markup on web pages". This effort was first criticized by the Semantic Web community but the involved parties started talking with each other and later several people from the Semantic Web community started providing a "proper" RDF mapping[^schemardf]. Meanwhile schema.org seems to use "a simple RDF-like graph data model" and exposes its schema as RDFa[^rdfa]. However, there is no content negotiation[^contentneg] in place and the only language available for description of classes and labels is English.
 
@@ -255,8 +258,20 @@ Using schema.org within Fusepool P3 as one of the main schemas makes sense for v
 
 One of the wishes from PAT and RET is to provide Italian translations for at least the classes and properties which are useful within the Fusepool P3 use scenarios. This can surely be done within our Fusepool P3 platform and during the second year of Fusepool P3 it might make sense to talk to schema.org maintainers and see if those translations could be made available for others. At the time writing we are not aware of any other effort to provide such translations.
 
+While schema.org defines a lot, it is not sufficient for all data currently available by PAT and RET. Also in some domains other schemas are more popular so it does make sense to use them as well within the Fusepool P3 platform.
 
+### WGS84 Geo Positioning
 
+To represent positions, the most widely used standard in cartography, geodesy, and navigation is World Geodetic System (WGS). Its most recent version is WGS 84[^wgs84]. There is an RDF representation available which is widely used in the Semantic Web world, called "WGS84 Geo Positioning: an RDF vocabulary"[^wgs84rdf]. It provides definitions like:
+
+* SpatialThing
+* location
+* latitude, longitude (or a combination of both)
+* altitude 
+
+There is a competing definition available in schema.org[^schemageo] but within Fusepool P3 we will focus on the W3C namespace.
+
+To be able to query point of interests it is essential that they represent a geo coordinate. If there is no latitude/longitude value available, the data should be enriched within the Fusepool P3 pipeline so it can be queried properly. For querying this data we use GeoSPARQL[^geosparql] or comparable (non-standard) services provided by the triplestore.
 
 ## Data Preparation
 
@@ -303,3 +318,11 @@ Copyright Fusepool P3 Consortium
 [^sorgmap1]: http://dcmi.github.io/schema.org/mappings.html
 
 [^sorgmap2]: https://github.com/mhausenblas/schema-org-rdf/tree/master/mappings
+
+[^wgs84]: [World Geodetic System WGS 84](http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84)
+
+[^wgs84rdf]: [WGS84 Geo Positioning: an RDF vocabulary](http://www.w3.org/2003/01/geo/wgs84_pos#)
+
+[^schemageo]: [schema.org GeoCoordinates](http://schema.org/GeoCoordinates)
+
+[^geosparql]: http://www.geosparql.org/
