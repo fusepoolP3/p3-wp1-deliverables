@@ -30,8 +30,8 @@ Deliverable 1.1
 
 ### Quality Assurance / Review
 
-* XXX
-* YYY
+* 1st: Marco Combetto
+* 2nd: Davide Bruno
 
 
 ### Official Citation
@@ -67,10 +67,11 @@ This document describes the TODO.
 | API     | Application Programming Interface            |
 | BUAS    | Bern University of Applied Sciences          |
 | CKAN    | Comprehensive Knowledge Archive Network      |
-| CSV     | Comma-separated Values                        |
+| CSV     | Comma-separated Values                       |
 | ETL     | Extract, Transform, Load                     |
 | FP3     | Fusepool P3                                  |
 | GIS     | Geographic information system                |
+| GTFS    | General Transit Feed Specification           |
 | HTTP    | Hypertext Transfer Protocol                  |
 | HTTPS   | Secure Hypertext Transfer Protocol           |
 | IRI     | Internationalized Resource Identifier        |
@@ -122,6 +123,7 @@ IRI prefixed:
 | trans  | [http://vocab.fusepool.info/transformer\#](http://vocab.fusepool.info/transformer#) |
 | fam    | [http://vocab.fusepool.info/fam\#](http://vocab.fusepool.info/fam#) |
 | schema    | [http://schema.org/](http://schema.org/) |
+| gtfs  | [http://vocab.gtfs.org/terms#](http://vocab.gtfs.org/terms#) |
 
 
 
@@ -273,6 +275,31 @@ There is a competing definition available in schema.org[^schemageo] but within F
 
 To be able to query point of interests it is essential that they represent a geo coordinate. If there is no latitude/longitude value available, the data should be enriched within the Fusepool P3 pipeline so it can be queried properly. For querying this data we use GeoSPARQL[^geosparql] or comparable (non-standard) services provided by the triplestore.
 
+### Geographical Shapes
+
+There are several data sets available which provide geographical shapes, for example GML. Transforming data sets like this to RDF is a relatively new field and it generates some interesting questions especially in regard to the way shapes are represented in triples. Fusepool P3 is using existing work to translate such data to RDF, like the XSLT based transformation described[^gml2rdf] in the GML2RDF paper [Brink2014].
+
+The first version of GML was represented in RDF, after that it became a XML format and schema. The work described in this paper appears to be a proof of concept, several namespaces do not seem to support proper content negotiation and/or return a RDF schema.
+
+### Annotations
+
+TODO reference to Fusepool Annotation Model & Documentation
+
+### VOID
+
+### Public Transportation Schedules
+
+Information about public transportation schedules and associated geographic information is made available in the General Transit Feed Specification (GTFS). GTFS "feeds" allow public transit agencies to publish their transit data and developers to write applications that consume that data in an interoperable way.
+
+A GTFS feed is a collection of CSV files with a clearly defined format. There are several transformers available which convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification which is made available at vocab.gtfs.org[^gtfs].
+
+### Open Question
+
+#### Weather Forecasts
+
+
+
+
 ## Data Preparation
 
 >T1.4 - Prepare the data: Adopt and implement consistent representations of data resources along with their human and machine readable descriptions, evaluate and specify appropriate data publication licenses as well as appropriate hosting solutions and regular maintenance intervals.
@@ -283,7 +310,8 @@ To be able to query point of interests it is essential that they represent a geo
 |------------------|-------------|
 | <a name="BernersLee2006"></a>BernersLee2006 | Berners-Lee, T. (2006). Design issues: Linked Data. W3C. |
 | Bizer2009        | Bizer, C., Heath, T., & Berners-Lee,T. (2009). Linked data-the story so far. International journal on semantic web and information systems, 5(3), 1-22.                                                      |
-| Brooks1995       | Brooks Jr, F. P. (1995). The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition (2nd Edition)                                      |
+| Brink2014       | Linda van den Brink, Paul Janssen, Wilko Quak, Jantien Stoter. (2014). Linking spatial data: automated conversion of geo-information models and GML data to RDF. International Journal of Spatial Data Infrastructures Research, Vol 9 2014 |
+| Perry2010 | Perry, M. and J. Herring (2010). OGC GeoSPARQL - A Geographic Query Language for RDF Data. |
 
 Copyright Fusepool P3 Consortium
 
@@ -326,3 +354,7 @@ Copyright Fusepool P3 Consortium
 [^schemageo]: [schema.org GeoCoordinates](http://schema.org/GeoCoordinates)
 
 [^geosparql]: http://www.geosparql.org/
+
+[^gml2rdf]: [From Geo-Data to Linked Data: Automated Transformation from GML to RDF](http://www.pilod.nl/wiki/Boek/BrinkEtAl-GML2RDF)
+
+[^gtfs]: [Homepage](http://www.gtfs.org/) and [RDF schema](http://vocab.gtfs.org/terms#)
