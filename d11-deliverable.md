@@ -72,7 +72,8 @@ This document describes the TODO.
 | HTTP    | Hypertext Transfer Protocol                  |
 | HTTPS   | Secure Hypertext Transfer Protocol           |
 | IRI     | Internationalized Resource Identifier        |
-| JSON    | JavaScript Object Notation                   |  
+| JSON    | JavaScript Object Notation                   |
+| JSON-LD | JSON for Linking Data                        |   
 | KML     | Keyhole Markup Language                      |
 | LDP     | Linked Data Platform                         |
 | LDP-BC  | Linked Data Platform Basic Container         |
@@ -85,9 +86,11 @@ This document describes the TODO.
 | PAT     | Provincia Autonoma di Trento                 |
 | POI     | Point of interest                            |
 | RDF     | Resource Description Framework               |
+| RDFa    | RDF in Attributes                            |
 | RDFS    | RDF Schema                                   |
 | REST    | Representational State Transfer              |
 | RET     | Regione Toscana                              |
+| SEO     | Search engine optimization                   |
 | SPARQL  | SPARQL Protocol and RDF Query Language       |
 | SQL     | Structured Query Language                    |
 | URI     | Uniform Resource Identifier                  |
@@ -149,9 +152,11 @@ What is lacking is an integration framework that combines the data transformatio
 
 This framework will integrate state-of-the-art tools like OpenRefine, OpenLink Virtuoso, Apache Stanbol, and Pundit. The framework is developed and tested based on the requirements by our project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET). Both partners have started working with the platform in an early stage and feedback gets directly integrated into the agile development process of Fusepool P3.
 
-## User Requirements
+## User Requirements and Data Identification
 
 >T1.1 - User requirements: identify key stakeholders, conduct in-depth interviews in the tourism related field; map requirements and expectations to functionality and develop use scenarios based on these requirements to form the basis of conceptual and functional test models.
+
+>T1.2 - Identify the data. Select potentially value-adding data sources based on application scenarios and use cases that a) provide a concrete benefit for the public agencies and SMEs, b) are likely to be re-used by others and c) integrate well into the existing Linked Data cloud.
 
 To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and developing apps in the domain of tourism for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
@@ -223,13 +228,35 @@ From a data perspective, it would probably be quite straight forward to generali
 
 
 
-## Data Identification
-
->T1.2 - Identify the data. Select potentially value-adding data sources based on application scenarios and use cases that a) provide a concrete benefit for the public agencies and SMEs, b) are likely to be re-used by others and c) integrate well into the existing Linked Data cloud.
 
 ## Data Modeling
 
 >T1.3 - Model the data: Identify existing ontologies/vocabularies to model the data, agree on standard structural and descriptive metadata, and define data models that reuse existing approaches and schemas to model relational and other data sources. 
+
+PAT and RET do not have much experience with RDF. There are a few datasets available in RDF but they use their own, ad-hoc schema and are thus of limited use and not actively maintained. To facilitate the process of creating RDF out of the other sources, they asked to get support in choosing and using the right schemas and ontologies.
+
+In 2011 several search engine giants launched schema.org[^schemaorg], an initiative to "create and support a common set of schemas for structured data markup on web pages". This effort was first criticized by the Semantic Web community but the involved parties started talking with each other and later several people from the Semantic Web community started providing a "proper" RDF mapping[^schemardf]. Meanwhile schema.org seems to use "a simple RDF-like graph data model" and exposes its schema as RDFa[^rdfa]. However, there is no content negotiation[^contentneg] in place and the only language available for description of classes and labels is English.
+
+Looking back three years schema.org had a huge impact, many sites started to include structured information within their websites and the support of first RDFa and later JSON-LD[^jsonld] made people use Semantic Web technologies without being really aware of it. This increases visibility and perception of the Semantic Web as a whole.
+
+Using schema.org within Fusepool P3 as one of the main schemas makes sense for various reasons:
+
+* Its popularity for search engine optimization (SEO) makes it well known. Most web- and application developers probably heard of it already or even use it.
+* Due to its SEO origin, schema.org provides a lot of classes and properties in the tourism related field. Examples:
+    - [Restaurant](http://schema.org/Restaurant)
+    - [Opening hours](http://schema.org/OpeningHoursSpecification)
+    - [Museum](http://schema.org/Museum)
+    - [Place](http://schema.org/Place)
+    - [Pharmacy](http://schema.org/Pharmacy)
+    - [telephone](http://schema.org/telephone)
+    - [Postal address](http://schema.org/PostalAddress)
+* There are mappings available for other popular schemas[^sorgmap1][^sorgmap2].
+* While the descriptions are only available in English, they are pretty understandable and well maintained. This is not always the case in the schema world.
+
+One of the wishes from PAT and RET is to provide Italian translations for at least the classes and properties which are useful within the Fusepool P3 use scenarios. This can surely be done within our Fusepool P3 platform and during the second year of Fusepool P3 it might make sense to talk to schema.org maintainers and see if those translations could be made available for others. At the time writing we are not aware of any other effort to provide such translations.
+
+
+
 
 ## Data Preparation
 
@@ -263,3 +290,16 @@ Copyright Fusepool P3 Consortium
 
 [^wineret]: http://www.terreditoscana.regione.toscana.it/stradedelvino/ita/index-ita.html
 
+[^schemaorg]: Homepage at [schema.org](http://schema.org/), source code at [Github](https://github.com/rvguha/schemaorg)
+
+[^schemardf]: Homepage at [schema.rdfs.org](http://schema.rdfs.org/), source code at [Github](https://github.com/mhausenblas/schema-org-rdf)
+
+[^rdfa]: RDF in Attributes, see [RDFa primer](http://www.w3.org/TR/xhtml-rdfa-primer/)
+
+[^contentneg]: A good introduction to content negotiation can be found at [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
+
+[^jsonld]: JSON for Linking Data (JSON-LD) is a JSON based RDF serialization. See [json-ld.org](http://json-ld.org/).
+
+[^sorgmap1]: http://dcmi.github.io/schema.org/mappings.html
+
+[^sorgmap2]: https://github.com/mhausenblas/schema-org-rdf/tree/master/mappings
