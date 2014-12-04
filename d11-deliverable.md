@@ -12,6 +12,7 @@ Deliverable 1.1
 | v0.3 | Adrian Gschwend | 01.12.2014  | First spellcheck, more content      |
 | v0.4 | Adrian Gschwend | 02.12.2014  | Ongoing work on user stories        |
 | v0.5 | Adrian Gschwend | 03.12.2014  | Added schema chapter                |
+| v0.6 | Adrian Gschwend | 04.12.2014  | More work on schema chapter         |
 
 ## Documentation Information
 
@@ -49,7 +50,7 @@ This work is licensed under the Creative Commons Attribution 4.0 International L
 
 The goal of Fusepool P3 project is to make publishing and processing of public data as linked data easy. For this purpose Fusepool P3 develops a set of software components that integrate seamlessly by well defined APIs basing on Linked Data Best Practices and the Linked Data Platform standard.
 
-TODO Anpassung an hier
+TODO Ignore this for the moment, needs to be completely re-written.
 
 The Fusepool P3 process is divided in the following four steps: exploration, extraction, enrichment and delivery. The software provides tools for the last 3 steps:
 
@@ -124,6 +125,10 @@ IRI prefixed:
 | fam    | [http://vocab.fusepool.info/fam\#](http://vocab.fusepool.info/fam#) |
 | schema    | [http://schema.org/](http://schema.org/) |
 | gtfs  | [http://vocab.gtfs.org/terms#](http://vocab.gtfs.org/terms#) |
+| weather | [TODO](http://TODO)
+| prov  | [http://www.w3.org/ns/prov#](http://www.w3.org/ns/prov#) |
+| void  | [http://rdfs.org/ns/void#](http://rdfs.org/ns/void#) |
+| dcat  | [http://www.w3.org/ns/dcat#](http://www.w3.org/ns/dcat#) |
 
 
 
@@ -281,28 +286,43 @@ There are several data sets available which provide geographical shapes, for exa
 
 The first version of GML was represented in RDF, after that it became a XML format and schema. The work described in this paper appears to be a proof of concept, several namespaces do not seem to support proper content negotiation and/or return a RDF schema.
 
+Virtuoso also supports transforming KML to RDF. TODO.
+
 ### Annotations
 
 TODO reference to Fusepool Annotation Model & Documentation
 
-### VOID
-
 ### Public Transportation Schedules
 
-Information about public transportation schedules and associated geographic information is made available in the General Transit Feed Specification (GTFS). GTFS "feeds" allow public transit agencies to publish their transit data and developers to write applications that consume that data in an interoperable way.
+Information about public transportation schedules and associated geographic information is made available in the General Transit Feed Specification (GTFS)[^gtfsgg]. GTFS "feeds" allow public transit agencies to publish their transit data and developers to write applications that consume that data in an interoperable way.
 
-A GTFS feed is a collection of CSV files with a clearly defined format. There are several transformers available which convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification which is made available at vocab.gtfs.org[^gtfs].
+A GTFS feed is a collection of CSV files in an official format structure. There are several transformers available which convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification which is made available at `vocab.gtfs.org[^gtfs].
 
-### Open Question
+### Weather Forecasts
 
-#### Weather Forecasts
+Surprisingly it seems to be particularly hard to find a widely used ontology which is suitable for weather forecasts. We found several examples of weather forecast in RDF but most of them use ad-hoc vocabularies. After asking around in the Semantic Web scene we could identify an OWL ontology by using the LOV[^lov] search functionality.
 
+This ontology was developed by Paul Staroch within his master thesis [Staroch2013]. The thesis, a presentation and the ontology itself is available at his homepage[^staroch]. The ontology makes a very complete impression and is to our knowledge currently the best choice for representing weather data in RDF. In LUV we could find two ontologies, one within the `www.auto.tuwien.ac.at` namespace. From what we can see this seems to be an earlier, incomplete version of the Smart Home Weather ontology and should not be used. The most recent version can be found at `http://paul.staroch.name/thesis/SmartHomeWeather.owl#`.
 
+### Data Provenance
 
+Fusepool P3 is supporting Open Data publishers and users in creating Linked Data. It is important to keep track of the purpose and provenance of the data so both the users and the publishers can keep track of the available data sets.
+
+In the Semantic Web world there are well-established ontologies which support us in this process:
+
+* VoID[^void] is used for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets.
+* Prov-O[^prov] can be used to represent and interchange provenance information generated in different systems and under different contexts.
+* DCAT[^dcat] facilitates interoperability between data catalogs published on the web. Publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs.
+
+Fusepool P3 does not add any of these information by default. It is the responsibility of the user to add specific information to the data describing its use and provenance. Automatically adding specific metadata to the triples was discussed within developers but is currently not supported in the platform. However, it might be added in the future where appropriate and feasible.
 
 ## Data Preparation
 
 >T1.4 - Prepare the data: Adopt and implement consistent representations of data resources along with their human and machine readable descriptions, evaluate and specify appropriate data publication licenses as well as appropriate hosting solutions and regular maintenance intervals.
+
+### Open Data License
+
+TODO needs feedback from PAT & RET about what license(s) they choose and why.
 
 ## References
 
@@ -312,6 +332,7 @@ A GTFS feed is a collection of CSV files with a clearly defined format. There ar
 | Bizer2009        | Bizer, C., Heath, T., & Berners-Lee,T. (2009). Linked data-the story so far. International journal on semantic web and information systems, 5(3), 1-22.                                                      |
 | Brink2014       | Linda van den Brink, Paul Janssen, Wilko Quak, Jantien Stoter. (2014). Linking spatial data: automated conversion of geo-information models and GML data to RDF. International Journal of Spatial Data Infrastructures Research, Vol 9 2014 |
 | Perry2010 | Perry, M. and J. Herring (2010). OGC GeoSPARQL - A Geographic Query Language for RDF Data. |
+| Staroch2013 | Paul Staroch. (2013). A Weather Ontology for Predictive Control in Smart Homes |
 
 Copyright Fusepool P3 Consortium
 
@@ -357,4 +378,16 @@ Copyright Fusepool P3 Consortium
 
 [^gml2rdf]: [From Geo-Data to Linked Data: Automated Transformation from GML to RDF](http://www.pilod.nl/wiki/Boek/BrinkEtAl-GML2RDF)
 
-[^gtfs]: [Homepage](http://www.gtfs.org/) and [RDF schema](http://vocab.gtfs.org/terms#)
+[^gtfsgg]: Official [GTFS](https://developers.google.com/transit/gtfs/) homepage at Google Developer
+
+[^gtfs]: [Homepage](http://www.gtfs.org/), [RDF schema](http://vocab.gtfs.org/terms#) and [Github repository](https://github.com/OpenTransport/vocabulary/tree/master/gtfs)
+
+[^lov]: [LOV](http://lov.okfn.org/dataset/lov/), your entry point to the growing ecosystem of linked open vocabularies
+
+[^staroch]: Homepage at [paul.staroch.name](https://paul.staroch.name/en/)
+
+[^prov]: [PROV Model Primer](http://www.w3.org/TR/2013/NOTE-prov-primer-20130430/)
+
+[^void]: [Describing Linked Datasets with the VoID Vocabulary](http://www.w3.org/TR/void/)
+
+[^dcat]: [Data Catalog Vocabulary (DCAT)](http://www.w3.org/TR/vocab-dcat/)
