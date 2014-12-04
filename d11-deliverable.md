@@ -290,9 +290,11 @@ The first version of GML was represented in RDF, after that it became a XML form
 
 Virtuoso also supports transforming KML to RDF. TODO.
 
-### Annotations
+### Annotators
 
-TODO reference to Fusepool Annotation Model & Documentation
+The Fusepool P3 Annotation Model is used by all Annotator implementations of the Fusepool Platform. Annotators and transformers together build the components of the Transformation API.
+
+An introduction to this model can be found in D5.1, the final specification of FAM is presented as part of Deliverable D3.1 (M12). An online documentation of the model can be found in the corresponding Github repository[^famgh].
 
 ### Public Transportation Schedules
 
@@ -393,3 +395,5 @@ Copyright Fusepool P3 Consortium
 [^void]: [Describing Linked Datasets with the VoID Vocabulary](http://www.w3.org/TR/void/)
 
 [^dcat]: [Data Catalog Vocabulary (DCAT)](http://www.w3.org/TR/vocab-dcat/)
+
+[^famgh]: [Fusepool P3 Annotation Model](https://github.com/fusepoolP3/overall-architecture/blob/master/wp3/fp-anno-model/fp-anno-model.md)
