@@ -112,25 +112,23 @@ IRI prefixed:
 
 | Prefix | Namespace|
 |--------|----------|
+| dcat  | [http://www.w3.org/ns/dcat#](http://www.w3.org/ns/dcat#) |
+| dct    | [http://purl.org/dc/terms/](http://purl.org/dc/terms/) |
+| eldp   | [http://vocab.fusepool.info/eldp\#](http://vocab.fusepool.info/eldp#) |
+| fam    | [http://vocab.fusepool.info/fam\#](http://vocab.fusepool.info/fam#) |
+| fp3    | [http://vocab.fusepool.info/fp3\#](http://vocab.fusepool.info/fp3#) 
+| geo    | [http://www.w3.org/2003/01/geo/wgs84_pos#](http://www.w3.org/2003/01/geo/wgs84_pos#) |
+| gtfs  | [http://vocab.gtfs.org/terms#](http://vocab.gtfs.org/terms#) |
+| ldp    | [http://www.w3.org/ns/ldp\#](http://www.w3.org/ns/ldp#) |
+| oa     | [http://www.w3.org/ns/oa\#](http://www.w3.org/ns/oa#) |
+| prov  | [http://www.w3.org/ns/prov#](http://www.w3.org/ns/prov#) |
 | rdf    | [http://www.w3.org/1999/02/22-rdf-syntax-ns\#](http://www.w3.org/1999/02/22-rdf-syntax-ns) |
 | rdfs   | [http://www.w3.org/2000/01/rdf-schema\#](http://www.w3.org/2000/01/rdf-schema) |
-| xsd    | [http://www.w3.org/2001/XMLSchema\#](http://www.w3.org/2001/XMLSchema)  |
-| dct    | [http://purl.org/dc/terms/](http://purl.org/dc/terms/) |
-| geo    | [http://www.w3.org/2003/01/geo/wgs84_pos#](http://www.w3.org/2003/01/geo/wgs84_pos#) |
-| oa     | [http://www.w3.org/ns/oa\#](http://www.w3.org/ns/oa#) |
-| ldp    | [http://www.w3.org/ns/ldp\#](http://www.w3.org/ns/ldp#) |
-| fp3    | [http://vocab.fusepool.info/fp3\#](http://vocab.fusepool.info/fp3#) |
-| eldp   | [http://vocab.fusepool.info/eldp\#](http://vocab.fusepool.info/eldp#) |
-| trans  | [http://vocab.fusepool.info/transformer\#](http://vocab.fusepool.info/transformer#) |
-| fam    | [http://vocab.fusepool.info/fam\#](http://vocab.fusepool.info/fam#) |
 | schema    | [http://schema.org/](http://schema.org/) |
-| gtfs  | [http://vocab.gtfs.org/terms#](http://vocab.gtfs.org/terms#) |
-| weather | [TODO](http://TODO)
-| prov  | [http://www.w3.org/ns/prov#](http://www.w3.org/ns/prov#) |
+| trans  | [http://vocab.fusepool.info/transformer\#](http://vocab.fusepool.info/transformer#) |
 | void  | [http://rdfs.org/ns/void#](http://rdfs.org/ns/void#) |
-| dcat  | [http://www.w3.org/ns/dcat#](http://www.w3.org/ns/dcat#) |
-
-
+| weather | [TODO](http://TODO)
+| xsd    | [http://www.w3.org/2001/XMLSchema\#](http://www.w3.org/2001/XMLSchema)  |
 
 ## Introduction
 
@@ -139,6 +137,8 @@ This document describes the TODO
 The main goal of the Fusepool P3 architecture is to provide interaction protocols and pattern so that the components can be used in concert to form the Fusepool P3 Platform.
 
 ### Use case summary
+
+TODO rewrite summary
 
 The Fusepool P3 project partners Provincia Autonoma di Trento and Regione Toscana have been publishing Open Data and develop apps in the domain of tourism for several years. During this time both partners gained valuable experience in data creation, maintenance and publication. 
 
@@ -167,6 +167,16 @@ This framework will integrate state-of-the-art tools like OpenRefine, OpenLink V
 >T1.1 - User requirements: identify key stakeholders, conduct in-depth interviews in the tourism related field; map requirements and expectations to functionality and develop use scenarios based on these requirements to form the basis of conceptual and functional test models.
 
 >T1.2 - Identify the data. Select potentially value-adding data sources based on application scenarios and use cases that a) provide a concrete benefit for the public agencies and SMEs, b) are likely to be re-used by others and c) integrate well into the existing Linked Data cloud.
+
+TODO
+
+* Mention other potential stakeholders
+* expectation mapping, check notes from interviews with PAT & RET
+* Rough description of the Fusepool platform, maybe add mocks where they fit
+* Mention the release plan done in Salzburg
+* Maybe some more pointers on other data sets for T1.2, related to the schemas in the next chapter
+
+----
 
 To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and developing apps in the domain of tourism for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
@@ -243,7 +253,7 @@ From a data perspective, it would probably be quite straight forward to generali
 
 PAT and RET do not have much experience with RDF. There are a few datasets available in RDF but they use their own, ad-hoc schema and are thus of limited use and not actively maintained. To facilitate the process of creating RDF out of the other sources, they asked to get support in choosing and using the right schemas and ontologies.
 
-Finding the most appropriate vocabulary, schema or ontology can be tricky. There is no right answer and often there is more than one competing ontology available. In this chapter we present different ontologies which are an appropriate choice for the data provided by PAT and RET. If there is more than one ontology available for describing a certain data set, we chose the one with the biggest adoption in the real world.
+Finding the most appropriate vocabulary, schema or ontology can be tricky. There is not necessarily one single right answer, as there are often multiple competing ontologies available. In this chapter we present different ontologies which are an appropriate choice for the data provided by PAT and RET. If there is more than one option available for describing a certain data set, we chose the one with the biggest adoption in the real world.
 
 ### schema.org 
 
@@ -294,7 +304,7 @@ Virtuoso also supports transforming KML to RDF. TODO.
 
 The Fusepool P3 Annotation Model is used by all Annotator implementations of the Fusepool Platform. Annotators and transformers together build the components of the Transformation API.
 
-An introduction to this model can be found in D5.1, the final specification of FAM is presented as part of Deliverable D3.1 (M12). An online documentation of the model can be found in the corresponding Github repository[^famgh].
+An introduction to this model can be found in deliverable D5.1, the final specification of FAM is presented as part of deliverable D3.1. An online documentation of the model can be found in the corresponding Github repository[^famgh].
 
 ### Public Transportation Schedules
 
@@ -324,9 +334,21 @@ Fusepool P3 does not add any of these information by default. It is the responsi
 
 >T1.4 - Prepare the data: Adopt and implement consistent representations of data resources along with their human and machine readable descriptions, evaluate and specify appropriate data publication licenses as well as appropriate hosting solutions and regular maintenance intervals.
 
+### Data Pipeline
+
+* Steps done in 01/15 for data integration
+* CKAN integration
+
 ### Open Data License
 
 TODO needs feedback from PAT & RET about what license(s) they choose and why.
+
+### Fusepool P3 as a Service
+
+* Binary releases on Github & CI
+* Bootstrap of the platform
+* Docker Containers
+* Hosted for PAT & RET to simplify usage within P3
 
 ## References
 
@@ -342,7 +364,7 @@ Copyright Fusepool P3 Consortium
 
 * * * * *
 
-[^ckan]: Open Source Software, available at http://ckan.org/
+[^ckan]: Open Source Software, available at [ckan.org](http://ckan.org/)
 
 [^viafrancigena]: Via Francigena in [Wikipedia](http://en.wikipedia.org/wiki/Via_Francigena)
 
