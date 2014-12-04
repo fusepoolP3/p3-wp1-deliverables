@@ -243,6 +243,8 @@ From a data perspective, it would probably be quite straight forward to generali
 
 PAT and RET do not have much experience with RDF. There are a few datasets available in RDF but they use their own, ad-hoc schema and are thus of limited use and not actively maintained. To facilitate the process of creating RDF out of the other sources, they asked to get support in choosing and using the right schemas and ontologies.
 
+Finding the most appropriate vocabulary, schema or ontology can be tricky. There is no right answer and often there is more than one competing ontology available. In this chapter we present different ontologies which are an appropriate choice for the data provided by PAT and RET. If there is more than one ontology available for describing a certain data set, we chose the one with the biggest adoption in the real world.
+
 ### schema.org 
 
 In 2011 several search engine giants launched schema.org[^schemaorg], an initiative to "create and support a common set of schemas for structured data markup on web pages". This effort was first criticized by the Semantic Web community but the involved parties started talking with each other and later several people from the Semantic Web community started providing a "proper" RDF mapping[^schemardf]. Meanwhile schema.org seems to use "a simple RDF-like graph data model" and exposes its schema as RDFa[^rdfa]. However, there is no content negotiation[^contentneg] in place and the only language available for description of classes and labels is English.
@@ -296,7 +298,7 @@ TODO reference to Fusepool Annotation Model & Documentation
 
 Information about public transportation schedules and associated geographic information is made available in the General Transit Feed Specification (GTFS)[^gtfsgg]. GTFS "feeds" allow public transit agencies to publish their transit data and developers to write applications that consume that data in an interoperable way.
 
-A GTFS feed is a collection of CSV files in an official format structure. There are several transformers available which convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification which is made available at `vocab.gtfs.org[^gtfs].
+A GTFS feed is a collection of CSV files in a common format. There are several transformers available which convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification that is made available at `vocab.gtfs.org[^gtfs].
 
 ### Weather Forecasts
 
@@ -311,7 +313,7 @@ Fusepool P3 is supporting Open Data publishers and users in creating Linked Data
 In the Semantic Web world there are well-established ontologies which support us in this process:
 
 * VoID[^void] is used for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets.
-* Prov-O[^prov] can be used to represent and interchange provenance information generated in different systems and under different contexts.
+* Prov[^prov] can be used to represent and interchange provenance information generated in different systems and under different contexts.
 * DCAT[^dcat] facilitates interoperability between data catalogs published on the web. Publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs.
 
 Fusepool P3 does not add any of these information by default. It is the responsibility of the user to add specific information to the data describing its use and provenance. Automatically adding specific metadata to the triples was discussed within developers but is currently not supported in the platform. However, it might be added in the future where appropriate and feasible.
