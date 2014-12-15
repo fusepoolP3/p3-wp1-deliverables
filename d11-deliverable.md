@@ -13,6 +13,8 @@ Deliverable 1.1
 | v0.4 | Adrian Gschwend | 02.12.2014  | Ongoing work on user stories        |
 | v0.5 | Adrian Gschwend | 03.12.2014  | Added schema chapter                |
 | v0.6 | Adrian Gschwend | 04.12.2014  | More work on schema chapter         |
+| v0.7 | Adrian Gschwend | 15.12.2014  | Added Roadmap,         |
+
 
 ## Documentation Information
 
@@ -76,6 +78,7 @@ This document describes the TODO.
 | HTTP    | Hypertext Transfer Protocol                  |
 | HTTPS   | Secure Hypertext Transfer Protocol           |
 | IRI     | Internationalized Resource Identifier        |
+| UI      | User Interface                               |
 | JSON    | JavaScript Object Notation                   |
 | JSON-LD | JSON for Linking Data                        |   
 | KML     | Keyhole Markup Language                      |
@@ -173,7 +176,6 @@ TODO
 * Mention other potential stakeholders
 * expectation mapping, check notes from interviews with PAT & RET
 * Rough description of the Fusepool platform, maybe add mocks where they fit
-* Mention the release plan done in Salzburg
 * Maybe some more pointers on other data sets for T1.2, related to the schemas in the next chapter
 
 ----
@@ -246,6 +248,138 @@ From a data perspective, it would probably be quite straight forward to generali
 
 *Strada del Vino* in PAT and RET just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions which provide the necessary data sets. It would also motivate wineyards to provide more information about themselves to get better visibility in the application and thus generate more revenue.
 
+### Fusepool P3 Release Planning
+
+Fusepool P3 is using a development model which is oriented at the Scrum[^scrum] methodology. A rough development roadmap was presented and agreed on at the Salzburg project meetup in May 2014. The roadmap is based on The Go Product Roadmap[^goroadmap] and defines the following milestones:
+
+#### Bootstrap!
+
+Timeframe: 1.1 - 7.5.2014
+
+Goal: Build the team and get started.
+
+Features:
+
+* Website
+* Agreement on technical architecture
+* Integration of some partner tools
+* Scrum methodology
+* Contractual framework and roles established
+
+Metrics:
+
+* Everyone commits on common architectural principles
+* The website represents the team, the partners, its diversity and the goals
+* Everyone understands and participates to Scrum
+* All roles are assigned
+* Contractual framework ensures all partners can benefit from website (domains etc) during and after the grant period
+
+#### Spaceport
+
+Timeframe: 8.Mai - 15.July 2014
+
+Goal: First version of platform foundation implemented; Major REST APIs defined and prototype implementations available.
+
+Features:
+
+* Roadmap and backlog (T1.1)
+* Some datasources identified and core ontologies determined (part of T1.2-T1.4)
+* LDP Implemented
+* First GUI
+* First extractors
+
+Metrics:
+
+* Jira Backlog is filled with highlevel stories
+* LDP platform available
+* Initial REST APIs defined and implemented
+
+#### Neil Amstrong
+
+Timeframe: 16.July - 5. October 2014            
+
+Goal: User can start using the software for enrichment tasks; external developers can use our clearly defined REST APIs.      
+
+Features:
+
+* Basic REST APIs are defined an prototypically implemented
+* First user documentation
+* UI POC
+* Deployment manual         
+
+Metrics:
+
+* User can setup and start a semantic enrichment process (on commandline)
+* Developers documentation available so they can implementing their own services
+* First HTML5 based UI POCs available
+
+#### ISS
+
+Timeframe: 6.October 2014 - 5. February 2015        
+
+Goal: Our software can be used by many people.    
+
+Features:
+
+* Stable REST APIs & documentation
+* Full P3 workflow implemented
+* Fusepool P3 platform instance available for PAT and RET
+* Publishing workflow can be created within a UI
+
+Metrics:
+
+* Required use-case schema/vocabularies are identified
+* Project partners provide first examples in using the processing pipeline with PAT and RET datasets
+* PAT and RET are able to integrate their own data sets into the pipeline
+* Stable implementations of available transformers and enhancers
+
+#### ULCS
+
+Timeframe: 6. February - 5. June 2015        
+
+Goal: The platform can handle large amounts of data.
+
+Features:
+
+* Stable platform that scales
+
+Metrics:
+
+* Large amount of datasets from PAT and RET are published as RDF
+* Platform scales appropriately
+
+#### Teleporter
+
+Timeframe: 6. June - 2. October 2015        
+
+Goal: Smooth and elegant data tools.
+
+Features:
+
+* Easy to understand UIs for all necessary steps available
+* Schema/vocabulary integration & support for the user
+* More transformers/enhancers (where appropriate)
+
+Metrics:
+
+* PAT and RET are using the platform actively
+* Additional stakeholders are identified and partially start using the platform
+* Public release of the platform, new users attracted
+
+#### Opal
+
+Timeframe: 3. October - 31. December 2015
+
+Goal: Make it shine.
+
+Features:
+
+* Stable platform, easily deployable
+
+Metrics:
+
+* Stable release of the P3 platform
+* Fusepool P3 is used outside the P3 consortium
 
 ## Data Modeling
 
@@ -419,3 +553,7 @@ Copyright Fusepool P3 Consortium
 [^dcat]: [Data Catalog Vocabulary (DCAT)](http://www.w3.org/TR/vocab-dcat/)
 
 [^famgh]: [Fusepool P3 Annotation Model](https://github.com/fusepoolP3/overall-architecture/blob/master/wp3/fp-anno-model/fp-anno-model.md)
+
+[^scrum]: See [The Scrum Guide](https://www.scrum.org/)
+
+[^goroadmap]: Available at the [homepage](http://www.romanpichler.com/tools/product-roadmap/) of Roman Pichler
