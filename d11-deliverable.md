@@ -14,7 +14,7 @@ Deliverable 1.1
 | v0.5 | Adrian Gschwend | 03.12.2014  | Added schema chapter                |
 | v0.6 | Adrian Gschwend | 04.12.2014  | More work on schema chapter         |
 | v0.7 | Adrian Gschwend | 15.12.2014  | Added Roadmap                       |
-| v0.8 | Adrian Gschwend | 16.12.2014  | License section                     |
+| v0.8 | Adrian Gschwend | 16.12.2014  | License section, PaaS               |
 
 
 
@@ -92,6 +92,7 @@ This document describes the TODO.
 | LDP-NR  | Linked Data Platform Non-RDF Source          |
 | LDPR    | Linked Data Platform Resource                |
 | LDP-RS  | Linked Data Platform RDF Source              |
+| PaaS    | Platform as a Service                        |
 | PAT     | Provincia Autonoma di Trento                 |
 | POI     | Point of interest                            |
 | RDF     | Resource Description Framework               |
@@ -496,7 +497,7 @@ PAT is currently investigating about an issue to be compatible with OpenStreetMa
 
 >You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence. 
 
-In the human readable definition it clarifies additional statements about adapting and using the work:
+In the human readable definition[^odblhr] it clarifies additional statements about adapting and using the work:
 
 >Attribute: You must attribute any public use of the database, or works produced from the database, in the manner specified in the ODbL. For any use or redistribution of the database, or works produced from it, you must make clear to others the license of the database and keep intact any notices on the original database.
 
@@ -504,18 +505,13 @@ In the human readable definition it clarifies additional statements about adapti
 
 >Keep open: If you redistribute the database, or an adapted version of it, then you may use technological measures that restrict the work (such as DRM) as long as you also redistribute a version without such measures.
 
-This is a smart move as it clearly encourages using the data for commercial purposes but at the same time requires that changes are released under the same license and restricted versions of the work are also available in a public version. OpenStreetMap was initially using a Creative Commons license but they run into issues they did not think of before and where Creative Commons is not appropriate enough for complete database dumps. These reasons are well outlined in an article at O'Reilly Radar[^osmchange].
-
-As a conclusion most of the content for PAT and RET can be used under CC-BY or CC0 license, which provides proably the best choice for other open data users.
+This is a smart move as it clearly encourages using the data for commercial purposes but at the same time requires that changes are released under the same license and restricted versions of the work are also available in a public version. OpenStreetMap was initially using a Creative Commons license but they run into issues they did not think of before and where Creative Commons is not appropriate enough for complete database dumps. These reasons are well outlined in an article at O'Reilly Radar[^osmchange]. As a conclusion, most of the content for PAT and RET can be used under CC-BY or CC0 license, which currently provides one of the best choices for Open Data.
 
 ### Fusepool P3 as a Service
 
-TODO
+In discussions with PAT and RET it became clear that they do not intend to compile and run development versions of the Fusepool P3 platform on their own. To make sure they can test the platform on a regular base and give feedback to the developers, the Fusepool P3 team provides a public version of the platform[^sandbox]. This version is used by the Fusepool P3 team, PAT and RET and in 2015 also by other stakeholders which will be involved with the project.
 
-* Binary releases on Github & CI
-* Bootstrap of the platform
-* Docker Containers
-* Hosted for PAT & RET to simplify usage within P3
+It is also important to make sure that developers can run their own versions of the platform. But not everyone wants to compile the whole stack on his own; for that reason the Fusepool P3 team decided to use continuous integration[^ci] tools available on the Github platform, which are using Travis CI[^travisci] in the background. New releases of the software are automatically built by Travis CI and made available as binary on Github.
 
 ## References
 
@@ -612,3 +608,9 @@ Copyright Fusepool P3 Consortium
 [^odblhr]: See [homepage](http://opendatacommons.org/licenses/odbl/summary/)
 
 [^osmchange]: See [Why OpenStreetMap is moving from Creative Commons to the Open Database License.](http://radar.oreilly.com/2011/06/openstreetmap-creative-commons-open-database-license.html)
+
+[^sandbox]: Available at [sandbox.fusepool.info](http://sandbox.fusepool.info/)
+
+[^ci]: See [Wikipedia](http://en.wikipedia.org/wiki/Continuous_integration)
+
+[^travisci]: Available at [travis-ci.org](https://travis-ci.org/)
