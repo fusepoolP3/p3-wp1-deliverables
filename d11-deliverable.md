@@ -13,7 +13,9 @@ Deliverable 1.1
 | v0.4 | Adrian Gschwend | 02.12.2014  | Ongoing work on user stories        |
 | v0.5 | Adrian Gschwend | 03.12.2014  | Added schema chapter                |
 | v0.6 | Adrian Gschwend | 04.12.2014  | More work on schema chapter         |
-| v0.7 | Adrian Gschwend | 15.12.2014  | Added Roadmap,         |
+| v0.7 | Adrian Gschwend | 15.12.2014  | Added Roadmap                       |
+| v0.8 | Adrian Gschwend | 16.12.2014  | License section                     |
+
 
 
 ## Documentation Information
@@ -248,9 +250,13 @@ From a data perspective, it would probably be quite straight forward to generali
 
 *Strada del Vino* in PAT and RET just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions which provide the necessary data sets. It would also motivate wineyards to provide more information about themselves to get better visibility in the application and thus generate more revenue.
 
-### Fusepool P3 Release Planning
+### Fusepool P3 Development Roadmap
 
-Fusepool P3 is using a development model which is oriented at the Scrum[^scrum] methodology. A rough development roadmap was presented and agreed on at the Salzburg project meetup in May 2014. The roadmap is based on The Go Product Roadmap[^goroadmap] and defines the following milestones:
+Fusepool P3 aims at bringing the presented use-cases into the reality. To do this we need to make sure that the platform provides the necessary features and usability so that PAT, RET and other stakeholders can use the Fusepool P3 platform in their environment. 
+
+To get there, Fusepool P3 is using an agile development model which is oriented at the Scrum[^scrum] methodology. A rough development roadmap was presented and agreed on at the Salzburg project meetup in May 2014. The roadmap is based on The Go Product Roadmap[^goroadmap] and defines the following milestones.
+
+The roadmap is permanent work in progress and gets updated accordingly. Based on WP1 requirements outlined in this document, the WP1 team fills the Fusepool P3 Jira Backlog[^p3jira] with user stories and defines Scrum sprints with the developers.
 
 #### Bootstrap!
 
@@ -290,7 +296,7 @@ Features:
 
 Metrics:
 
-* Jira Backlog is filled with highlevel stories
+* Jira Backlog is filled with high-level stories
 * LDP platform available
 * Initial REST APIs defined and implemented
 
@@ -309,7 +315,7 @@ Features:
 
 Metrics:
 
-* User can setup and start a semantic enrichment process (on commandline)
+* User can setup and start a semantic enrichment process (on command line)
 * Developers documentation available so they can implementing their own services
 * First HTML5 based UI POCs available
 
@@ -324,7 +330,6 @@ Features:
 * Stable REST APIs & documentation
 * Full P3 workflow implemented
 * Fusepool P3 platform instance available for PAT and RET
-* Publishing workflow can be created within a UI
 
 Metrics:
 
@@ -475,7 +480,33 @@ Fusepool P3 does not add any of these information by default. It is the responsi
 
 ### Open Data License
 
-TODO needs feedback from PAT & RET about what license(s) they choose and why.
+Both PAT and RET decided to use liberal Creative Commons[^cc] licenses. Most of the content for RET is released under a CC-BY[^ccby] license. This was a decision of a permanent working group, which is in charge of facilitating the process to liberate data as open date in the Regione Toscana.
+
+Content for PAT is either released as CC-BY[^ccby] or under CC0[^cc0].
+
+CC0 is basically giving up all rights on the data, from the definition on the Creative Commons homepage:
+
+>The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
+
+>You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+
+CC-BY is still a very liberal license and allows to share and/or adapt the data for any purpose, even commercially. However:
+
+>You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+
+PAT is currently investigating about an issue to be compatible with OpenStreetMap[^osm], which is using the ODbL[^odbl] license. This license is comparable with CC-BY, from the OpenStreetMap homepage:
+
+>You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence. 
+
+In the human readable definition it clarifies additional statements about adapting and using the work:
+
+>Attribute: You must attribute any public use of the database, or works produced from the database, in the manner specified in the ODbL. For any use or redistribution of the database, or works produced from it, you must make clear to others the license of the database and keep intact any notices on the original database.
+
+>Share-Alike: If you publicly use any adapted version of this database, or works produced from an adapted database, you must also offer that adapted database under the ODbL.
+
+>Keep open: If you redistribute the database, or an adapted version of it, then you may use technological measures that restrict the work (such as DRM) as long as you also redistribute a version without such measures.
+
+This is a smart move as it clearly encourages using the data for commercial purposes but at the same time requires that changes are released under the same license and restricted versions of the work are also available in a public version.
 
 ### Fusepool P3 as a Service
 
@@ -557,3 +588,18 @@ Copyright Fusepool P3 Consortium
 [^scrum]: See [The Scrum Guide](https://www.scrum.org/)
 
 [^goroadmap]: Available at the [homepage](http://www.romanpichler.com/tools/product-roadmap/) of Roman Pichler
+
+[^p3jira]: Public [Fusepool P3 Jira](https://fusepool.atlassian.net/secure/RapidBoard.jspa?rapidView=2&useStoredSettings=true)
+
+[^cc]: See [Creative Commons homepage](http://creativecommons.org/) for more information
+
+[^ccby]: [Attribution 4.0 International (CC BY 4.0)
+](http://creativecommons.org/licenses/by/4.0/)
+
+[^cc0]: [CC0 1.0 Universal (CC0 1.0)Public Domain Dedication ](https://creativecommons.org/publicdomain/zero/1.0/)
+
+[^osm]: [OpenStreetMap](http://www.openstreetmap.org/)
+
+[^odbl]: See [opendatacommons.org/licenses/odbl/](http://opendatacommons.org/licenses/odbl/)
+
+[^odblhr]: See [homepage](http://opendatacommons.org/licenses/odbl/summary/)
