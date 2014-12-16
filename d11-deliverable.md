@@ -186,7 +186,7 @@ To assure that Fusepool P3 creates a real value for the involved project partner
 
 To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by three different persons working for them: M. Combetto for PAT and W. Volpi and D. Bruno for RET. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
 
-As of today both partners publish there data into a public CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
+As of today both partners publish there data into a public CKAN[^ckan] repository[^ckanret][^ckanpat]. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
 
 Currently available open data by PAT and RET is available in particular data formats like CSV, KML, XML and JSON. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. With every update of the raw data this process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these Open Data sets and its apps increases.
 
@@ -475,16 +475,14 @@ Fusepool P3 does not add any of these information by default. It is the responsi
 
 ### Data Pipeline
 
+TODO
+
 * Steps done in 01/15 for data integration
 * CKAN integration
 
 ### Open Data License
 
-Both PAT and RET decided to use liberal Creative Commons[^cc] licenses. Most of the content for RET is released under a CC-BY[^ccby] license. This was a decision of a permanent working group, which is in charge of facilitating the process to liberate data as open date in the Regione Toscana.
-
-Content for PAT is either released as CC-BY[^ccby] or under CC0[^cc0].
-
-CC0 is basically giving up all rights on the data, from the definition on the Creative Commons homepage:
+Both PAT and RET decided to use liberal Creative Commons[^cc] licenses. Most of the content for PAT and RET is released under a CC-BY[^ccby] license. For RET this was a decision of a permanent working group, which is in charge of facilitating the process to liberate data as open date in the Regione Toscana. Some of the content is also released under CC0[^cc0]. CC0 is basically giving up all rights on the data, from the definition on the Creative Commons homepage:
 
 >The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
 
@@ -506,9 +504,13 @@ In the human readable definition it clarifies additional statements about adapti
 
 >Keep open: If you redistribute the database, or an adapted version of it, then you may use technological measures that restrict the work (such as DRM) as long as you also redistribute a version without such measures.
 
-This is a smart move as it clearly encourages using the data for commercial purposes but at the same time requires that changes are released under the same license and restricted versions of the work are also available in a public version.
+This is a smart move as it clearly encourages using the data for commercial purposes but at the same time requires that changes are released under the same license and restricted versions of the work are also available in a public version. OpenStreetMap was initially using a Creative Commons license but they run into issues they did not think of before and where Creative Commons is not appropriate enough for complete database dumps. These reasons are well outlined in an article at O'Reilly Radar[^osmchange].
+
+As a conclusion most of the content for PAT and RET can be used under CC-BY or CC0 license, which provides proably the best choice for other open data users.
 
 ### Fusepool P3 as a Service
+
+TODO
 
 * Binary releases on Github & CI
 * Bootstrap of the platform
@@ -530,6 +532,11 @@ Copyright Fusepool P3 Consortium
 * * * * *
 
 [^ckan]: Open Source Software, available at [ckan.org](http://ckan.org/)
+
+[^ckanpat]: CKAN of PAT at [dati.trentino.it](http://dati.trentino.it/)
+
+[^ckanret]: CKAN of RET at [dati.toscana.it](http://dati.toscana.it/
+)
 
 [^viafrancigena]: Via Francigena in [Wikipedia](http://en.wikipedia.org/wiki/Via_Francigena)
 
@@ -603,3 +610,5 @@ Copyright Fusepool P3 Consortium
 [^odbl]: See [opendatacommons.org/licenses/odbl/](http://opendatacommons.org/licenses/odbl/)
 
 [^odblhr]: See [homepage](http://opendatacommons.org/licenses/odbl/summary/)
+
+[^osmchange]: See [Why OpenStreetMap is moving from Creative Commons to the Open Database License.](http://radar.oreilly.com/2011/06/openstreetmap-creative-commons-open-database-license.html)
