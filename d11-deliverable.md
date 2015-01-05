@@ -5,17 +5,18 @@ Deliverable 1.1
 ## Document History
 
 
-| Ver. | Name            | Date        | Remark                              |
-|------|-----------------|-------------|-------------------------------------|
-| v0.1 | Adrian Gschwend | 24.11.2014  | Created initial structure           |
-| v0.2 | Adrian Gschwend | 25.11.2014  | Added first chapter                 |
-| v0.3 | Adrian Gschwend | 01.12.2014  | First spellcheck, more content      |
-| v0.4 | Adrian Gschwend | 02.12.2014  | Ongoing work on user stories        |
-| v0.5 | Adrian Gschwend | 03.12.2014  | Added schema chapter                |
-| v0.6 | Adrian Gschwend | 04.12.2014  | More work on schema chapter         |
-| v0.7 | Adrian Gschwend | 15.12.2014  | Added Roadmap                       |
-| v0.8 | Adrian Gschwend | 16.12.2014  | License section, PaaS               |
-| v0.9 | Adrian Gschwend | 28.12.2014  | Feedback M. Combetto                |
+| Ver.  | Name            | Date        | Remark                              |
+|-------|-----------------|-------------|-------------------------------------|
+| v0.1  | Adrian Gschwend | 24.11.2014  | Created initial structure           |
+| v0.2  | Adrian Gschwend | 25.11.2014  | Added first chapter                 |
+| v0.3  | Adrian Gschwend | 01.12.2014  | First spellcheck, more content      |
+| v0.4  | Adrian Gschwend | 02.12.2014  | Ongoing work on user stories        |
+| v0.5  | Adrian Gschwend | 03.12.2014  | Added schema chapter                |
+| v0.6  | Adrian Gschwend | 04.12.2014  | More work on schema chapter         |
+| v0.7  | Adrian Gschwend | 15.12.2014  | Added Roadmap                       |
+| v0.8  | Adrian Gschwend | 16.12.2014  | License section, PaaS               |
+| v0.9  | Adrian Gschwend | 29.12.2014  | Feedback M. Combetto                |
+| v0.10 | Adrian Gschwend | 30.12.2014  | Cleanup of open issues              |
 
 
 
@@ -120,12 +121,14 @@ IRI prefixed:
 
 | Prefix | Namespace|
 |--------|----------|
+| dc | [http://purl.org/dc/elements/1.1/](http://purl.org/dc/elements/1.1/) |
 | dcat  | [http://www.w3.org/ns/dcat#](http://www.w3.org/ns/dcat#) |
-| dct    | [http://purl.org/dc/terms/](http://purl.org/dc/terms/) |
+| dcterms | [http://purl.org/dc/terms/](http://purl.org/dc/terms/) |
 | eldp   | [http://vocab.fusepool.info/eldp\#](http://vocab.fusepool.info/eldp#) |
 | fam    | [http://vocab.fusepool.info/fam\#](http://vocab.fusepool.info/fam#) |
 | fp3    | [http://vocab.fusepool.info/fp3\#](http://vocab.fusepool.info/fp3#) 
 | geo    | [http://www.w3.org/2003/01/geo/wgs84_pos#](http://www.w3.org/2003/01/geo/wgs84_pos#) |
+| gn | [http://www.geonames.org/ontology#](http://www.geonames.org/ontology#) |
 | gtfs  | [http://vocab.gtfs.org/terms#](http://vocab.gtfs.org/terms#) |
 | ldp    | [http://www.w3.org/ns/ldp\#](http://www.w3.org/ns/ldp#) |
 | oa     | [http://www.w3.org/ns/oa\#](http://www.w3.org/ns/oa#) |
@@ -133,9 +136,10 @@ IRI prefixed:
 | rdf    | [http://www.w3.org/1999/02/22-rdf-syntax-ns\#](http://www.w3.org/1999/02/22-rdf-syntax-ns) |
 | rdfs   | [http://www.w3.org/2000/01/rdf-schema\#](http://www.w3.org/2000/01/rdf-schema) |
 | schema    | [http://schema.org/](http://schema.org/) |
+| shw | [http://paul.staroch.name/thesis/SmartHomeWeather.owl#](http://paul.staroch.name/thesis/SmartHomeWeather.owl#) |
+| sioc | [http://rdfs.org/sioc/ns#](http://rdfs.org/sioc/ns#) |
 | trans  | [http://vocab.fusepool.info/transformer\#](http://vocab.fusepool.info/transformer#) |
 | void  | [http://rdfs.org/ns/void#](http://rdfs.org/ns/void#) |
-| weather | [TODO](http://TODO)
 | xsd    | [http://www.w3.org/2001/XMLSchema\#](http://www.w3.org/2001/XMLSchema)  |
 
 ## Introduction
@@ -179,9 +183,6 @@ This framework will integrate state-of-the-art tools like OpenRefine, OpenLink V
 TODO
 
 * Mention other potential stakeholders
-* expectation mapping, check notes from interviews with PAT & RET
-* Rough description of the Fusepool platform, maybe add mocks where they fit
-* Maybe some more pointers on other data sets for T1.2, related to the schemas in the next chapter
 
 ----
 
@@ -257,11 +258,12 @@ From a data perspective, it would probably be quite straight forward to generali
 
 *Strada del Vino* in RET and *TasteTrentino* in PAT just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions that provide the necessary data sets. It would also motivate wineyards, farmers, agricultural tour providers, breeders and other tourist facilities to provide more information about themselves to get better visibility in the application and thus generate more revenue. Instead of just providing the raw data about them they can and should also link to related content, which is available in the Linked Data Cloud. This will increase the value of POIs and events and, at the same time, enable those POIs and events to return more interesting results to the tourist/consumer of the data and again increasing visibility and outreach for the independent tourist facilities.
 
-#### Additional use-cases
+#### Additional Datasets and Use-cases
 
-TODO
+The use-cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. We present additional data sets which could be transformed to Linked Open Data:
 
-* Mobility Data standards: There could be also realtime data, bike sharing, car rental, tec,  not only scheduled.
+* Additional mobility data: Real time data (traffic, bus position etc), bike sharing, car rental etc.
+
 
 ### Fusepool P3 Development Roadmap
 
@@ -427,7 +429,7 @@ Using schema.org within Fusepool P3 as one of the main schemas makes sense for v
 * There are mappings available for other popular schemas[^sorgmap1][^sorgmap2].
 * While the descriptions are only available in English, they are pretty understandable and well maintained. This is not always the case in the schema world.
 
-One of the wishes from PAT and RET is to provide Italian translations for at least the classes and properties which are useful within the Fusepool P3 use scenarios. This can surely be done within our Fusepool P3 platform and during the second year of Fusepool P3 it might make sense to talk to schema.org maintainers and see if those translations could be made available for others. At the time writing we are not aware of any other effort to provide such translations.
+One of the wishes from PAT and RET is to provide Italian translations for at least the classes and properties which are useful within the Fusepool P3 use scenarios. This can surely be done within our Fusepool P3 platform and during the second year of Fusepool P3 it might make sense to talk to schema.org maintainers and see if those translations could be made available for others. According to discussions with schema.org team members there is no effort so far in translating schema.org to other languages. However, they are interested in discussing integration of such translations, although they said that schema.org is a moving target and can and will change in the future.
 
 While schema.org defines a lot, it is not sufficient for all data currently available by PAT and RET. Also in some domains other schemas are more popular so it does make sense to use them as well within the Fusepool P3 platform.
 
@@ -450,7 +452,7 @@ There are several data sets available that provide geographical shapes, for exam
 
 The first version of GML was represented in RDF, after that it became a XML format and schema. The work described in this paper appears to be a proof of concept, several namespaces do not seem to support proper content negotiation and/or return a RDF schema.
 
-Virtuoso also supports transforming KML to RDF. TODO.
+Virtuoso also supports transforming KML to RDF. The Virtuoso KML Transformer extracts `Placemark` features capturing their name, description and `Point` attributes. The `Point` attribute specifies a longitude, latitude and optional altitude. The transformer also extracts any custom data attached to a placemark through `ExtendedData elements. It is important to remark that these elements are proprietary and we cannot do more than expose them within another Fusepool proprietary predicate. They need to be changed to a more useful predicate by another transformer within the Fusepool P3 platform.
 
 ### Annotators
 
@@ -468,7 +470,7 @@ A GTFS feed is a collection of CSV files in a common format. There are several t
 
 Surprisingly it seems to be particularly hard to find a widely used ontology which is suitable for weather information representation. We found several examples of weather representations in RDF but most of them use ad-hoc vocabularies. After asking around in the Semantic Web scene we could identify an OWL ontology by using the LOV[^lov] search functionality.
 
-This ontology was developed by Paul Staroch within his master thesis [Staroch2013]. The thesis, a presentation and the ontology itself is available at his homepage[^staroch]. The ontology makes a very complete impression and is to our knowledge currently the best choice for representing weather data in RDF. In LUV we could find two ontologies, one within the `www.auto.tuwien.ac.at` namespace. From what we can see this seems to be an earlier, incomplete version of the Smart Home Weather ontology and should not be used. The most recent version can be found at `http://paul.staroch.name/thesis/SmartHomeWeather.owl#`. Unfortunately we could not reach the author to verify this information so far.
+This ontology was developed by Paul Staroch within his master thesis [Staroch2013]. The thesis, a presentation and the ontology itself is available at his homepage[^staroch]. The ontology makes a very complete impression and is to our knowledge currently the best choice for representing weather data in RDF. In LUV we could find two ontologies, one within the `www.auto.tuwien.ac.at` namespace. From what we can see this seems to be an earlier, incomplete version of the Smart Home Weather ontology and should not be used. The most recent version can be found at `http://paul.staroch.name/thesis/SmartHomeWeather.owl#`. Unfortunately we could not reach the author to verify this.
 
 ### Data Provenance
 
@@ -485,13 +487,6 @@ Fusepool P3 does not add any of these information by default. It is the responsi
 ## Data Preparation
 
 >T1.4 - Prepare the data: Adopt and implement consistent representations of data resources along with their human and machine readable descriptions, evaluate and specify appropriate data publication licenses as well as appropriate hosting solutions and regular maintenance intervals.
-
-### Data Pipeline
-
-TODO
-
-* Steps done in 01/15 for data integration
-* CKAN integration
 
 ### Open Data License
 
@@ -524,6 +519,8 @@ This is a smart move as it clearly encourages using the data for commercial purp
 In discussions with PAT and RET it became clear that they do not intend to compile and run development versions of the Fusepool P3 platform on their own. To make sure they can test the platform on a regular base and give feedback to the developers, the Fusepool P3 team provides a public version of the platform[^sandbox]. This version is used by the Fusepool P3 team, PAT and RET and in 2015 also by other stakeholders which will be involved with the project.
 
 It is also important to make sure that developers can run their own versions of the platform. But not everyone wants to compile the whole stack on his own; for that reason the Fusepool P3 team decided to use continuous integration[^ci] tools available on the Github platform, which are using Travis CI[^travisci] in the background. New releases of the software are automatically built by Travis CI and made available as binary on Github.
+
+One of the feature requests by PAT and RET is to make it easy to discover and source data from CKAN open data portals into Fusepool P3. Within Q2 we will evaluate the complexity of this feature and implement it if feasible.
 
 ## References
 
