@@ -15,6 +15,8 @@ Deliverable 1.1
 | v0.6 | Adrian Gschwend | 04.12.2014  | More work on schema chapter         |
 | v0.7 | Adrian Gschwend | 15.12.2014  | Added Roadmap                       |
 | v0.8 | Adrian Gschwend | 16.12.2014  | License section, PaaS               |
+| v0.9 | Adrian Gschwend | 28.12.2014  | Feedback M. Combetto                |
+
 
 
 
@@ -183,11 +185,11 @@ TODO
 
 ----
 
-To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and developing apps in the domain of tourism for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
+To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and are supporting the developement of applications and services in the tourism domain for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
-To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by three different persons working for them: M. Combetto for PAT and W. Volpi and D. Bruno for RET. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
+To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by multiple persons working for them. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
 
-As of today both partners publish there data into a public CKAN[^ckan] repository[^ckanret][^ckanpat]. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
+As of today both partners provide an Open Data portal[^ckanret][^ckanpat] based on CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
 
 Currently available open data by PAT and RET is available in particular data formats like CSV, KML, XML and JSON. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. With every update of the raw data this process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these Open Data sets and its apps increases.
 
@@ -198,7 +200,11 @@ This is best explained by the example of Via Francigena[^viafrancigena], an anci
 
 The term point of interest is very generic: It can be something obviously useful in this context like a restaurant or a hotel along the road. A bit less obvious but still useful are other examples like pharmacies where one can treat its blisters from walking or public wireless access to upload the latest pictures to Facebook and Instagram. But a point of interest can also be a snippet of plain text which puts the POI into a historical context. Using this kind of information in a generic, re-usable way is technically much more difficult than the obvious examples. A plaintext example could be that a famous person ate this specific dish back in the days and it became a signature dish since then. As a tourist I might want to know which restaurant along the way provides this dish and where I can buy the particular ingredient for taking it home.
 
-TODO tourism that enhances the cultural, environmental and historical heritage of the historic path, creating opportunities for small enterprises and for a conscious development of the territory. 
+From the *Via Francigena* homepage[^viafrancigenahp]:
+
+>  It's a space created to give value to responsible tourism: a tourism that enhances the cultural, environmental and historical heritage of the historic path, creating opportunities for small enterprises and for a conscious development of the territory. 
+
+The key point of the Fusepool P3 use-cases is to use Linked Open Data as an enabling technology that can link together tourism data with cultural data and mobility data. Our stakeholder talk about an “Extended Touristic Experience”.
 
 As mentioned before data is available in many different formats. In best case for the app developer the data format is standardized and well supported in ETL tools. Unfortunately this is rarely the case as every data user has his own, mostly proprietary data management tool or application for maintaining it. This can be well seen in the available datasets from the two provinces PAT and RET. There are a few standardized and semantically meaningful data sets in formats like KML[^kml] or Shapefile[^shapefile], which are used for expressing geographic annotation and visualization. In between that there are semantically still quite valuable XML formats. One example is weather data[^weather] about the province, although in a non-standard schema and using italian identifiers for the XML elements. The vast majority of the data is available in semantically poor data formats like CSV or JSON.
 
@@ -220,16 +226,16 @@ Linked Data addresses some of the mentioned problems users see with Open data. I
 - SPARQL is its standardized querying language.
 - Built-in support for multiple languages by using language-tagged string literals.
 
-Another example from PAT and RET shows how this can be useful for app developers and in the end for tourists visiting the regions. To promote local wines both regions provide a website called *Strada del Vino* where one can find information about specific wines its wineyards. The two websites[^winepat][^wineret] are completely independent of each other and look pretty much different. Also most of the content is only available in Italian language excluding visitors from other countries which minimal or no Italian skills. 
+Another example from PAT and RET shows how this can be useful for app developers and in the end for tourists visiting the regions. To promote local wines both regions provide a website called *Strada del Vino*, where one can find information about specific wines its wineyards. The two websites[^winepat][^wineret] are completely independent of each other and look pretty much different. In PAT there are more websites, among them *VisitTrentino*[^visittrentino], the official website for Trentino tourism and *TasteTrentino*[^tastetrentino], which provide data for *Strada del Vino* as well. Also most of the content is only available in Italian language excluding visitors from other countries which minimal or no Italian skills. Solutions for the future need to support multiple languages; RDF can facilitate this process by providing a data model which supports multiple languages by design.
 
 ![Strada del Vino Trentino](img/VinoTrentino.png)
 
 From a data perspective, it would probably be quite straight forward to generalize the information that is made available for the tourist. It could consists of:
 
 * Spacial datasets, providing shapes and/or coordinates of
-    - wineyards
+    - wineyards, cheese makers, apple producers
     - wineregions
-    - wine-cellars
+    - wine-cellars, agricultural tours, events
 * Metadata for those data sets like
     - who provides wine tasting
     - ratings & prices won by wineyards
@@ -249,7 +255,13 @@ From a data perspective, it would probably be quite straight forward to generali
 
 ![Strada del Vino Toscana](img/VinoToscana.png)
 
-*Strada del Vino* in PAT and RET just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions which provide the necessary data sets. It would also motivate wineyards to provide more information about themselves to get better visibility in the application and thus generate more revenue.
+*Strada del Vino* in RET and *TasteTrentino* in PAT just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions that provide the necessary data sets. It would also motivate wineyards, farmers, agricultural tour providers, breeders and other tourist facilities to provide more information about themselves to get better visibility in the application and thus generate more revenue. Instead of just providing the raw data about them they can and should also link to related content, which is available in the Linked Data Cloud. This will increase the value of POIs and events and, at the same time, enable those POIs and events to return more interesting results to the tourist/consumer of the data and again increasing visibility and outreach for the independent tourist facilities.
+
+#### Additional use-cases
+
+TODO
+
+* Mobility Data standards: There could be also realtime data, bike sharing, car rental, tec,  not only scheduled.
 
 ### Fusepool P3 Development Roadmap
 
@@ -419,7 +431,7 @@ One of the wishes from PAT and RET is to provide Italian translations for at lea
 
 While schema.org defines a lot, it is not sufficient for all data currently available by PAT and RET. Also in some domains other schemas are more popular so it does make sense to use them as well within the Fusepool P3 platform.
 
-### WGS84 Geo Positioning
+### WGS84 Geographical Positioning Model
 
 To represent positions, the most widely used standard in cartography, geodesy, and navigation is World Geodetic System (WGS). Its most recent version is WGS 84[^wgs84]. There is an RDF representation available which is widely used in the Semantic Web world, called "WGS84 Geo Positioning: an RDF vocabulary"[^wgs84rdf]. It provides definitions like:
 
@@ -434,7 +446,7 @@ To be able to query point of interests it is essential that they represent a geo
 
 ### Geographical Shapes
 
-There are several data sets available which provide geographical shapes, for example GML. Transforming data sets like this to RDF is a relatively new field and it generates some interesting questions especially in regard to the way shapes are represented in triples. Fusepool P3 is using existing work to translate such data to RDF, like the XSLT based transformation described[^gml2rdf] in the GML2RDF paper [Brink2014].
+There are several data sets available that provide geographical shapes, for example GML. Transforming data sets like this to RDF is a relatively new field and it generates some interesting questions especially in regard to the way shapes are represented in triples. Fusepool P3 is using existing work to translate such data to RDF, like the XSLT based transformation described[^gml2rdf] in the GML2RDF paper [Brink2014].
 
 The first version of GML was represented in RDF, after that it became a XML format and schema. The work described in this paper appears to be a proof of concept, several namespaces do not seem to support proper content negotiation and/or return a RDF schema.
 
@@ -452,11 +464,11 @@ Information about public transportation schedules and associated geographic info
 
 A GTFS feed is a collection of CSV files in a common format. There are several transformers available which convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification that is made available at `vocab.gtfs.org[^gtfs].
 
-### Weather Forecasts
+### Weather Information Representation
 
-Surprisingly it seems to be particularly hard to find a widely used ontology which is suitable for weather forecasts. We found several examples of weather forecast in RDF but most of them use ad-hoc vocabularies. After asking around in the Semantic Web scene we could identify an OWL ontology by using the LOV[^lov] search functionality.
+Surprisingly it seems to be particularly hard to find a widely used ontology which is suitable for weather information representation. We found several examples of weather representations in RDF but most of them use ad-hoc vocabularies. After asking around in the Semantic Web scene we could identify an OWL ontology by using the LOV[^lov] search functionality.
 
-This ontology was developed by Paul Staroch within his master thesis [Staroch2013]. The thesis, a presentation and the ontology itself is available at his homepage[^staroch]. The ontology makes a very complete impression and is to our knowledge currently the best choice for representing weather data in RDF. In LUV we could find two ontologies, one within the `www.auto.tuwien.ac.at` namespace. From what we can see this seems to be an earlier, incomplete version of the Smart Home Weather ontology and should not be used. The most recent version can be found at `http://paul.staroch.name/thesis/SmartHomeWeather.owl#`.
+This ontology was developed by Paul Staroch within his master thesis [Staroch2013]. The thesis, a presentation and the ontology itself is available at his homepage[^staroch]. The ontology makes a very complete impression and is to our knowledge currently the best choice for representing weather data in RDF. In LUV we could find two ontologies, one within the `www.auto.tuwien.ac.at` namespace. From what we can see this seems to be an earlier, incomplete version of the Smart Home Weather ontology and should not be used. The most recent version can be found at `http://paul.staroch.name/thesis/SmartHomeWeather.owl#`. Unfortunately we could not reach the author to verify this information so far.
 
 ### Data Provenance
 
@@ -483,7 +495,7 @@ TODO
 
 ### Open Data License
 
-Both PAT and RET decided to use liberal Creative Commons[^cc] licenses. Most of the content for PAT and RET is released under a CC-BY[^ccby] license. For RET this was a decision of a permanent working group, which is in charge of facilitating the process to liberate data as open date in the Regione Toscana. Some of the content is also released under CC0[^cc0]. CC0 is basically giving up all rights on the data, from the definition on the Creative Commons homepage:
+Both PAT and RET decided to use liberal Creative Commons[^cc] licenses. Most of the content for PAT and RET is released under a CC-BY[^ccby] license. For RET this was a decision of a permanent working group, which is in charge of facilitating the process to liberate data as open date in the Regione Toscana. In PAT the working group went as far as defining a law[^patlaw] that requires the use of useful Open Data licenses. Some of the content is also released under CC0[^cc0]. CC0 is basically giving up all rights on the data, from the definition on the Creative Commons homepage:
 
 >The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
 
@@ -536,6 +548,8 @@ Copyright Fusepool P3 Consortium
 
 [^viafrancigena]: Via Francigena in [Wikipedia](http://en.wikipedia.org/wiki/Via_Francigena)
 
+[^viafrancigenahp]: Available at [visit.viefrancigene.org](http://www.visit.viefrancigene.org/en/)
+
 [^fragis]: Direct access to the [GIS entry](http://www306.regione.toscana.it/mappe/index_francigena.html?area=francigena_multi_cluster) of Via Francigena
 
 [^weather]: http://dati.toscana.it/dataset/previ-meteo-localita
@@ -547,6 +561,10 @@ Copyright Fusepool P3 Consortium
 [^winepat]: http://www.tastetrentino.it/le-tre-strade/strada-del-vino-e-dei-sapori-del-trentino/home/
 
 [^wineret]: http://www.terreditoscana.regione.toscana.it/stradedelvino/ita/index-ita.html
+
+[^visittrentino]: [Trentino Tourism Official Website](http://www.visittrentino.it)
+
+[^tastetrentino]: [TasteTrentino](http://www.tastetrentino.it/)
 
 [^schemaorg]: Homepage at [schema.org](http://schema.org/), source code at [Github](https://github.com/rvguha/schemaorg)
 
@@ -608,6 +626,8 @@ Copyright Fusepool P3 Consortium
 [^odblhr]: See [homepage](http://opendatacommons.org/licenses/odbl/summary/)
 
 [^osmchange]: See [Why OpenStreetMap is moving from Creative Commons to the Open Database License.](http://radar.oreilly.com/2011/06/openstreetmap-creative-commons-open-database-license.html)
+
+[^patlaw]: [Linee guida per il riutilizzo e la diffusione dei dati pubblici](http://www.delibere.provincia.tn.it/scripts/VediProvvedimento.asp?Modalita=Delibere&numero=2858&anno=2012) (Guidelines for the use and dissemination of public data)
 
 [^sandbox]: Available at [sandbox.fusepool.info](http://sandbox.fusepool.info/)
 
