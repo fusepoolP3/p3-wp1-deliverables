@@ -175,15 +175,15 @@ This is best explained by the example of Via Francigena[^viafrancigena], an anci
 
 ![Via Francigena](img/Via_Francigena_POI.png "Via Francigena in the RET GIS")
 
-The term point of interest is very generic: It can be something obviously useful in this context like a restaurant or a hotel along the road. A bit less obvious but still useful are other examples like pharmacies where one can treat its blisters from walking or public wireless access to upload the latest pictures to Facebook and Instagram. But a point of interest can also be a snippet of plain text which puts the POI into a historical context. Using this kind of information in a generic, re-usable way is technically much more difficult than the obvious examples. A plaintext example could be that a famous person ate this specific dish back in the days and it became a signature dish since then. As a tourist I might want to know which restaurant along the way provides this dish and where I can buy the particular ingredient for taking it home.
+The term point of interest is very generic: It can be something obviously useful in this context like a restaurant or a hotel along the road. A bit less obvious but still useful are other examples like pharmacies where one can treat its blisters from walking or public wireless access to upload the latest pictures to Facebook and Instagram. But a point of interest can also be a snippet of plain text that puts the POI into a historical context. Using this kind of information in a generic, re-usable way is technically much more difficult than the obvious examples. A plaintext example could be that a famous person ate this specific dish back in the days and it became a signature dish since then. As a tourist I might want to know which restaurant along the way provides this dish and where I can buy the particular ingredient for taking it home.
 
 From the *Via Francigena* homepage[^viafrancigenahp]:
 
 >  It's a space created to give value to responsible tourism: a tourism that enhances the cultural, environmental and historical heritage of the historic path, creating opportunities for small enterprises and for a conscious development of the territory. 
 
-The key point of the Fusepool P3 use cases is to use Linked Open Data as an enabling technology that can link together tourism data with cultural data and mobility data. Our stakeholder talk about an “Extended Touristic Experience”.
+The key point of the Fusepool P3 use cases is to use Linked Open Data as an enabling technology that can link together tourism data with cultural data and mobility data. Our stakeholders talk about an “Extended Touristic Experience”.
 
-As mentioned before data is available in many different formats. In best case for the app developer the data format is standardized and well supported in ETL tools. Unfortunately this is rarely the case as every data user has his own, mostly proprietary data management tool or application for maintaining it. This can be well seen in the available datasets from the two provinces PAT and RET. There are a few standardized and semantically meaningful data sets in formats like KML[^kml] or Shapefile[^shapefile], which are used for expressing geographic annotation and visualization. In between that there are semantically still quite valuable XML formats. One example is weather data[^weather] about the province, although in a non-standard schema and using italian identifiers for the XML elements. The vast majority of the data is available in semantically poor data formats like CSV or JSON.
+As mentioned before data is available in many different formats. In best case for the app developer the data format is standardized and well supported in ETL tools. Unfortunately this is rarely the case as every data user has his own, mostly proprietary data management tool or application for maintaining it. This can be well seen in the available datasets from the two provinces PAT and RET. There are a few standardized and semantically meaningful data sets in formats like KML[^kml] or Shapefile[^shapefile], which are used for expressing geographic annotation and visualization. In between that there are semantically still quite valuable XML formats. One example is weather data[^weather] about the province, although in a non-standard schema and using Italian identifiers for the XML elements. The vast majority of the data is available in semantically poor data formats like CSV or JSON.
 
 TODO insert stats here
 
@@ -195,15 +195,15 @@ Another example from PAT and RET shows how this can be useful for app developers
 
 ![Strada del Vino Trentino](img/VinoTrentino.png)
 
-From a data perspective, it would probably be quite straight forward to generalize the information that is made available for the tourist. It could consists of:
+From a data perspective, it would probably be quite straightforward to generalize the information that is made available for the tourist. It could consists of:
 
 * Spacial datasets, providing shapes and/or coordinates of
-    - wineyards, cheese makers, apple producers
-    - wineregions
-    - wine-cellars, agricultural tours, events
+    - wine yards, cheese makers, apple producers
+    - wine regions
+    - wine cellars, agricultural tours, events
 * Metadata for those data sets like
     - who provides wine tasting
-    - ratings & prices won by wineyards
+    - ratings & prices won by wine yards
     - pricing, price-ranges
     - opening hours where appropriate
     - information about shipping to foreign/overseas countries
@@ -220,18 +220,18 @@ From a data perspective, it would probably be quite straight forward to generali
 
 ![Strada del Vino Toscana](img/VinoToscana.png)
 
-*Strada del Vino* in RET and *TasteTrentino* in PAT just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions that provide the necessary data sets. It would also motivate wineyards, farmers, agricultural tour providers, breeders and other tourist facilities to provide more information about themselves to get better visibility in the application and thus generate more revenue. Instead of just providing the raw data about them they can and should also link to related content, which is available in the Linked Data Cloud. This will increase the value of POIs and events and, at the same time, enable those POIs and events to return more interesting results to the tourist/consumer of the data and again increasing visibility and outreach for the independent tourist facilities.
+*Strada del Vino* in RET and *TasteTrentino* in PAT just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions that provide the necessary data sets. It would also motivate wine yards, farmers, agricultural tour providers, breeders and other tourist facilities to provide more information about thems to get better visibility in the application and thus generate more revenue. Instead of just providing the raw data about them they can and should also link to related content, which is available in the Linked Data Cloud. This will increase the value of POIs and events and, at the same time, enable those POIs and events to return more interesting results to the tourist/consumer of the data and again increasing visibility and outreach for the independent tourist facilities.
 
 ### Additional Datasets and use cases
 
-The use cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. We present additional data sets which could be transformed to Linked Open Data:
+The use cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. We present additional data sets that could be transformed to Linked Open Data:
 
-* Additional mobility data: Real time data (traffic, bus position etc), bike sharing, car rental etc.
+* Additional mobility data: Real time data (traffic, bus position etc.), bike sharing, car rental etc.
 * TODO
 
 ### The case for Linked Data
 
-Linked Data addresses some of the mentioned problems users have with Open data. It does that by providing a standardized format (RDF) which provides among others the following benefits:
+Linked Data addresses some of the mentioned problems users have with Open data. It does that by providing a standardized format (RDF) that provides among others the following benefits:
 
 - Every piece of information (data) has its own identifier (URI/IRI).
 - Those identifiers can be resolved via the web (HTTP),
@@ -253,7 +253,7 @@ This framework will integrate state-of-the-art tools like OpenRefine, OpenLink V
 
 Fusepool P3 aims at bringing the presented use cases into the reality. To do this we need to make sure that the platform provides the necessary features and usability so that PAT, RET and other stakeholders can use the Fusepool P3 platform in their environment. 
 
-To get there, Fusepool P3 is using an agile development model which is oriented at the Scrum[^scrum] methodology. A rough development roadmap was presented and agreed on at the Salzburg project meetup in May 2014. The roadmap is based on The Go Product Roadmap[^goroadmap] and defines the following milestones.
+To get there, Fusepool P3 is using an agile development model that is oriented at the Scrum[^scrum] methodology. A rough development roadmap was presented and agreed on at the Salzburg project meetup in May 2014. The roadmap is based on The Go Product Roadmap[^goroadmap] and defines the following milestones.
 
 The roadmap is permanent work in progress and gets updated accordingly. Based on WP1 requirements outlined in this document, the WP1 team fills the Fusepool P3 Jira Backlog[^p3jira] with user stories and defines Scrum sprints with the developers.
 
@@ -277,7 +277,7 @@ Metrics:
 * The website represents the team, the partners, its diversity and the goals
 * Everyone understands and participates to Scrum
 * All roles are assigned
-* Contractual framework ensures all partners can benefit from website (domains etc) during and after the grant period
+* Contractual framework ensures all partners can benefit from website (domains etc.) during and after the grant period
 
 #### Spaceport
 
@@ -288,7 +288,7 @@ Goal: First version of platform foundation implemented; Major REST APIs defined 
 Features:
 
 * Roadmap and backlog (T1.1)
-* Some datasources identified and core ontologies determined (part of T1.2-T1.4)
+* Some data sources identified and core ontologies determined (part of T1.2-T1.4)
 * LDP Implemented
 * First GUI
 * First extractors
@@ -395,7 +395,7 @@ Finding the most appropriate vocabulary, schema or ontology can be tricky. There
 
 ### schema.org 
 
-In 2011 several search engine giants launched schema.org[^schemaorg], an initiative to "create and support a common set of schemas for structured data markup on web pages". This effort was first criticized by the Semantic Web community but the involved parties started talking with each other and later several people from the Semantic Web community started providing a "proper" RDF mapping[^schemardf]. Meanwhile schema.org seems to use "a simple RDF-like graph data model" and exposes its schema as RDFa[^rdfa]. However, there is no content negotiation[^contentneg] in place and the only language available for description of classes and labels is English.
+In 2011 several search engine giants launched schema.org[^schemaorg], an initiative to "create and support a common set of schemas for structured data markup on web pages". The Semantic Web community first criticized this effort but the involved parties started talking with each other and later several people from the Semantic Web community started providing a "proper" RDF mapping[^schemardf]. Meanwhile schema.org seems to use "a simple RDF-like graph data model" and exposes its schema as RDFa[^rdfa]. However, there is no content negotiation[^contentneg] in place and the only language available for description of classes and labels is English.
 
 Looking back three years schema.org had a huge impact, many sites started to include structured information within their websites and the support of first RDFa and later JSON-LD[^jsonld] made people use Semantic Web technologies without being really aware of it. This increases visibility and perception of the Semantic Web as a whole.
 
@@ -448,19 +448,19 @@ An introduction to this model can be found in deliverable D5.1, the final specif
 
 Information about public transportation schedules and associated geographic information is made available in the General Transit Feed Specification (GTFS)[^gtfsgg]. GTFS "feeds" allow public transit agencies to publish their transit data and developers to write applications that consume that data in an interoperable way.
 
-A GTFS feed is a collection of CSV files in a common format. There are several transformers available which convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification that is made available at `vocab.gtfs.org[^gtfs].
+A GTFS feed is a collection of CSV files in a common format. There are several transformers available that convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification; it is available at `vocab.gtfs.org`[^gtfs].
 
 ### Weather Information Representation
 
-Surprisingly it seems to be particularly hard to find a widely used ontology which is suitable for weather information representation. We found several examples of weather representations in RDF but most of them use ad-hoc vocabularies. After asking around in the Semantic Web scene we could identify an OWL ontology by using the LOV[^lov] search functionality.
+Surprisingly it seems to be particularly hard to find a widely used ontology that is suitable for weather information representation. We found several examples of weather representations in RDF but most of them use ad-hoc vocabularies. After asking around in the Semantic Web scene we could identify an OWL ontology by using the LOV[^lov] search functionality.
 
-This ontology was developed by Paul Staroch within his master thesis [Staroch2013]. The thesis, a presentation and the ontology itself is available at his homepage[^staroch]. The ontology makes a very complete impression and is to our knowledge currently the best choice for representing weather data in RDF. In LUV we could find two ontologies, one within the `www.auto.tuwien.ac.at` namespace. From what we can see this seems to be an earlier, incomplete version of the Smart Home Weather ontology and should not be used. The most recent version can be found at `http://paul.staroch.name/thesis/SmartHomeWeather.owl#`. Unfortunately we could not reach the author to verify this.
+Paul Staroch developed this ontology within his master thesis [Staroch2013]. The thesis, a presentation and the ontology itself is available at his homepage[^staroch]. The ontology makes a very complete impression and is to our knowledge currently the best choice for representing weather data in RDF. In LUV we could find two ontologies, one within the `www.auto.tuwien.ac.at` namespace. From what we can see this seems to be an earlier, incomplete version of the Smart Home Weather ontology and should not be used. The most recent version can be found at `http://paul.staroch.name/thesis/SmartHomeWeather.owl#`. Unfortunately we could not reach the author to verify this.
 
 ### Data Provenance
 
 Fusepool P3 is supporting Open Data publishers and users in creating Linked Data. It is important to keep track of the purpose and provenance of the data so both the users and the publishers can keep track of the available data sets.
 
-In the Semantic Web world there are well-established ontologies which support us in this process:
+In the Semantic Web world there are well-established ontologies that support us in this process:
 
 * VoID[^void] is used for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets.
 * Prov[^prov] can be used to represent and interchange provenance information generated in different systems and under different contexts.
