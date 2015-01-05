@@ -18,8 +18,7 @@ Deliverable 1.1
 | v0.9  | Adrian Gschwend | 29.12.2014  | Feedback M. Combetto                |
 | v0.10 | Adrian Gschwend | 30.12.2014  | Cleanup of open issues              |
 | v0.11 | Adrian Gschwend | 31.12.2014  | Added introduction, reorganized chapters |
-
-
+| v0.12 | Adrian Gschwend | 05.01.2015  | Executive Summary, small fixes      |
 
 
 ## Documentation Information
@@ -146,9 +145,9 @@ IRI prefixed:
 
 ## Introduction
 
-This document describes the tasks specified in Fusepool P3 DOW work package 1: *Use cases*. It consists of deliverable D1.1 (Use cases and data specified, data modelled and prepared) and the tasks T1.1, T1.2, T1.3 and T1.4. For better readability, this document repeats the basic definition of the tasks according to the DOW. All tasks are due in M12.
+This document describes the tasks specified in Fusepool P3 DOW work package 1: Use cases. It consists of deliverable D1.1 (Use cases and data specified, data modelled and prepared) and the tasks T1.1, T1.2, T1.3 and T1.4. For better readability, this document repeats the basic definition of the tasks according to the DOW. All tasks are due in M12.
 
-The main goal of the Fusepool P3 WP1 is to define use-cases with the project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET). This is needed to make sure that the Fusepool P3 platform provides software that solves real world problems and provides added value to the current and potential stakeholders.
+The main goal of the Fusepool P3 WP1 is to define use cases with the project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET). This is needed to make sure that the Fusepool P3 platform provides software that solves real world problems and provides added value for present and potential stakeholders.
 
 ## User Requirements and Data Identification
 
@@ -162,7 +161,7 @@ TODO
 
 ----
 
-### Motivation
+### Motivation and use cases
 
 To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and are supporting the developement of applications and services in the tourism domain for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
@@ -183,7 +182,7 @@ From the *Via Francigena* homepage[^viafrancigenahp]:
 
 >  It's a space created to give value to responsible tourism: a tourism that enhances the cultural, environmental and historical heritage of the historic path, creating opportunities for small enterprises and for a conscious development of the territory. 
 
-The key point of the Fusepool P3 use-cases is to use Linked Open Data as an enabling technology that can link together tourism data with cultural data and mobility data. Our stakeholder talk about an “Extended Touristic Experience”.
+The key point of the Fusepool P3 use cases is to use Linked Open Data as an enabling technology that can link together tourism data with cultural data and mobility data. Our stakeholder talk about an “Extended Touristic Experience”.
 
 As mentioned before data is available in many different formats. In best case for the app developer the data format is standardized and well supported in ETL tools. Unfortunately this is rarely the case as every data user has his own, mostly proprietary data management tool or application for maintaining it. This can be well seen in the available datasets from the two provinces PAT and RET. There are a few standardized and semantically meaningful data sets in formats like KML[^kml] or Shapefile[^shapefile], which are used for expressing geographic annotation and visualization. In between that there are semantically still quite valuable XML formats. One example is weather data[^weather] about the province, although in a non-standard schema and using italian identifiers for the XML elements. The vast majority of the data is available in semantically poor data formats like CSV or JSON.
 
@@ -224,9 +223,9 @@ From a data perspective, it would probably be quite straight forward to generali
 
 *Strada del Vino* in RET and *TasteTrentino* in PAT just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions that provide the necessary data sets. It would also motivate wineyards, farmers, agricultural tour providers, breeders and other tourist facilities to provide more information about themselves to get better visibility in the application and thus generate more revenue. Instead of just providing the raw data about them they can and should also link to related content, which is available in the Linked Data Cloud. This will increase the value of POIs and events and, at the same time, enable those POIs and events to return more interesting results to the tourist/consumer of the data and again increasing visibility and outreach for the independent tourist facilities.
 
-### Additional Datasets and Use-cases
+### Additional Datasets and use cases
 
-The use-cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. We present additional data sets which could be transformed to Linked Open Data:
+The use cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. We present additional data sets which could be transformed to Linked Open Data:
 
 * Additional mobility data: Real time data (traffic, bus position etc), bike sharing, car rental etc.
 
@@ -252,7 +251,7 @@ This framework will integrate state-of-the-art tools like OpenRefine, OpenLink V
 
 ### Fusepool P3 Development Roadmap
 
-Fusepool P3 aims at bringing the presented use-cases into the reality. To do this we need to make sure that the platform provides the necessary features and usability so that PAT, RET and other stakeholders can use the Fusepool P3 platform in their environment. 
+Fusepool P3 aims at bringing the presented use cases into the reality. To do this we need to make sure that the platform provides the necessary features and usability so that PAT, RET and other stakeholders can use the Fusepool P3 platform in their environment. 
 
 To get there, Fusepool P3 is using an agile development model which is oriented at the Scrum[^scrum] methodology. A rough development roadmap was presented and agreed on at the Salzburg project meetup in May 2014. The roadmap is based on The Go Product Roadmap[^goroadmap] and defines the following milestones.
 
@@ -333,7 +332,7 @@ Features:
 
 Metrics:
 
-* Required use-case schema/vocabularies are identified
+* Required use case schema/vocabularies are identified
 * Project partners provide first examples in using the processing pipeline with PAT and RET datasets
 * PAT and RET are able to integrate their own data sets into the pipeline
 * Stable implementations of available transformers and enhancers
