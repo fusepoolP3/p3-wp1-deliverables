@@ -17,6 +17,7 @@ Deliverable 1.1
 | v0.8  | Adrian Gschwend | 16.12.2014  | License section, PaaS               |
 | v0.9  | Adrian Gschwend | 29.12.2014  | Feedback M. Combetto                |
 | v0.10 | Adrian Gschwend | 30.12.2014  | Cleanup of open issues              |
+| v0.11 | Adrian Gschwend | 31.12.2014  | Added introduction, reorganized chapters |
 
 
 
@@ -79,6 +80,7 @@ This document describes the TODO.
 | ETL     | Extract, Transform, Load                     |
 | FP3     | Fusepool P3                                  |
 | GIS     | Geographic information system                |
+| GML     | Geography Markup Language                    | 
 | GTFS    | General Transit Feed Specification           |
 | HTTP    | Hypertext Transfer Protocol                  |
 | HTTPS   | Secure Hypertext Transfer Protocol           |
@@ -144,35 +146,9 @@ IRI prefixed:
 
 ## Introduction
 
-This document describes the TODO
+This document describes the tasks specified in Fusepool P3 DOW work package 1: *Use cases*. It consists of deliverable D1.1 (Use cases and data specified, data modelled and prepared) and the tasks T1.1, T1.2, T1.3 and T1.4. For better readability, this document repeats the basic definition of the tasks according to the DOW. All tasks are due in M12.
 
-The main goal of the Fusepool P3 architecture is to provide interaction protocols and pattern so that the components can be used in concert to form the Fusepool P3 Platform.
-
-### Use case summary
-
-TODO rewrite summary
-
-The Fusepool P3 project partners Provincia Autonoma di Trento and Regione Toscana have been publishing Open Data and develop apps in the domain of tourism for several years. During this time both partners gained valuable experience in data creation, maintenance and publication. 
-
-Many of the published Open Data sets are used in Android or iOS apps aimed at tourists and/or inhabitants of the region. Some of them are written by the project partners, other apps by 3rd party developers which integrate parts of the published Open Data into their own apps.
-
-As of today the data is mainly available in particular data formats like CSV, KML, XML and JSON. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. With every update of the raw data this process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these Open Data sets and its apps increases.
-
-Linked Data can help to solve these problems: Data is made available in a standard format (RDF) which provides among others the following benefits[[1]](#ftnt1):
-
--   Every piece of information (data) has its own identifier (URI/IRI).
--   Those identifiers can be resolved via the web (HTTP),
--   which acts as a generalized API for developers.
--   Standardized vocabularies describe the meaning of the data,
--   and allow to relate information with each other.
-
-The Linked Data technology stack [Bizer2009] provides many ways to interact with data in RDF format [Cyganiak2014]. This greatly reduces the overhead needed to integrate data sets into apps and thus increases the value of Open Data. However, one needs new ETL processes to transform raw data to Linked Data. While it facilitates data usage for app developers, Linked Data requires initially more work by the data owner and publisher.
-
-In the past years many powerful tools got developed or extended to support creation and maintenance of Linked Data. Also new W3C standards and vocabularies are developed for turning legacy data into Linked Data. Many of these tools and standards are developed, extended or implemented by Fusepool P3 project partners. The emerging Linked Data Platform Standard (LDP)[[7]](#ftnt7) provide standardized means for making collections of linked data resources accessible.
-
-What is lacking is an integration framework that combines the data transformation to RDF, possible enhancement steps and the publishing of the Linked Data. Fusepool P3 will provide such an integration framework along with User Interface tools that serve both to model the data publication process as well as to coordinate the human interactions that might be required while the data is processed.
-
-This framework will integrate state-of-the-art tools like OpenRefine, OpenLink Virtuoso, Apache Stanbol, and Pundit. The framework is developed and tested based on the requirements by our project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET). Both partners have started working with the platform in an early stage and feedback gets directly integrated into the agile development process of Fusepool P3.
+The main goal of the Fusepool P3 WP1 is to define use-cases with the project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET). This is needed to make sure that the Fusepool P3 platform provides software that solves real world problems and provides added value to the current and potential stakeholders.
 
 ## User Requirements and Data Identification
 
@@ -186,13 +162,15 @@ TODO
 
 ----
 
+### Motivation
+
 To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and are supporting the developement of applications and services in the tourism domain for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
 To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by multiple persons working for them. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
 
 As of today both partners provide an Open Data portal[^ckanret][^ckanpat] based on CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
 
-Currently available open data by PAT and RET is available in particular data formats like CSV, KML, XML and JSON. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. With every update of the raw data this process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these Open Data sets and its apps increases.
+Currently available open data by PAT and RET is available in particular data formats like CSV, KML, XML and JSON. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. Many of the published Open Data sets are used in Android or iOS apps aimed at tourists and/or inhabitants of the region. Some of them are written by the project partners, other apps by 3rd party developers which integrate parts of the published Open Data into their own apps. With every update of the raw data the ETL process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these Open Data sets and its apps increases.
 
 In interviews with PAT and RET it became clear, that this is one of the big obstacles of the current approach. There is far more knowledge in these data sets available than what is visible and accessible to the open data developer.
 This is best explained by the example of Via Francigena[^viafrancigena], an ancient road and pilgrim route running from France to Rome. In their geographic information system (GIS) RET collects many point of interest (POI) around this ancient road[^fragis]. This dataset is made available to the public but the data alone does not tell the full story of the POI. 
@@ -214,18 +192,6 @@ TODO insert stats here
 The terms "semantically meaningful" and "semantically poor" are indicators of how much work is needed to do something useful within for example a mobile application. Reading, or in app developer terms parsing data in a certain format is just the first and often the easier step. Once the data is in a structure the app developer can handle, she needs to figure out what the data is about, or in other words understand its semantics. This is where the real work starts and this is harder in semantically poor data formats like CSV and JSON, as the indication about what the field value really means is completely up to the one providing the data and if available, often hard to understand for others.
 
 This is one of the main remarks when talking with PAT and RET: While a lot of data is available it lacks even the most basic form of relationship between the different data sets. They explained it on the example of Tripadvisor: While they have an impressive dataset for certain kind of data, it is not possible to relate it properly with for example Via Francigena. These are the kind of challenges they would like to see solved with Linked Data and that is where they need support by a tool. 
-
-### The case for Linked Data
-
-Linked Data addresses some of the mentioned problems users see with Open data. It does that by providing a standardized format (RDF) which provides among others the following benefits:
-
-- Every piece of information (data) has its own identifier (URI/IRI).
-- Those identifiers can be resolved via the web (HTTP),
-- which acts as a generalized API for developers.
-- Standardized vocabularies describe the meaning of the data,
-- and allow to relate information with each other.
-- SPARQL is its standardized querying language.
-- Built-in support for multiple languages by using language-tagged string literals.
 
 Another example from PAT and RET shows how this can be useful for app developers and in the end for tourists visiting the regions. To promote local wines both regions provide a website called *Strada del Vino*, where one can find information about specific wines its wineyards. The two websites[^winepat][^wineret] are completely independent of each other and look pretty much different. In PAT there are more websites, among them *VisitTrentino*[^visittrentino], the official website for Trentino tourism and *TasteTrentino*[^tastetrentino], which provide data for *Strada del Vino* as well. Also most of the content is only available in Italian language excluding visitors from other countries which minimal or no Italian skills. Solutions for the future need to support multiple languages; RDF can facilitate this process by providing a data model which supports multiple languages by design.
 
@@ -258,12 +224,31 @@ From a data perspective, it would probably be quite straight forward to generali
 
 *Strada del Vino* in RET and *TasteTrentino* in PAT just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions that provide the necessary data sets. It would also motivate wineyards, farmers, agricultural tour providers, breeders and other tourist facilities to provide more information about themselves to get better visibility in the application and thus generate more revenue. Instead of just providing the raw data about them they can and should also link to related content, which is available in the Linked Data Cloud. This will increase the value of POIs and events and, at the same time, enable those POIs and events to return more interesting results to the tourist/consumer of the data and again increasing visibility and outreach for the independent tourist facilities.
 
-#### Additional Datasets and Use-cases
+### Additional Datasets and Use-cases
 
 The use-cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. We present additional data sets which could be transformed to Linked Open Data:
 
 * Additional mobility data: Real time data (traffic, bus position etc), bike sharing, car rental etc.
 
+### The case for Linked Data
+
+Linked Data addresses some of the mentioned problems users have with Open data. It does that by providing a standardized format (RDF) which provides among others the following benefits:
+
+- Every piece of information (data) has its own identifier (URI/IRI).
+- Those identifiers can be resolved via the web (HTTP),
+- which acts as a generalized API for developers.
+- Standardized vocabularies describe the meaning of the data,
+- and allow to relate information with each other.
+- SPARQL is its standardized querying language.
+- Built-in support for multiple languages by using language-tagged string literals.
+
+The Linked Data technology stack [Bizer2009] provides many ways to interact with data in RDF format [Cyganiak2014]. This greatly reduces the overhead needed to integrate data sets into apps and thus increases the value of Open Data. However, one needs new ETL processes to transform raw data to Linked Data. While it facilitates data usage for app developers, Linked Data requires initially more work by the data owner and publisher.
+
+In the past years many powerful tools got developed or extended to support creation and maintenance of Linked Data. Also new W3C standards and vocabularies are developed for turning legacy data into Linked Data. Many of these tools and standards are developed, extended or implemented by Fusepool P3 project partners. The emerging Linked Data Platform Standard (LDP)[^ldpprimer] provide standardized means for making collections of linked data resources accessible.
+
+What is lacking is an integration framework that combines the data transformation to RDF, possible enhancement steps and the publishing of the Linked Data. Fusepool P3 will provide such an integration framework along with User Interface tools that serve both to model the data publication process as well as to coordinate the human interactions that might be required while the data is processed.
+
+This framework will integrate state-of-the-art tools like OpenRefine, OpenLink Virtuoso, Apache Stanbol, and Pundit. The framework is developed and tested based on the requirements by our project partners PAT and RET. Both partners have started working with the platform in an early stage and feedback gets directly integrated into the agile development process of Fusepool P3.
 
 ### Fusepool P3 Development Roadmap
 
@@ -448,7 +433,7 @@ To be able to query point of interests it is essential that they represent a geo
 
 ### Geographical Shapes
 
-There are several data sets available that provide geographical shapes, for example GML. Transforming data sets like this to RDF is a relatively new field and it generates some interesting questions especially in regard to the way shapes are represented in triples. Fusepool P3 is using existing work to translate such data to RDF, like the XSLT based transformation described[^gml2rdf] in the GML2RDF paper [Brink2014].
+There are several data sets available that provide geographical shapes, for example Geography Markup Language (GML). Transforming data sets like this to RDF is a relatively new field and it generates some interesting questions especially in regard to the way shapes are represented in triples. Fusepool P3 is using existing work to translate such data to RDF, like the XSLT based transformation described[^gml2rdf] in the GML2RDF paper [Brink2014].
 
 The first version of GML was represented in RDF, after that it became a XML format and schema. The work described in this paper appears to be a proof of concept, several namespaces do not seem to support proper content negotiation and/or return a RDF schema.
 
@@ -535,6 +520,8 @@ One of the feature requests by PAT and RET is to make it easy to discover and so
 Copyright Fusepool P3 Consortium
 
 * * * * *
+
+[^ldpprimer]: [Linked Data Platform 1.0 Primer](http://www.w3.org/TR/ldp-primer/)
 
 [^ckan]: Open Source Software, available at [ckan.org](http://ckan.org/)
 
