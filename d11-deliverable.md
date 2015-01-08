@@ -150,9 +150,9 @@ In this document the prefixes used in [CURIEs](http://www.w3.org/TR/curie/) shal
 |----------------------|------------------------------|----------|
 | Walter Volpi         | Regione Toscana              | Open Data Working Group Regione Toscana |
 | Davide               | Regione Toscana              | Open Data Working Group Regione Toscana |
-| Marco Combetto       | Informatica Trentina         | Open Data innovation management |
-| Francesca Gleria     | Provincia Autonoma di Trento | PAT Open Data Project coordinator |
-| Roberto Pizzicanella | Provincia Autonoma di Trento | PAT Turism and Culture Dept CIO |
+| Marco Combetto       | Informatica Trentina         | Open Data Innovation Management |
+| Francesca Gleria     | Provincia Autonoma di Trento | PAT Open Data Project Coordinator |
+| Roberto Pizzicanella | Provincia Autonoma di Trento | PAT Tourism and Culture Department CIO |
 
 
 ## Introduction
