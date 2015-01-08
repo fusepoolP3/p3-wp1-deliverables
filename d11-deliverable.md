@@ -19,6 +19,8 @@ Deliverable 1.1
 | v0.10 | Adrian Gschwend | 30.12.2014  | Cleanup of open issues              |
 | v0.11 | Adrian Gschwend | 31.12.2014  | Added introduction, reorganized chapters |
 | v1.0 | Adrian Gschwend | 05.01.2015  | Executive Summary, small fixes      |
+| v1.1 | Adrian Gschwend | 08.01.2015  | Added Motivation based on reviewer feedback  |
+
 
 
 ## Documentation Information
@@ -57,7 +59,7 @@ This work is licensed under the Creative Commons Attribution 4.0 International L
 
 The goal of Fusepool P3 project is to make publishing and processing of open data as linked data easy. For this purpose Fusepool P3 develops a set of software components that integrate seamlessly by well-defined APIs basing on Linked Data Best Practices and the Linked Data Platform standard.
 
-The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and are supporting the development of applications and services in the tourism domain for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
+The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and are supporting the development of applications and services in the tourism domain for several months. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
 To ensure that the Fusepool P3 platform provides software that solves real world problems and provides added value for present and potential stakeholders, we enter into a dialogue with PAT and RET. This supports us in identifying problems they have in publishing open data and define use cases where Linked Open Data provides an additional value to them and the ultimate user of the data: Tourists visiting the regions.
 
@@ -142,6 +144,15 @@ In this document the prefixes used in [CURIEs](http://www.w3.org/TR/curie/) shal
 | void  | [http://rdfs.org/ns/void#](http://rdfs.org/ns/void#) |
 | xsd    | [http://www.w3.org/2001/XMLSchema\#](http://www.w3.org/2001/XMLSchema)  |
 
+| Name                 | Company/Organization         | Role     |
+|----------------------|------------------------------|----------|
+| Marco Combetto       | Informatica Trentina         | Open Data innovation management |
+| Walter Volpi         | Regione Toscana              | Open Data Working Group Regione Toscana |
+| Davide               | Regione Toscana              | Open Data Working Group Regione Toscana |
+| Francesca Gleria     | Provincia Autonoma di Trento | PAT Open Data Project coordinator |
+| Roberto Pizzicanella | Provincia Autonoma di Trento | PAT Turism and Culture Dept CIO |
+
+
 ## Introduction
 
 This document describes the tasks specified in Fusepool P3 DOW work package 1: Use cases. It consists of deliverable D1.1 (Use cases and data specified, data modeled and prepared) and the tasks T1.1, T1.2, T1.3 and T1.4. For better readability, this document repeats the basic definition of the tasks according to the DOW. All tasks are due in M12.
@@ -160,9 +171,41 @@ TODO
 
 ----
 
-### Motivation and use cases
+### Motivation
 
-To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and are supporting the development of applications and services in the tourism domain for several years. During this time both partners gained valuable experience in data creation, maintenance and publication.
+To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and are supporting the development of applications and services in the tourism domain for several months. During this time both partners gained valuable experience in data creation, maintenance and publication.
+
+Public administrations are used to provide services for citizens for a long time. With the introduction of information technology in the seventies, many of these services started to get automated and more centralized. With the advent and later the great the success of the Internet, many administrations now provide vertically focused web portals, mobile apps, etc.
+
+At the same time administrations realized that they couldn’t provide a service for everything by themself, even if they have many more data sets in internal systems that might be useful to the public; it would simply be too expensive to do all of this by the administration. The Open Data movement at the same time started propagating opening up locked data sets to the public. If administrations start to publish data they enable third parties to provide additional services that might be useful for the public.
+
+After publishing first open data sets the administrations realized that there could be additional value in the data if the datasets from different sources and systems would be (inter-)linked with each other. In this document we will give examples about this interlinking in the field of tourism but this is true for many more data sets available.
+
+PAT and RET first started publishing data sets which were considered strategic. In Italy in general but also in the two regions Tuscany and Trentino the most important business is clearly tourism. This also includes linked and related industrial activities around tourism. Thus the regions are struggling with one particular question: How can they support and push tourism by changing their daily operations and if necessary, oneself. 
+
+Based on this question Trentino 2012 started to publish data as open data; particularly related to tourism, culture, and geographical data.
+
+In July 2012 the Tuscany Region started opening up data, involving authorities, citizens and businesses. The data is published on a public platform and mainly released under a Creative Commons license.
+
+Starting from January 2013 the Tuscany Region officially committed to the implementation and management of an open data platform with the goal to disseminate data from the region and other regional governments.
+
+To realize this initiative the administration is using the following tools:
+
+* Guidelines containing general criteria for open data in the Tuscany Region (approved by Resolution of the Regional Toscana 21 January 2013, n.23)
+    * Explain to the public what open data is and why it is important. This includes explaining the purpose, its limitations and how the goals will be reached.
+    * Establish the routes to be taken inside and outside the administration.
+* Providing a platform for the management and processing of data in open formats.
+* Section on the corporate website dedicated to open data, fed directly from the platform itself.
+* Working group composed of competent professionals in the various sectors involved in the project (ICT, lawyers, communicators).
+* License that gives the user the ability to reproduce, distribute, transmit and adapt the data freely even for commercial purposes, provided the source is acknowledged.
+
+With the launch of a new portal called Open Toscana  in September 2014, the administration is also adopting a "dataset on-demand" approach: if somebody asks for data that is not yet released, government staff will try to respond, and publish it within a month at most. 
+
+But the regions realized that publishing data itself is not enough, they also need to link them in better ways. There is far more knowledge in the data that could get exploited by companies and startups if this knowledge is easily accessible.
+
+The regions also hope to change the culture in administrations in positive ways. Currently many administrations seem to be afraid of opening up data, for example because one could find errors in the public data sets. By showing them that third parties start to use their data in a different, productive way they can slowly change this culture and motivate administrations to release even more data. Providing the right set of technologies that facilitates the open data publishing process also supports this culture change.
+
+### Present and Use Cases
 
 To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by multiple persons working for them. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
 
