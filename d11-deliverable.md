@@ -144,11 +144,13 @@ In this document the prefixes used in [CURIEs](http://www.w3.org/TR/curie/) shal
 | void  | [http://rdfs.org/ns/void#](http://rdfs.org/ns/void#) |
 | xsd    | [http://www.w3.org/2001/XMLSchema\#](http://www.w3.org/2001/XMLSchema)  |
 
+## Stakeholders
+
 | Name                 | Company/Organization         | Role     |
 |----------------------|------------------------------|----------|
-| Marco Combetto       | Informatica Trentina         | Open Data innovation management |
 | Walter Volpi         | Regione Toscana              | Open Data Working Group Regione Toscana |
 | Davide               | Regione Toscana              | Open Data Working Group Regione Toscana |
+| Marco Combetto       | Informatica Trentina         | Open Data innovation management |
 | Francesca Gleria     | Provincia Autonoma di Trento | PAT Open Data Project coordinator |
 | Roberto Pizzicanella | Provincia Autonoma di Trento | PAT Turism and Culture Dept CIO |
 
@@ -164,10 +166,6 @@ The main goal of the Fusepool P3 WP1 is to define use cases with the project par
 >T1.1 - User requirements: identify key stakeholders, conduct in-depth interviews in the tourism related field; map requirements and expectations to functionality and develop use scenarios based on these requirements to form the basis of conceptual and functional test models.
 
 >T1.2 - Identify the data. Select potentially value-adding data sources based on application scenarios and use cases that a) provide a concrete benefit for the public agencies and SMEs, b) are likely to be re-used by others and c) integrate well into the existing Linked Data cloud.
-
-TODO
-
-* Mention other potential stakeholders
 
 ----
 
