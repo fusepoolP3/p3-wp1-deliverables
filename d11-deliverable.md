@@ -217,7 +217,7 @@ The regions also hope to change the culture in administrations in positive ways.
 
 To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by multiple persons working for them. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
 
-As of today both partners provide an open data portal[^ckanret][^ckanpat] based on CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
+As of today both partners provide an open data portal[^ckanret][^ckanpat] based on CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data that gets pushed into the system is the data which is made available to the user.
 
 Currently available open data by PAT and RET is available in particular data formats like CSV, KML, XML and JSON. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. Many of the published open data sets are used in Android or iOS apps aimed at tourists and/or inhabitants of the region. Some of them are written by the project partners, other apps by 3rd party developers which integrate parts of the published open data into their own apps. With every update of the raw data the ETL process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these open data sets and its apps increases.
 
@@ -243,43 +243,43 @@ The terms "semantically meaningful" and "semantically poor" are indicators of ho
 
 This is one of the main remarks when talking with PAT and RET: While a lot of data is available it lacks even the most basic form of relationship between the different data sets. They explained it on the example of Tripadvisor: While they have an impressive dataset for certain kind of data, it is not possible to relate it properly with for example Via Francigena. These are the kind of challenges they would like to see solved with Linked Data and that is where they need support by a tool. 
 
-Another example from PAT and RET shows how this can be useful for app developers and in the end for tourists visiting the regions. To promote local wines both regions provide a website called *Strada del Vino*, where one can find information about specific wines its wineyards. The two websites[^winepat][^wineret] are completely independent of each other and look pretty much different. In PAT there are more websites, among them *VisitTrentino*[^visittrentino], the official website for Trentino tourism and *TasteTrentino*[^tastetrentino], which provide data for *Strada del Vino* as well. Also most of the content is only available in Italian language excluding visitors from other countries which minimal or no Italian skills. Solutions for the future need to support multiple languages; RDF can facilitate this process by providing a data model which supports multiple languages by design.
+Another example from PAT and RET shows how this can be useful for app developers and in the end for tourists visiting the regions. To promote local wines both regions provide a website called *Strada del Vino*, where one can find information about specific wines its wine yards. The two websites[^winepat][^wineret] are completely independent of each other and look pretty much different. In PAT there are more websites, among them *VisitTrentino*[^visittrentino], the official website for Trentino tourism and *TasteTrentino*[^tastetrentino], which provide data for *Strada del Vino* as well. Also most of the content is only available in Italian language excluding visitors from other countries which minimal or no Italian skills. Solutions for the future need to support multiple languages; RDF can facilitate this process by providing a data model which supports multiple languages by design.
 
 ![Strada del Vino Trentino](img/VinoTrentino.png)
 
 From a data perspective, it would probably be quite straightforward to generalize the information that is made available for the tourist. It could consists of:
 
-* Spacial datasets, providing shapes and/or coordinates of
-    - wine yards, cheese makers, apple producers
-    - wine regions
-    - wine cellars, agricultural tours, events
+* Spatial datasets, providing shapes and/or coordinates of
+    - Wine yards, cheese makers, apple producers
+    - Wine regions
+    - Wine cellars, agricultural tours, events
 * Metadata for those data sets like
-    - who provides wine tasting
-    - ratings & prices won by wine yards
-    - pricing, price-ranges
-    - opening hours where appropriate
-    - information about shipping to foreign/overseas countries
-    - import/tax restrictions for foreign countries
-    - information about distributors of this particular wine in foreign countries
+    - Who provides wine tasting
+    - Ratings & prices won by wine yards
+    - Pricing, price-ranges
+    - Opening hours where appropriate
+    - Information about shipping to foreign/overseas countries
+    - Import/tax restrictions for foreign countries
+    - Information about distributors of this particular wine in foreign countries
 * Generic information about wine like
     - Types and explanations of different raisins
     - Characters of wine, related to what is available in the region
     - Some historical context (could be plaintext)
     - Linking a specific wine with certain types of meals
-    - Special offers which are available (obviously liked with where where)
+    - Special offers which are available (obviously liked with where)
     - Information about rare and special wines, for example addressed at wine connoisseur
-    - which wines did Julius Caesar drink while building the Roman Empire
+    - Which wines did Julius Caesar drink while building the Roman Empire
 
 ![Strada del Vino Toscana](img/VinoToscana.png)
 
-*Strada del Vino* in RET and *TasteTrentino* in PAT just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions that provide the necessary data sets. It would also motivate wine yards, farmers, agricultural tour providers, breeders and other tourist facilities to provide more information about thems to get better visibility in the application and thus generate more revenue. Instead of just providing the raw data about them they can and should also link to related content, which is available in the Linked Data Cloud. This will increase the value of POIs and events and, at the same time, enable those POIs and events to return more interesting results to the tourist/consumer of the data and again increasing visibility and outreach for the independent tourist facilities.
+*Strada del Vino* in RET and *TasteTrentino* in PAT just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions that provide the necessary data sets. It would also motivate wine yards, farmers, agricultural tour providers, breeders and other tourist facilities to provide more information about them to get better visibility in the application and thus generate more revenue. Instead of just providing the raw data about them they can and should also link to related content, which is available in the Linked Data Cloud. This will increase the value of POIs and events and, at the same time, enable those POIs and events to return more interesting results to the tourist/consumer of the data and again increasing visibility and outreach for the independent tourist facilities.
 
 ### Datasets and use cases
 
 The use cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. Additional data sets that could be transformed to Linked Open Data are:
 
 * Additional mobility data: Real time data (traffic, bus position etc.), bike sharing, car rental etc.
-* All kind of accomodations
+* All kind of accommodations
 * Museums
 * Recipes from the region
 * Cultural heritage as documented in archives and libraries
@@ -287,7 +287,7 @@ The use cases of Fusepool P3 are not limited to those presented in this document
 * Street index
 * Ski areas
 * Sport facilities
-* Architectural & artististic places
+* Architectural & artistic places
 * Archeological places
 * Libraries
 * Company register
