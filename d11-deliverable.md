@@ -292,7 +292,7 @@ The use cases of Fusepool P3 are not limited to those presented in this document
 * Libraries
 * Company register
 
-Our goal is to support PAT and RET as good as possible in transforming those datasets to Linked Open Data.
+Our goal is to support PAT and RET as good as possible in transforming those datasets to Linked Open Data. The complete list with links to the data set is published in the web[^odatacat].
 
 ### The case for Linked Data
 
@@ -661,6 +661,8 @@ Copyright Fusepool P3 Consortium
 [^goroadmap]: Available at the [homepage](http://www.romanpichler.com/tools/product-roadmap/) of Roman Pichler
 
 [^p3jira]: Public [Fusepool P3 Jira](https://fusepool.atlassian.net/secure/RapidBoard.jspa?rapidView=2&useStoredSettings=true)
+
+[^odatacat]: [Data Register](https://docs.google.com/spreadsheet/pub?key=0Ahbp7Z4WpcsFdEEzaFhLa09ERWowM3hOcG5UcnliU1E&output=html)
 
 [^cc]: See [Creative Commons homepage](http://creativecommons.org/) for more information
 
