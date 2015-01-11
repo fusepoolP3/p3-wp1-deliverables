@@ -20,6 +20,7 @@ Deliverable 1.1
 | v0.11 | Adrian Gschwend | 31.12.2014  | Added introduction, reorganized chapters |
 | v1.0 | Adrian Gschwend | 05.01.2015  | Executive Summary, small fixes      |
 | v1.1 | Adrian Gschwend | 08.01.2015  | Added Motivation based on reviewer feedback  |
+| v1.2 | Adrian Gschwend | 10.01.2015  | Last feedback from reviewers  |
 
 
 
@@ -59,7 +60,7 @@ This work is licensed under the Creative Commons Attribution 4.0 International L
 
 The goal of Fusepool P3 project is to make publishing and processing of open data as linked data easy. For this purpose Fusepool P3 develops a set of software components that integrate seamlessly by well-defined APIs basing on Linked Data Best Practices and the Linked Data Platform standard.
 
-The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and are supporting the development of applications and services in the tourism domain for several months. During this time both partners gained valuable experience in data creation, maintenance and publication.
+The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing open data and are supporting the development of applications and services in the tourism domain for several months. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
 To ensure that the Fusepool P3 platform provides software that solves real world problems and provides added value for present and potential stakeholders, we enter into a dialogue with PAT and RET. This supports us in identifying problems they have in publishing open data and define use cases where Linked Open Data provides an additional value to them and the ultimate user of the data: Tourists visiting the regions.
 
@@ -144,13 +145,13 @@ In this document the prefixes used in [CURIEs](http://www.w3.org/TR/curie/) shal
 | void  | [http://rdfs.org/ns/void#](http://rdfs.org/ns/void#) |
 | xsd    | [http://www.w3.org/2001/XMLSchema\#](http://www.w3.org/2001/XMLSchema)  |
 
-## Stakeholders
+## Stakeholder
 
 | Name                 | Company/Organization         | Role     |
 |----------------------|------------------------------|----------|
 | Walter Volpi         | Regione Toscana              | Open Data Working Group Regione Toscana |
-| Davide               | Regione Toscana              | Open Data Working Group Regione Toscana |
-| Marco Combetto       | Informatica Trentina         | Open Data Innovation Management |
+| Davide Bruno         | Regione Toscana              | Open Data Working Group Regione Toscana |
+| Marco Combetto       | Informatica Trentina (PAT in-house company) | Open Innovation Management and Living Lab Coordinator |
 | Francesca Gleria     | Provincia Autonoma di Trento | PAT Open Data Project Coordinator |
 | Roberto Pizzicanella | Provincia Autonoma di Trento | PAT Tourism and Culture Department CIO |
 
@@ -171,7 +172,7 @@ The main goal of the Fusepool P3 WP1 is to define use cases with the project par
 
 ### Motivation
 
-To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing Open Data and are supporting the development of applications and services in the tourism domain for several months. During this time both partners gained valuable experience in data creation, maintenance and publication.
+To assure that Fusepool P3 creates a real value for the involved project partners and new stakeholders, it is essential to understand their motivation and needs. The Fusepool P3 project partners Provincia Autonoma di Trento (PAT) and Regione Toscana (RET) have been publishing open data[^opendata] and are supporting the development of applications and services in the tourism domain for several months. During this time both partners gained valuable experience in data creation, maintenance and publication.
 
 Public administrations are used to provide services for citizens for a long time. With the introduction of information technology in the seventies, many of these services started to get automated and more centralized. With the advent and later the great the success of the Internet, many administrations now provide vertically focused web portals, mobile apps, etc.
 
@@ -197,19 +198,28 @@ To realize this initiative the administration is using the following tools:
 * Working group composed of competent professionals in the various sectors involved in the project (ICT, lawyers, communicators).
 * License that gives the user the ability to reproduce, distribute, transmit and adapt the data freely even for commercial purposes, provided the source is acknowledged.
 
-With the launch of a new portal called Open Toscana  in September 2014, the administration is also adopting a "dataset on-demand" approach: if somebody asks for data that is not yet released, government staff will try to respond, and publish it within a month at most. 
+With the launch of a new portal called Open Toscana in September 2014, the administration is also adopting a "dataset on-demand" approach: if somebody asks for data that is not yet released, government staff will try to respond, and publish it within a month at most. 
+
+Similar steps were taken within the Trentino Open Data project:
+
+* Guidelines containing general criteria for open data in the Provincia Autonoma di Trento (approved by resolution of the PAT on 27 December 2011, n.2858)
+* Explain to the public what open data is and why it is important.
+* Establish the routes to be taken inside the Trentino System (province, municipalities, public owned companies, other bodies).
+* Define the data format,  required metadata and licenses to be used
+* Startup of the Opendata Trentino project[^ckanpat], leaded by PAT. Involving Informatica Trentina, Trento Rise, FBK and University of Trento; with the aim to provide a platform, establish processes for the selection, management and processing and publishing of data in open.
+* Creation of a PAT working group composed of competent professionals inside PAT in the related field, in order to oversee the overall initiatives (statistics, innovation, legal affairs, etc.)
 
 But the regions realized that publishing data itself is not enough, they also need to link them in better ways. There is far more knowledge in the data that could get exploited by companies and startups if this knowledge is easily accessible.
 
 The regions also hope to change the culture in administrations in positive ways. Currently many administrations seem to be afraid of opening up data, for example because one could find errors in the public data sets. By showing them that third parties start to use their data in a different, productive way they can slowly change this culture and motivate administrations to release even more data. Providing the right set of technologies that facilitates the open data publishing process also supports this culture change.
 
-### Present and Use Cases
+### Use Cases
 
 To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by multiple persons working for them. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
 
-As of today both partners provide an Open Data portal[^ckanret][^ckanpat] based on CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
+As of today both partners provide an open data portal[^ckanret][^ckanpat] based on CKAN[^ckan] repository. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data which gets pushed into the system is the data which is made available to the user.
 
-Currently available open data by PAT and RET is available in particular data formats like CSV, KML, XML and JSON. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. Many of the published Open Data sets are used in Android or iOS apps aimed at tourists and/or inhabitants of the region. Some of them are written by the project partners, other apps by 3rd party developers which integrate parts of the published Open Data into their own apps. With every update of the raw data the ETL process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these Open Data sets and its apps increases.
+Currently available open data by PAT and RET is available in particular data formats like CSV, KML, XML and JSON. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. Many of the published open data sets are used in Android or iOS apps aimed at tourists and/or inhabitants of the region. Some of them are written by the project partners, other apps by 3rd party developers which integrate parts of the published open data into their own apps. With every update of the raw data the ETL process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these open data sets and its apps increases.
 
 In interviews with PAT and RET it became clear, that this is one of the big obstacles of the current approach. There is far more knowledge in these data sets available than what is visible and accessible to the open data developer.
 This is best explained by the example of Via Francigena[^viafrancigena], an ancient road and pilgrim route running from France to Rome. In their geographic information system (GIS) RET collects many point of interest (POI) around this ancient road[^fragis]. This dataset is made available to the public but the data alone does not tell the full story of the POI. 
@@ -224,9 +234,10 @@ From the *Via Francigena* homepage[^viafrancigenahp]:
 
 The key point of the Fusepool P3 use cases is to use Linked Open Data as an enabling technology that can link together tourism data with cultural data and mobility data. Our stakeholders talk about an “Extended Touristic Experience”.
 
-As mentioned before data is available in many different formats. In best case for the app developer the data format is standardized and well supported in ETL tools. Unfortunately this is rarely the case as every data user has his own, mostly proprietary data management tool or application for maintaining it. This can be well seen in the available datasets from the two provinces PAT and RET. There are a few standardized and semantically meaningful data sets in formats like KML[^kml] or Shapefile[^shapefile], which are used for expressing geographic annotation and visualization. In between that there are semantically still quite valuable XML formats. One example is weather data[^weather] about the province, although in a non-standard schema and using Italian identifiers for the XML elements. The vast majority of the data is available in semantically poor data formats like CSV or JSON.
+As mentioned before data is available in many different formats. In best case for the app developer the data format is standardized and well supported in ETL tools. Unfortunately this is rarely the case as every data user has his own, mostly proprietary data management tool or application for maintaining it. This can be well seen in the available datasets from the two provinces PAT and RET. There are a few standardized and semantically meaningful data sets in formats like KML[^kml] or Shapefile[^shapefile], which are used for expressing geographic annotation and visualization. In between that there are semantically still quite valuable XML formats. One example is weather data[^weather] about the province, although in a non-standard schema and using Italian identifiers for the XML elements. The vast majority of the data is available in semantically poor data formats like CSV or JSON (as of 24.11.2014).
 
-TODO insert stats here
+![Open Data Toscana](img/OpenDataToscana.png)
+![Open Data Trentino](img/OpenDataTrentino.png)
 
 The terms "semantically meaningful" and "semantically poor" are indicators of how much work is needed to do something useful within for example a mobile application. Reading, or in app developer terms parsing data in a certain format is just the first and often the easier step. Once the data is in a structure the app developer can handle, she needs to figure out what the data is about, or in other words understand its semantics. This is where the real work starts and this is harder in semantically poor data formats like CSV and JSON, as the indication about what the field value really means is completely up to the one providing the data and if available, often hard to understand for others.
 
@@ -263,12 +274,25 @@ From a data perspective, it would probably be quite straightforward to generaliz
 
 *Strada del Vino* in RET and *TasteTrentino* in PAT just contain of and show a small subset of this data. Not all information might be available as of now but this is mainly related to the fact that it is just too much work to create a proprietary application for each region. Linked Data can change this as every region would use the same schemas for describing the data and an application developer could easily add new regions that provide the necessary data sets. It would also motivate wine yards, farmers, agricultural tour providers, breeders and other tourist facilities to provide more information about thems to get better visibility in the application and thus generate more revenue. Instead of just providing the raw data about them they can and should also link to related content, which is available in the Linked Data Cloud. This will increase the value of POIs and events and, at the same time, enable those POIs and events to return more interesting results to the tourist/consumer of the data and again increasing visibility and outreach for the independent tourist facilities.
 
-### Additional Datasets and use cases
+### Datasets and use cases
 
-The use cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. We present additional data sets that could be transformed to Linked Open Data:
+The use cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. Additional data sets that could be transformed to Linked Open Data are:
 
 * Additional mobility data: Real time data (traffic, bus position etc.), bike sharing, car rental etc.
-* TODO
+* All kind of accomodations
+* Museums
+* Recipes from the region
+* Cultural heritage as documented in archives and libraries
+* Wireless hotspots
+* Street index
+* Ski areas
+* Sport facilities
+* Architectural & artististic places
+* Archeological places
+* Libraries
+* Company register
+
+Our goal is to support PAT and RET as good as possible in transforming those datasets to Linked Open Data.
 
 ### The case for Linked Data
 
@@ -282,7 +306,7 @@ Linked Data addresses some of the mentioned problems users have with Open data. 
 - SPARQL is its standardized querying language.
 - Built-in support for multiple languages by using language-tagged string literals.
 
-The Linked Data technology stack [Bizer2009] provides many ways to interact with data in RDF format [Cyganiak2014]. This greatly reduces the overhead needed to integrate data sets into apps and thus increases the value of Open Data. However, one needs new ETL processes to transform raw data to Linked Data. While it facilitates data usage for app developers, Linked Data requires initially more work by the data owner and publisher.
+The Linked Data technology stack [Bizer2009] provides many ways to interact with data in RDF format [Cyganiak2014]. This greatly reduces the overhead needed to integrate data sets into apps and thus increases the value of open data. However, one needs new ETL processes to transform raw data to Linked Data. While it facilitates data usage for app developers, Linked Data requires initially more work by the data owner and publisher.
 
 In the past years many powerful tools got developed or extended to support creation and maintenance of Linked Data. Also new W3C standards and vocabularies are developed for turning legacy data into Linked Data. Many of these tools and standards are developed, extended or implemented by Fusepool P3 project partners. The emerging Linked Data Platform Standard (LDP)[^ldpprimer] provide standardized means for making collections of linked data resources accessible.
 
@@ -499,7 +523,7 @@ Paul Staroch developed this ontology within his master thesis [Staroch2013]. The
 
 ### Data Provenance
 
-Fusepool P3 is supporting Open Data publishers and users in creating Linked Data. It is important to keep track of the purpose and provenance of the data so both the users and the publishers can keep track of the available data sets.
+Fusepool P3 is supporting open data publishers and users in creating Linked Data. It is important to keep track of the purpose and provenance of the data so both the users and the publishers can keep track of the available data sets.
 
 In the Semantic Web world there are well-established ontologies that support us in this process:
 
@@ -515,7 +539,7 @@ Fusepool P3 does not add any of these information by default. It is the responsi
 
 ### Open Data License
 
-Both PAT and RET decided to use liberal Creative Commons[^cc] licenses. Most of the content for PAT and RET is released under a CC-BY[^ccby] license. For RET this was a decision of a permanent working group, which is in charge of facilitating the process to liberate data as open date in the Regione Toscana. In PAT the working group went as far as defining a law[^patlaw] that requires the use of useful Open Data licenses. Some of the content is also released under CC0[^cc0]. CC0 is basically giving up all rights on the data, from the definition on the Creative Commons homepage:
+Both PAT and RET decided to use liberal Creative Commons[^cc] licenses. Most of the content for PAT and RET is released under a CC-BY[^ccby] license. For RET this was a decision of a permanent working group, which is in charge of facilitating the process to liberate data as open date in the Regione Toscana. In PAT the working group went as far as defining a law[^patlaw] that requires the use of useful open data licenses. Some of the content is also released under CC0[^cc0]. CC0 is basically giving up all rights on the data, from the definition on the Creative Commons homepage:
 
 >The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
 
@@ -537,7 +561,7 @@ In the human readable definition[^odblhr] it clarifies additional statements abo
 
 >Keep open: If you redistribute the database, or an adapted version of it, then you may use technological measures that restrict the work (such as DRM) as long as you also redistribute a version without such measures.
 
-This is a smart move as it clearly encourages using the data for commercial purposes but at the same time requires that changes are released under the same license and restricted versions of the work are also available in a public version. OpenStreetMap was initially using a Creative Commons license but they run into issues they did not think of before and where Creative Commons is not appropriate enough for complete database dumps. These reasons are well outlined in an article at O'Reilly Radar[^osmchange]. As a conclusion, most of the content for PAT and RET can be used under CC-BY or CC0 license, which currently provides one of the best choices for Open Data.
+This is a smart move as it clearly encourages using the data for commercial purposes but at the same time requires that changes are released under the same license and restricted versions of the work are also available in a public version. OpenStreetMap was initially using a Creative Commons license but they run into issues they did not think of before and where Creative Commons is not appropriate enough for complete database dumps. These reasons are well outlined in an article at O'Reilly Radar[^osmchange]. As a conclusion, most of the content for PAT and RET can be used under CC-BY or CC0 license, which currently provides one of the best choices for open data.
 
 ### Fusepool P3 as a Service
 
@@ -560,6 +584,8 @@ One of the feature requests by PAT and RET is to make it easy to discover and so
 Copyright Fusepool P3 Consortium
 
 * * * * *
+
+[^opendata]: See [Open Definition](http://opendefinition.org/od/)
 
 [^ldpprimer]: [Linked Data Platform 1.0 Primer](http://www.w3.org/TR/ldp-primer/)
 
