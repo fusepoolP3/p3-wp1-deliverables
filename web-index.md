@@ -16,7 +16,6 @@
 * https://github.com/fusepoolP3/punditTransformer
 * https://github.com/fusepoolP3/p3-transformer-howto
 * https://github.com/fusepoolP3/p3-pipeline-transformer
-* https://github.com/fusepoolP3/p3-batchrefine-factory-gui
 * https://github.com/fusepoolP3/p3-osm-transformer
 * https://github.com/fusepoolP3/p3-datatxt-stanbol
 * https://github.com/fusepoolP3/p3-bing-translate-transformer
@@ -27,7 +26,6 @@
 * https://github.com/fusepoolP3/p3-geo-enriching-transformer
 * https://github.com/fusepoolP3/p3-batchrefine
 * https://github.com/fusepoolP3/p3-xslt-transformer
-* https://github.com/fusepoolP3/p3-xslt-factory-gui
 * https://github.com/fusepoolP3/p3-dictionary-matcher-transformer
 * https://github.com/fusepoolP3/p3-stanbol-enhancer-adapter
 * https://github.com/fusepoolP3/p3-literal-extraction-transformer
@@ -40,6 +38,8 @@
 * https://github.com/fusepoolP3/p3-resource-gui
 * https://github.com/fusepoolP3/p3-dashboard
 * https://github.com/fusepoolP3/p3-dictionary-matcher-factory-gui
+* https://github.com/fusepoolP3/p3-xslt-factory-gui
+* https://github.com/fusepoolP3/p3-batchrefine-factory-gui
 
 ### Storage components
 
