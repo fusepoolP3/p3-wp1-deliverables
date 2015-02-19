@@ -12,7 +12,6 @@
 ### Transformers
 
 * https://github.com/fusepoolP3/p3-transformer-commons
-* https://github.com/fusepoolP3/p3-transformer-readme
 * https://github.com/fusepoolP3/punditTransformer
 * https://github.com/fusepoolP3/p3-pipeline-transformer
 * https://github.com/fusepoolP3/p3-osm-transformer
@@ -69,6 +68,7 @@
 * https://github.com/fusepoolP3/p3-vocab
 * https://github.com/fusepoolP3/fusepoolp3.github.io
 * https://github.com/fusepoolP3/p3-transformer-howto
+* * https://github.com/fusepoolP3/p3-transformer-readme
 
 ### Other
 
