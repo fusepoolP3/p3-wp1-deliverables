@@ -37,7 +37,6 @@
 
 
 ### Platform
-* https://github.com/fusepoolP3/marmotta
 * https://github.com/fusepoolP3/p3-parent
 * https://github.com/fusepoolP3/p3-platform
 * https://github.com/fusepoolP3/p3-dashboard
