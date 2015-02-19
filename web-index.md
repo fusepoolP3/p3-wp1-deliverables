@@ -17,7 +17,6 @@
 * https://github.com/fusepoolP3/p3-transformer-client-library
 * https://github.com/fusepoolP3/punditTransformer
 * https://github.com/fusepoolP3/p3-transformer-howto
-* https://github.com/fusepoolP3/p3-transformer-doc
 * https://github.com/fusepoolP3/p3-pipeline-transformer
 * https://github.com/fusepoolP3/p3-batchrefine-factory-gui
 * https://github.com/fusepoolP3/p3-osm-transformer
@@ -31,7 +30,6 @@
 * https://github.com/fusepoolP3/p3-batchrefine
 * https://github.com/fusepoolP3/p3-xslt-transformer
 * https://github.com/fusepoolP3/p3-xslt-factory-gui
-* https://github.com/fusepoolP3/p3-transformer-configs
 * https://github.com/fusepoolP3/p3-dictionary-matcher-transformer
 * https://github.com/fusepoolP3/p3-dictionary-matcher-factory-gui
 * https://github.com/fusepoolP3/p3-stanbol-enhancer-adapter
@@ -61,6 +59,7 @@
 
 * https://github.com/fusepoolP3/p3-wp1-deliverables
 * https://github.com/fusepoolP3/overall-architecture
+* https://github.com/fusepoolP3/p3-transformer-configs
 
 ### Other
 * https://github.com/fusepoolP3/skosjs
