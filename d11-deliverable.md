@@ -21,6 +21,9 @@ Deliverable 1.1
 | v1.0 | Adrian Gschwend | 05.01.2015  | Executive Summary, small fixes      |
 | v1.1 | Adrian Gschwend | 08.01.2015  | Added Motivation based on reviewer feedback  |
 | v1.2 | Adrian Gschwend | 10.01.2015  | Last feedback from reviewers  |
+| v1.3 | Adrian Gschwend | 16.03.2015  | Adding use cases based on midterm review feedback |  
+| v1.4 | Adrian Gschwend | 14.04.2015  | More use cases for WWW2015 |  
+
 
 
 
@@ -276,6 +279,8 @@ From a data perspective, it would probably be quite straightforward to generaliz
 
 ### Datasets and use cases
 
+#### Introduction
+
 The use cases of Fusepool P3 are not limited to those presented in this document. However, within the project runtime it is only realistic to work with a subset of data available. Additional data sets that could be transformed to Linked Open Data are:
 
 * Additional mobility data: Real time data (traffic, bus position etc.), bike sharing, car rental etc.
@@ -293,6 +298,134 @@ The use cases of Fusepool P3 are not limited to those presented in this document
 * Company register
 
 Our goal is to support PAT and RET as good as possible in transforming those datasets to Linked Open Data. The complete list with links to the data set is published in the web[^odatacat].
+
+#### Use Cases
+
+##### POI and Events during a certain timeframe
+
+A tourist wants to visits the region. She can visit a web page or app where she enters the place she wants to stay and the time frame. She gets recommendations for Accommodations, Restaurants, Museums and Events during this time frame. This should make it possible to plan her trip more accurately as she might chose a certain town during (or not during) an event taking place. There might be an ICE (In Case of Emergency) button that shows here the nearest pharmacy as well.
+
+During popular events there are usually far more tourists and the prices are higher, which can be a reason to not visit this place at a certain time.
+
+Point for point description:
+
+* Load the demo URL
+* Zoom in/out to find the location she wants to go
+* Tap/drop on the location, this sets a pin on the map
+* Move the pin if necessary
+* Enter a time frame (optional)
+* Click on a "Show more..." button to execute the query
+* Show POIs on the map around the pin
+* If there was no result, give a feedback that nothing was found
+* If there is a result, adjust the query on zoom out so we can see more results
+
+Bonus:
+
+* Show different kind of colors based on what type of result it is (hotel, accommodation, restaurant etc.)
+* Provide a dropdown or alike where I can select which types of result I want to see.
+* Provide a ICE (In case of Emergency) button, which shows the 2-3 nearest pharmacies
+
+##### Address to spatial mapping
+
+Most of the published data sets only provide an address of the point of interest and no geo coordinates with latitude/longitude values. To be able to query those POIs based on a location it is necessary to map them to latitude/longitude values in WGS84 vocabulary. Google is probably the most widely used service to offer this but the terms of use forbid use of the results outside of displaying it on Google Maps. 
+
+Fusepool P3 needs to provide a comparable service, which can be used for any kind of data without any usage restrictions.
+
+Requirements:
+
+* Provide a service that can do this based on any location on the world, preferably on open data like Openstreetmap.
+* If there are better/more complete alternatives with an appropriate license for a specific country/region, it should be possible to use this service instead.
+
+##### Enhancing textual content 
+
+A considerable amount of data is available in plaintext form, for example descriptions about events, people, locations or monuments. Many of these descriptions are only available in Italian language. Some of the data sets provide a certain amount of keywords that can be used for search. Those terms are again mainly available in Italian language and many data sets do not provide any keywords at all.
+
+Performing automated linking to other content can greatly improve searchability of the content, especially when done using data sources like Wikipedia/DBpedia or Wikidata.
+
+Requirements:
+
+* Detect language
+* Interlink content with appropriate Wikipedia/DBpedia terms
+* Perform named entity extraction on custom thesauri/vocabularies if available 
+
+##### Food and Wine
+
+One of many reasons to visit Italy is its culinary offer. During the visit of Italian cities and villages tourists visit many restaurants and get to known to the local cuisine. Many of the specialties that are offered are hard to find outside Italy so tourists want to buy a particular parma ham, parmigiano, wine or salami to take it home.
+
+It is not easy to find a specific wine, cheese or meat in one of the many shops or markets available due to the almost overwhelming choice available. Producers and vendors of those specialties can increase sales when they provide detailed information about the available specialties and their point of sale.
+
+Requirements:
+
+* Provide a list of specialties as a taxonomy TODO, including translations to other languages and short descriptions.
+* Interlink those taxonomies with external datasets like DBpedia or Wikidata.
+* In a second step provide tools which allow producers, sellers, restaurants and hotels to provide additional open data about where the offered specialties can be found.
+
+##### Opening hours
+
+Most of the currently available Open Data in the regions does not provide machine readable opening hours. Schema.org provides the necessary vocabulary to provide this kind of data.
+
+Requirements:
+
+* Provide opening hours as microdata within the web site of the location.
+* Or within within/next to the original data set.
+* In case it is a web site, provide a link to it and harvest microdata on a regular base and integrate it into the platform.
+
+##### Weather forecasts
+
+While some of the tourist locations are always popular no matter what the weather is doing there are others where weather influences if a visit to a certain location is more or less appropriate within a trip. In case of inapt weather there are alternatives which can be proposed to the user.
+
+Requirements:
+
+* Add preferred weather information to point of interests
+* Link to alternatives in case of inapt weather
+* Provide weather forecasts as Linked Data
+
+##### Bologna Tourist Guide L'Ospite di Bologna
+
+Many Italian towns provide printed tourist guides, one example is [L'Ospite di Bologna](http://www.ospitedibologna.it/). This particular guide for the town of Bologna exists since 32 years and provides information about landmarks, museums, events, restaurants and so on. A big part of the information is available in Italian and English language, some only in Italian. The content of the guide is detailed and well written and a valuable source of information for culturally interested tourists.
+
+While the guide does provide addresses, phone numbers and even a small map it is not very appealing for younger tourists which travel with smartphones and tablets. The website itself is not optimized for tablets and smartphones which makes interacting with it very difficult. It also completely lacks any machine readable information as microdata.
+
+By providing all this well maintained content as raw data it could be better integrated:
+
+* Provide latitude/longitude for all point of interests
+* Extract third party keywords (like DBpedia) on the textual content for better interlinking and searchability
+* Translate content to other languages
+* Make events searchable
+* Increase visibility for hotels, restaurants etc.
+
+##### City Point of Interest
+
+Among Italian cities there are fixed point of interest descriptions at various locations. These short descriptions provide information about the specific building or monument. Many of these descriptions are only available in Italian language and thus of limited use for foreign tourists.
+
+They could be made available by the cities with geo location. Other users of the Fusepool P3 platform could translate this information to other languages and integrate them into apps for tourists.
+
+Requirements:
+
+* Provide a list of all point of interests and their descriptions
+* Add spatial information to it
+* Enhance the textual content for better searchability
+
+##### Public Wifi Locations
+
+Among others Florence is providing public Wifi hotspots. This [list of Wifi hotspots](http://dati.toscana.it/dataset/punti-accesso-wifi-citta-metropolitana-di-firenze) should be made available as Linked Data so it can be easily used and integrated by third parties. 
+
+Requirements:
+
+* Transform the available data to Linked Data
+
+##### Museo Galileo di Firenze
+
+The Galileo Museum in Florence is providing a [catalogue of pieces](http://dati.toscana.it/dataset/banca-dati-museo-galileo-strumenti-libri-fotografie-documenti) as Linked Data. The catalogue is not interlinked with external datasets and thus difficult to search and relate to. Interlinking it to external data sources improves searchability of the content.
+
+Requirements:
+
+* Interlink the textual descriptions (mainly titles) with external data sources like Wikipedia/DBpedia, Wikidata and custom thesauri/vocabularies if available
+
+##### OpenExpo2015
+
+TODO add story about [OpenExpo2015](http://dati.openexpo2015.it/) (told by Matteo Brunati, SPAZIO)
+
 
 ### The case for Linked Data
 
