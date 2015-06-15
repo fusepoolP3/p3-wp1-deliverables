@@ -465,16 +465,6 @@ Although Libary Data, and most of the Subject Terminologies are accessible free 
  - Multiple steps needed to process the data, and it should to re-run on updates of the datasets analyzed.
  - Missing tools that can combine multiple steps and different tools into unified workflows.
 
-<!-- Why Fusepool how is the plattform used? --> 
-#### Why Fusepool & Objectives
- <!-- fp3 capabilities --> 
-The platform developed by the FP3 project provides new methods to streamline multiple operations into one workflow.  
-
- `…other key features of FP3 Plattform may be added here`
-
- <!-- introducing the objectives of this usecase --> 
-Hence it is more convenient to reach the objectives, shortly described in the following sections. More technical information about the processing are to be published in [DeliverableXX][]. 
-
 ##### (A) Aggregation of Information from Catalogues, GND and DBpedia 
 <!-- Aggregation of information about and arround concepts to support subject indexing with a more complete view on a topic. -->
 The Authority Files used do provide rich semantics, but the process of manual subject indexing is cumbersome. During indexing a librarian enters an iterative process of learning about a topic. In order to express the contents of a publication with a controlled vocabulary she needs to looks up scope notes and follows semantic trails of a subject headings, she performs searches in different library catalogues and learns about the context by the help of encyclopedias online. While a subject librarian quickly gets the gist of a publication, her work could be drastically supported if she isn't forced to collect information from multiple places. More precisely she has to aggregate the following information by herselfe:
