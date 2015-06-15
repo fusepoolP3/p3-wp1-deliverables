@@ -23,6 +23,8 @@ Deliverable 1.1
 | v1.2 | Adrian Gschwend | 10.01.2015  | Last feedback from reviewers  |
 | v1.3 | Adrian Gschwend | 16.03.2015  | Adding use cases based on midterm review feedback |  
 | v1.4 | Adrian Gschwend | 14.04.2015  | More use cases for WWW2015 |  
+| v1.5 | Johannes Hercher | 08.06.2015 | Use Case: Library Keyword Clustering |
+
 
 
 
@@ -426,6 +428,97 @@ Requirements:
 
 TODO add story about [OpenExpo2015](http://dati.openexpo2015.it/) (told by Matteo Brunati, SPAZIO)
 
+### Large Scale Validation Use Case: Library Keyword Clustering 
+
+#### Introduction <!-- Libraries under pressure and work is'nt recognized --> 
+Libraries are under pressure. With the advent of the Internet most of the metadata of e.g. text books are available through amazon, google scholar, or the publishers itselve, which causes that the usage of library (e-)resources declines. Although librarians put much intellectual effort into the description of contents with controlled vocabularies ([Authority Files][]), their benefits to the end users are rarely visible.
+
+Librarians put much effort into the acquistion and management of library resources. While thousands of librarians are in charge to handle licensing concerns, loan management, cataloguing, and exchange of basic metadata between libraries, they pay only little attention to enhance the intellectual process content description (subject indexing). <!-- Similarly, only few initiatives are known that harness and extend Authorities' semantics to provide new search features that focus on explorative search and browsing tools for the end users (patrons). -->
+<!-- structure of the document goes here --> 
+We organize this report as follows. To underline the importance of the presented usecase we recon the process of subject indexing from a librarians perspective, identify needs, and outline intentions to improve both the librarians' and patrons' situation. We present the recommended developments together with a short analysis of their outcome for the stakeholders, and related them to the necessity of a tool (FP3 plattform), that is capable to consolidate multiple data processing and update tasks in a unified workflow.
+
+#### Librarians perspective  <!-- introducing kate -->
+Kate Tagalot is a subject librarian at a big university library. Most of her work day she decides which books to aquire and  enhances their basic bibliographic metadata (title, author, publication year, etc.) with keywords that describe their contents. Kate's customers highly appreciate her work, because she allows them to find books well organized in [subject categories][], no matter which languages or century they're written in, nor which words their authors use to [describe a topic][]. Kate quickly gets the gist of a publication and translates their contents into a controlled vocabulary, which in turn allows users to easily access all publications relevant to a certain area of interest (topic). The keywords she assigns also support her users in browsing or narrowing down their search. It's noteworthy that every keyword she assigns has a unique identifier, a clear definition, and includes semantic relations (i.e. broader, narrower, or related). To distinguish them from uncontrolled keywords (i.e. Tags) we refer to the term subject heading, or *concept* for short. <!-- in the remainder of this document. --> 
+
+<!--  # Kates Tasks and workflow -->
+When Kate indexes a new Book, she **skimms though** the title, TOC and description of a book to compile a list of potential terms a user could type into the search engine. She **looks up the candidate terms** in the [Authority Files][], e.g. the [catalogue of the national library](http://d-nb.de), to find an uniqe identifier for each keyword. Accordingly, she needs to **read scope notes** and reference materials (e.g. Wikipedia) to get a thorough understanding of their meaning. Also, she tests the choosen concepts on coherence with the previous indexing practice, and looks for similar books to check if their subject headings are useful too. To abide the library's policy she needs to:
+
+ - Pick at least two concepts from the GND-Authority-File (thesaurus) that should have different entity types, i.e. Persons, Locations, Time-aspects, Things or Technologies, and Topics.
+ - Pick at least one Subject-Class from a hierarchical Classification ([RVK][] or [DDC][]).
+<!-- - Build compund chains of keywords to express the contents of the publication. -->
+ - Pick at least one concept from a specialized terminology of the subject area, i.e. she uses [STW][] for business sciences, [MesH][] for biology, [CAS][] for Chemistry, [theSoz][] for social sciences, etc. A comprehensive list of other subject terminologies is retrievable at [BARTOC][].
+ 
+The work she does is not necessarly linear. She might start with searching for similar records, or already knows a subject heading to describe the publication at hand. She might harness the semantic relations of a relevant concept to find related ones or similar books. At any time of the indexing process she looks up unknown words, reads extracts from the publications' contents, and refines her candidates list. All tasks together are best described as iterative process of learning. Not only about the contents of the publication, but the topic itselfe. While she indexes publications she also maintains the [Authority Files][] in collaboration with other university libaries, i.e. extending a subject heading with synonyms or by coining new terms that yet not covered by the Authorities.  <!-- And she may also serendipitously find books to aquire for her subject areas. -->
+<!-- Kate needs assistance --> 
+According to the time and tools she has, the quality of description may vary. Each day Kate indexes around 20 Books, and much of the time she is looking up information from different websites and services. Therefore she wants her IT department to support her with: 
+ 
+  - Aggregation of the semantics, usage and background information of a concept from Wikipedia/DBpedia, library catalogues, and Authority files joined in a single webpage.
+  - Suggestions of possible keywords from the national Authority File ([GND][]), foreign Authorities (e.g. [LCSH][] at the Library of Congress), and concepts from specialized subject thesauruses (e.g. [STW][], [theSoz][], [MesH][] and others).
+  
+<!-- Reasons: Why her IT department refuses the job? -->
+Although Libary Data, and most of the Subject Terminologies are accessible free of charge kate is not able to explore the contexts of her candidate concepts in a systematic way at a single service or central hub. <!-- - access to aggregated information at a single service is needed but, -->  From a technical perspective this has the following reasons:
+ 
+ - Huge Datasets require much computing power but kate has only a small machine at the workplace
+ - Different hubs offer the data using various formats and protocols. 
+  <!-- - Unterschiedliche und konkurrierende Ansätze für Datenmanagement. --> 
+ - Multiple steps needed to process the data, and it should to re-run on updates of the datasets analyzed.
+ - Missing tools that can combine multiple steps and different tools into unified workflows.
+
+<!-- Why Fusepool how is the plattform used? --> 
+#### Why Fusepool & Objectives
+ <!-- fp3 capabilities --> 
+The platform developed by the FP3 project provides new methods to streamline multiple operations into one workflow.  
+
+ `…other key features of FP3 Plattform may be added here`
+
+ <!-- introducing the objectives of this usecase --> 
+Hence it is more convenient to reach the objectives, shortly described in the following sections. More technical information about the processing are to be published in [DeliverableXX][]. 
+
+##### (A) Aggregation of Information from Catalogues, GND and DBpedia 
+<!-- Aggregation of information about and arround concepts to support subject indexing with a more complete view on a topic. -->
+The Authority Files used do provide rich semantics, but the process of manual subject indexing is cumbersome. During indexing a librarian enters an iterative process of learning about a topic. In order to express the contents of a publication with a controlled vocabulary she needs to looks up scope notes and follows semantic trails of a subject headings, she performs searches in different library catalogues and learns about the context by the help of encyclopedias online. While a subject librarian quickly gets the gist of a publication, her work could be drastically supported if she isn't forced to collect information from multiple places. More precisely she has to aggregate the following information by herselfe:
+
+  - About the concept itselfe, i.e. scope notes, semantic relations, concordance to other vocabularies ([DDC][], [RVK][], [STW][], [theSoz][]).
+  - About their meaning, i.e. descriptions, images, maps (geocodes) from Wikipedia/DBpedia.
+  - About the usage and context, i.e. what kind of records link to a certain concept and what concepts appear in conjunction in this record.
+
+Integration of the described information is feasible for technically educated people, since most of the sources publish their data in compliance to the [Linked Open Data Principles][]. Unfortunately, Kate has not the knowledge of e.g. SPARQL to perform complex queries, or to transform the data according to her needs. Also most data providers in the library domain don't update their LOD datasets in a timely manner. For instance The data LOD dump of GND updates twice a year. To get timely updates it is required to access distributed data providers' customized formats (e.g. MARC, MAB, PICA for library records), and transport protocols (e.g. SPARQL, SRU, Z39.50).
+
+In turn this is a complicated situation for a software developer that needs to make sure that everything is in place and updated in a reliable workflow. Also, having the data at a central hub makes it more convenient to access information with less http-requests, and therefore speeds up data intensive apps. Developers might be easily able to build interfaces on the data to browse Authorities.
+
+Within this objective FP3 plattform shows its fittnis to process huge data sets and to integrate data from multiple sources. More precisely a union catalogue for library data ([b3kat](http://lod.b3kat.de)), an Authority File ([GND][]), and data from [DBpedia][]. Transformation and update routines are not implemented, due to their complexity and limited time within the project.
+
+
+
+###### (B) Analyze of coocurrences of concepts (keyword cluster) 
+ 
+ <!-- …nach oben !! coocurrence
+but get a holistic view on   a concepts' context. Coocurrence Analysis of Concepts / Keywords helps cataloguers to gain insight on how a concept may be used with supplementary keywords. An immediate access to clusters of related concepts can be used for verifying and extending the clusters' members with further semantic relations, such as `skos:related`, `skos:narrower`, or matches to concepts from other terminologies. The intended clusters can be also used to build new recommendation services, that support libraries' patrons in exploratory search strategies. 
+  --> 
+ 
+The main goal of this objective is the generation of new semantic relations between kewords (concepts) based on their coocurrence in multiple records of a union catalogue ([b3kat](http://lod.b3kat.org)). To find coocurrent concepts we gather records that have a certain concept (e.g. ["Hanns Eissler"](gnd:118529692) or ["states and music"](loc:sh85088892) attached (as `dc:subject`). We collect all occuring concepts from the result set. The count of appearance relative to the base-concept measures the distance between both concepts (cf. [figure below](#keywordcluster_bsp)).
+
+![Example Keyword Cluster (red relations) generated from coocurence of keywords at one record ][keywordcluster_bsp]
+
+[keywordcluster_bsp]: img/keywordCluster_Bsp.png "Example Keyword Cluster (red relations) generated from coocurence of subject headings "
+
+ <!-- Benefits of cooc analysis --> 
+Coocurrence analysis of concepts helps cataloguers to gain insight on how  to enrich a record with supplementary concepts, and is reasonably computed in advance. <!-- The [b3kat](http://lod.b3kat.org) has 26 mill records from 180 scientific libraries located in Bavaria, Berlin und Brandenburg. The set has ~890 mill Tripel and a size of ~7,7GB. All data is CC0 an available trough a [public sparql endpoint ](http://lod.b3kat.de/doc/de/sparql-endpoint/). -->  <!-- Also, the type of concept-identifier is retained (i.e. DDC, RVK, GND, LOC, ISBN, or plain text), to allow specific selection of certain concepts lateron. --> The dotted lines show subject headings as candidates to enrich the records connected. Coocurrence relations may be also used to:
+
+ - **Enhance and verify exisiting relations**: Coocurrence relations of a certain degree may be selected for analysis by a domain expert, in order to compile new curated relations between the concepts (i.e. relations for narrower, broader, related relationships).
+ - **Suggest Concepts that strongly occur together** to expand search strategies. For instance a search for Goethe could suggest keywords such as authors or topics from the respective context.
+ - **Building concordance between concepts**: Coocurrences between concepts stemming from different terminologies/thesauri are usable to find candidates for alignment. It's also possible to suggest them during the subject indexing process to enrich the records.
+
+###### (C) Build word-context's per concept.
+To get a faster understanding about the semantics of a concept, it is useful to have an holistic overview about the <!-- refered as FRAME in linguistics! -->  words/terms used in conjunction with an identifier. Descriptive texts such as titles, abstracts, TOC's provide a viable source for this kind of word field analysis. We collect the records indexed with a particular concept and save descriptive texts into a *word-context-bag*. Afterwards we analyze the bag with Named Entity (NER) and Named Entiy Linking (NEL) tools, to spot entities. The count of occurrence of each term is retained as well as the type of each spotted entity (e.g. by: Person, Place, Time, Topic...). The word context (WC) is usable to: <!-- Benefits of Word Context building --> 
+
+  - **Examine semantics of a concept**: During the indexing process librarians need <!-- to have a thorough understanding of the semantics of a concept, --> to decide if a particular subject heading suits to describe a certain topic. WC's can complement well-established concept relations to convey a better picture of a subject area. 
+  - **Enrich Authoritiy Files**: WC's may be a viable source to find missing vocabulary, i.e. terms that aren't attached to a certain concept (i.e. as synonyms). Also, they may be of relevance to *coin new concepts*, if a WC contains specialized terms that are not covered by the Authorities. 
+  - **Suggest Concepts based on text input** If an abstracts' word context  overlapps with the word context of a particular concept, this concept is a possible index term for the record at hand.   
+  - **Suggest Concepts based on coocurence relations**: Because concepts coocur together with a certain degree this unveils new possibilities to search the library catalogue. For instance a search for "Goethe" may suggest keywords like: "Schiller, Weimar, or linguistics". The strenght of coocurence is usable to adjust the suggestions, based on their closeness to each other.  <!-- maybe insert a figure to express? --> 
+
+#### Conclusion 
+Libraries want to be competive to search engines on the web. Concerning new search features and to support resource intensive subject indexing we plan to (a) collect complementary information, (b) compute coocurrences, and (c) build word contexts of library keywords. The key challenge is to aggregate and transform distributed information from various locations in several steps, which is cumbersome if it comes to updates in the collaborative environment. The FP3 plattform consolidates the access to different datasources, computing-, and transformation steps into a unified workflow that is maintainable, and can re-run on a regular basis. The process should run without intervention of the libraries' IT staff after setup, hence making the described intentions more viable.
 
 ### The case for Linked Data
 
@@ -819,3 +912,34 @@ Copyright Fusepool P3 Consortium
 [^ci]: See [Wikipedia](http://en.wikipedia.org/wiki/Continuous_integration)
 
 [^travisci]: Available at [travis-ci.org](https://travis-ci.org/)
+
+[RVK]: #        "Regensburger Verbund Klassfikation / A widely used Classification german libraries." 
+
+[DDC]: #        "Dewey Decimal Classification"
+
+[subject categories]: #      "A set of controlled terms to define a area of interrest. See also: Vocabulary, Terminology, Classification."
+
+[GNDcat]: http://d-nb.de      "German National Library Catalogue"
+
+[GND]: http://en.wikipedia.org/wiki/Integrated_Authority_File      "German Integrated Authority File (Gemeinsame Normdatei), hosted by the German National Library."
+
+
+[describe a topic]: #      "her work is important because there are endles possibilities to describe the extend of a topic by means of the language."
+
+[Authority Files]: #      "Authority Files are Lists of controlled keywords with unique identifiers (cf. concepts). For instance the Library of Congress Subject Headings (LCSH) and German National Library Concepts (GND) are good examples. Usually there are certain types of identifiers available such persons, organisations, topics, and places."
+
+[LCSH]: http://id.loc.gov/authorities/subjects.html      "Library of Congress Subject Headings"
+
+[Concept]: #        "We refer to Concepts as Keywords that can be traced with a dereferencable identifier. Often, concepts have semantic relations attached and are defined with scope notes about their usage for subject indexing."
+
+[STW]: http://zbw.eu/stw/      "STW Thesaurus for Economics"
+[MesH]: https://www.nlm.nih.gov/mesh/      "Medical Subject Headings"
+[theSoz]: http://www.gesis.org/en/services/research/thesauri-und-klassifikationen/social-science-thesaurus/      "Thesaurus for the Social Sciences"
+[CAS]: https://www.cas.org/content/chemical-substances      "CAS Registry Number"
+[BARTOC]: http://bartoc.org      "BAsel Register of Thesauri, Ontologies & Classifications"
+[IPTC Topic Codes]: https://iptc.org/standards/media-topics/      "Subject Taxonomy for the Media"
+
+[Linked Open Data Principles]: http://linkeddatabook.com/editions/1.0/      "Tom Heath and Christian Bizer (2011) Linked Data: Evolving the Web into a Global Data Space (1st edition). Synthesis Lectures on the Semantic Web: Theory and Technology, 1:1, 1-136. Morgan & Claypool."
+
+
+[DBpedia]: http://dbpedia.org      "DBpedia is a crowd-sourced community effort to extract structured information from Wikipedia and make this information available on the Web."
