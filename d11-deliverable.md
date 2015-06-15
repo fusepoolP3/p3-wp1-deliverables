@@ -24,6 +24,7 @@ Deliverable 1.1
 | v1.3 | Adrian Gschwend | 16.03.2015  | Adding use cases based on midterm review feedback |  
 | v1.4 | Adrian Gschwend | 14.04.2015  | More use cases for WWW2015 |  
 | v1.5 | Johannes Hercher | 08.06.2015 | Use Case: Library Keyword Clustering |
+| v1.6 | Adrian Gschwend | 15.06.2015  | Moved Developement Roadmap to Appendix A  |  
 
 
 
@@ -540,7 +541,128 @@ What is lacking is an integration framework that combines the data transformatio
 
 This framework will integrate state-of-the-art tools like OpenRefine, OpenLink Virtuoso, Apache Stanbol, and Pundit. The framework is developed and tested based on the requirements by our project partners PAT and RET. Both partners have started working with the platform in an early stage and feedback gets directly integrated into the agile development process of Fusepool P3.
 
-### Fusepool P3 Development Roadmap
+## Data Modeling
+
+>T1.3 - Model the data: Identify existing ontologies/vocabularies to model the data, agree on standard structural and descriptive metadata, and define data models that reuse existing approaches and schemas to model relational and other data sources. 
+
+PAT and RET do not have much experience with RDF. There are a few datasets available in RDF but they use their own, ad-hoc schema and are thus of limited use and not actively maintained. To facilitate the process of creating RDF out of the other sources, they asked to get support in choosing and using the right schemas and ontologies.
+
+Finding the most appropriate vocabulary, schema or ontology can be tricky. There is not necessarily one single right answer, as there are often multiple competing ontologies available. In this chapter we present different ontologies which are an appropriate choice for the data provided by PAT and RET. If there is more than one option available for describing a certain data set, we chose the one with the biggest adoption in the real world.
+
+### schema.org 
+
+In 2011 several search engine giants launched schema.org[^schemaorg], an initiative to "create and support a common set of schemas for structured data markup on web pages". The Semantic Web community first criticized this effort but the involved parties started talking with each other and later several people from the Semantic Web community started providing a "proper" RDF mapping[^schemardf]. Meanwhile schema.org seems to use "a simple RDF-like graph data model" and exposes its schema as RDFa[^rdfa]. However, there is no content negotiation[^contentneg] in place and the only language available for description of classes and labels is English.
+
+Looking back three years schema.org had a huge impact, many sites started to include structured information within their websites and the support of first RDFa and later JSON-LD[^jsonld] made people use Semantic Web technologies without being really aware of it. This increases visibility and perception of the Semantic Web as a whole.
+
+Using schema.org within Fusepool P3 as one of the main schemas makes sense for various reasons:
+
+* Its popularity for search engine optimization (SEO) makes it well known. Most web- and application developers probably heard of it already or even use it.
+* Due to its SEO origin, schema.org provides a lot of classes and properties in the tourism related field. Examples:
+    - [Restaurant](http://schema.org/Restaurant)
+    - [Opening hours](http://schema.org/OpeningHoursSpecification)
+    - [Museum](http://schema.org/Museum)
+    - [Place](http://schema.org/Place)
+    - [Pharmacy](http://schema.org/Pharmacy)
+    - [telephone](http://schema.org/telephone)
+    - [Postal address](http://schema.org/PostalAddress)
+* There are mappings available for other popular schemas[^sorgmap1][^sorgmap2].
+* While the descriptions are only available in English, they are pretty understandable and well maintained. This is not always the case in the schema world.
+
+One of the wishes from PAT and RET is to provide Italian translations for at least the classes and properties which are useful within the Fusepool P3 use scenarios. This can surely be done within our Fusepool P3 platform and during the second year of Fusepool P3 it might make sense to talk to schema.org maintainers and see if those translations could be made available for others. According to discussions with schema.org team members there is no effort so far in translating schema.org to other languages. However, they are interested in discussing integration of such translations, although they said that schema.org is a moving target and can and will change in the future.
+
+While schema.org defines a lot, it is not sufficient for all data currently available by PAT and RET. Also in some domains other schemas are more popular so it does make sense to use them as well within the Fusepool P3 platform.
+
+### WGS84 Geographical Positioning Model
+
+To represent positions, the most widely used standard in cartography, geodesy, and navigation is World Geodetic System (WGS). Its most recent version is WGS 84[^wgs84]. There is an RDF representation available which is widely used in the Semantic Web world, called "WGS84 Geo Positioning: an RDF vocabulary"[^wgs84rdf]. It provides definitions like:
+
+* SpatialThing
+* location
+* latitude, longitude (or a combination of both)
+* altitude 
+
+There is a competing definition available in schema.org[^schemageo] but within Fusepool P3 we will focus on the W3C namespace.
+
+To be able to query point of interests it is essential that they represent a geo coordinate. If there is no latitude/longitude value available, the data should be enriched within the Fusepool P3 pipeline so it can be queried properly. For querying this data we use GeoSPARQL[^geosparql] or comparable (non-standard) services provided by the triplestore.
+
+### Geographical Shapes
+
+There are several data sets available that provide geographical shapes, for example Geography Markup Language (GML). Transforming data sets like this to RDF is a relatively new field and it generates some interesting questions especially in regard to the way shapes are represented in triples. Fusepool P3 is using existing work to translate such data to RDF, like the XSLT based transformation described[^gml2rdf] in the GML2RDF paper [Brink2014].
+
+The first version of GML was represented in RDF, after that it became a XML format and schema. The work described in this paper appears to be a proof of concept, several namespaces do not seem to support proper content negotiation and/or return a RDF schema.
+
+Virtuoso also supports transforming KML to RDF. The Virtuoso KML Transformer extracts `Placemark` features capturing their name, description and `Point` attributes. The `Point` attribute specifies a longitude, latitude and optional altitude. The transformer also extracts any custom data attached to a placemark through `ExtendedData elements. It is important to remark that these elements are proprietary and we cannot do more than expose them within another Fusepool proprietary predicate. They need to be changed to a more useful predicate by another transformer within the Fusepool P3 platform.
+
+### Annotators
+
+The Fusepool P3 Annotation Model is used by all Annotator implementations of the Fusepool Platform. Annotators and transformers together build the components of the Transformation API.
+
+An introduction to this model can be found in deliverable D5.1, the final specification of FAM is presented as part of deliverable D3.1. An online documentation of the model can be found in the corresponding Github repository[^famgh].
+
+### Public Transportation Schedules
+
+Information about public transportation schedules and associated geographic information is made available in the General Transit Feed Specification (GTFS)[^gtfsgg]. GTFS "feeds" allow public transit agencies to publish their transit data and developers to write applications that consume that data in an interoperable way.
+
+A GTFS feed is a collection of CSV files in a common format. There are several transformers available that convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification; it is available at `vocab.gtfs.org`[^gtfs].
+
+### Weather Information Representation
+
+Surprisingly it seems to be particularly hard to find a widely used ontology that is suitable for weather information representation. We found several examples of weather representations in RDF but most of them use ad-hoc vocabularies. After asking around in the Semantic Web scene we could identify an OWL ontology by using the LOV[^lov] search functionality.
+
+Paul Staroch developed this ontology within his master thesis [Staroch2013]. The thesis, a presentation and the ontology itself is available at his homepage[^staroch]. The ontology makes a very complete impression and is to our knowledge currently the best choice for representing weather data in RDF. In LUV we could find two ontologies, one within the `www.auto.tuwien.ac.at` namespace. From what we can see this seems to be an earlier, incomplete version of the Smart Home Weather ontology and should not be used. The most recent version can be found at `http://paul.staroch.name/thesis/SmartHomeWeather.owl#`. Unfortunately we could not reach the author to verify this.
+
+### Data Provenance
+
+Fusepool P3 is supporting open data publishers and users in creating Linked Data. It is important to keep track of the purpose and provenance of the data so both the users and the publishers can keep track of the available data sets.
+
+In the Semantic Web world there are well-established ontologies that support us in this process:
+
+* VoID[^void] is used for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets.
+* Prov[^prov] can be used to represent and interchange provenance information generated in different systems and under different contexts.
+* DCAT[^dcat] facilitates interoperability between data catalogs published on the web. Publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs.
+
+Fusepool P3 does not add any of these information by default. It is the responsibility of the user to add specific information to the data describing its use and provenance. Automatically adding specific metadata to the triples was discussed within developers but is currently not supported in the platform. However, it might be added in the future where appropriate and feasible.
+
+## Data Preparation
+
+>T1.4 - Prepare the data: Adopt and implement consistent representations of data resources along with their human and machine readable descriptions, evaluate and specify appropriate data publication licenses as well as appropriate hosting solutions and regular maintenance intervals.
+
+### Open Data License
+
+Both PAT and RET decided to use liberal Creative Commons[^cc] licenses. Most of the content for PAT and RET is released under a CC-BY[^ccby] license. For RET this was a decision of a permanent working group, which is in charge of facilitating the process to liberate data as open date in the Regione Toscana. In PAT the working group went as far as defining a law[^patlaw] that requires the use of useful open data licenses. Some of the content is also released under CC0[^cc0]. CC0 is basically giving up all rights on the data, from the definition on the Creative Commons homepage:
+
+>The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
+
+>You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+
+CC-BY is still a very liberal license and allows to share and/or adapt the data for any purpose, even commercially. However:
+
+>You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+
+PAT is currently investigating about an issue to be compatible with OpenStreetMap[^osm], which is using the ODbL[^odbl] license. This license is comparable with CC-BY, from the OpenStreetMap homepage:
+
+>You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence. 
+
+In the human readable definition[^odblhr] it clarifies additional statements about adapting and using the work:
+
+>Attribute: You must attribute any public use of the database, or works produced from the database, in the manner specified in the ODbL. For any use or redistribution of the database, or works produced from it, you must make clear to others the license of the database and keep intact any notices on the original database.
+
+>Share-Alike: If you publicly use any adapted version of this database, or works produced from an adapted database, you must also offer that adapted database under the ODbL.
+
+>Keep open: If you redistribute the database, or an adapted version of it, then you may use technological measures that restrict the work (such as DRM) as long as you also redistribute a version without such measures.
+
+This is a smart move as it clearly encourages using the data for commercial purposes but at the same time requires that changes are released under the same license and restricted versions of the work are also available in a public version. OpenStreetMap was initially using a Creative Commons license but they run into issues they did not think of before and where Creative Commons is not appropriate enough for complete database dumps. These reasons are well outlined in an article at O'Reilly Radar[^osmchange]. As a conclusion, most of the content for PAT and RET can be used under CC-BY or CC0 license, which currently provides one of the best choices for open data.
+
+### Fusepool P3 as a Service
+
+In discussions with PAT and RET it became clear that they do not intend to compile and run development versions of the Fusepool P3 platform on their own. To make sure they can test the platform on a regular base and give feedback to the developers, the Fusepool P3 team provides a public version of the platform[^sandbox]. This version is used by the Fusepool P3 team, PAT and RET and in 2015 also by other stakeholders which will be involved with the project.
+
+It is also important to make sure that developers can run their own versions of the platform. But not everyone wants to compile the whole stack on his own; for that reason the Fusepool P3 team decided to use continuous integration[^ci] tools available on the Github platform, which are using Travis CI[^travisci] in the background. New releases of the software are automatically built by Travis CI and made available as binary on Github.
+
+One of the feature requests by PAT and RET is to make it easy to discover and source data from CKAN open data portals into Fusepool P3. Within Q2 we will evaluate the complexity of this feature and implement it if feasible.
+
+## Appendix A: Fusepool P3 Development Roadmap
 
 Fusepool P3 aims at bringing the presented use cases into the reality. To do this we need to make sure that the platform provides the necessary features and usability so that PAT, RET and other stakeholders can use the Fusepool P3 platform in their environment. 
 
@@ -676,126 +798,6 @@ Metrics:
 * Stable release of the P3 platform
 * Fusepool P3 is used outside the P3 consortium
 
-## Data Modeling
-
->T1.3 - Model the data: Identify existing ontologies/vocabularies to model the data, agree on standard structural and descriptive metadata, and define data models that reuse existing approaches and schemas to model relational and other data sources. 
-
-PAT and RET do not have much experience with RDF. There are a few datasets available in RDF but they use their own, ad-hoc schema and are thus of limited use and not actively maintained. To facilitate the process of creating RDF out of the other sources, they asked to get support in choosing and using the right schemas and ontologies.
-
-Finding the most appropriate vocabulary, schema or ontology can be tricky. There is not necessarily one single right answer, as there are often multiple competing ontologies available. In this chapter we present different ontologies which are an appropriate choice for the data provided by PAT and RET. If there is more than one option available for describing a certain data set, we chose the one with the biggest adoption in the real world.
-
-### schema.org 
-
-In 2011 several search engine giants launched schema.org[^schemaorg], an initiative to "create and support a common set of schemas for structured data markup on web pages". The Semantic Web community first criticized this effort but the involved parties started talking with each other and later several people from the Semantic Web community started providing a "proper" RDF mapping[^schemardf]. Meanwhile schema.org seems to use "a simple RDF-like graph data model" and exposes its schema as RDFa[^rdfa]. However, there is no content negotiation[^contentneg] in place and the only language available for description of classes and labels is English.
-
-Looking back three years schema.org had a huge impact, many sites started to include structured information within their websites and the support of first RDFa and later JSON-LD[^jsonld] made people use Semantic Web technologies without being really aware of it. This increases visibility and perception of the Semantic Web as a whole.
-
-Using schema.org within Fusepool P3 as one of the main schemas makes sense for various reasons:
-
-* Its popularity for search engine optimization (SEO) makes it well known. Most web- and application developers probably heard of it already or even use it.
-* Due to its SEO origin, schema.org provides a lot of classes and properties in the tourism related field. Examples:
-    - [Restaurant](http://schema.org/Restaurant)
-    - [Opening hours](http://schema.org/OpeningHoursSpecification)
-    - [Museum](http://schema.org/Museum)
-    - [Place](http://schema.org/Place)
-    - [Pharmacy](http://schema.org/Pharmacy)
-    - [telephone](http://schema.org/telephone)
-    - [Postal address](http://schema.org/PostalAddress)
-* There are mappings available for other popular schemas[^sorgmap1][^sorgmap2].
-* While the descriptions are only available in English, they are pretty understandable and well maintained. This is not always the case in the schema world.
-
-One of the wishes from PAT and RET is to provide Italian translations for at least the classes and properties which are useful within the Fusepool P3 use scenarios. This can surely be done within our Fusepool P3 platform and during the second year of Fusepool P3 it might make sense to talk to schema.org maintainers and see if those translations could be made available for others. According to discussions with schema.org team members there is no effort so far in translating schema.org to other languages. However, they are interested in discussing integration of such translations, although they said that schema.org is a moving target and can and will change in the future.
-
-While schema.org defines a lot, it is not sufficient for all data currently available by PAT and RET. Also in some domains other schemas are more popular so it does make sense to use them as well within the Fusepool P3 platform.
-
-### WGS84 Geographical Positioning Model
-
-To represent positions, the most widely used standard in cartography, geodesy, and navigation is World Geodetic System (WGS). Its most recent version is WGS 84[^wgs84]. There is an RDF representation available which is widely used in the Semantic Web world, called "WGS84 Geo Positioning: an RDF vocabulary"[^wgs84rdf]. It provides definitions like:
-
-* SpatialThing
-* location
-* latitude, longitude (or a combination of both)
-* altitude 
-
-There is a competing definition available in schema.org[^schemageo] but within Fusepool P3 we will focus on the W3C namespace.
-
-To be able to query point of interests it is essential that they represent a geo coordinate. If there is no latitude/longitude value available, the data should be enriched within the Fusepool P3 pipeline so it can be queried properly. For querying this data we use GeoSPARQL[^geosparql] or comparable (non-standard) services provided by the triplestore.
-
-### Geographical Shapes
-
-There are several data sets available that provide geographical shapes, for example Geography Markup Language (GML). Transforming data sets like this to RDF is a relatively new field and it generates some interesting questions especially in regard to the way shapes are represented in triples. Fusepool P3 is using existing work to translate such data to RDF, like the XSLT based transformation described[^gml2rdf] in the GML2RDF paper [Brink2014].
-
-The first version of GML was represented in RDF, after that it became a XML format and schema. The work described in this paper appears to be a proof of concept, several namespaces do not seem to support proper content negotiation and/or return a RDF schema.
-
-Virtuoso also supports transforming KML to RDF. The Virtuoso KML Transformer extracts `Placemark` features capturing their name, description and `Point` attributes. The `Point` attribute specifies a longitude, latitude and optional altitude. The transformer also extracts any custom data attached to a placemark through `ExtendedData elements. It is important to remark that these elements are proprietary and we cannot do more than expose them within another Fusepool proprietary predicate. They need to be changed to a more useful predicate by another transformer within the Fusepool P3 platform.
-
-### Annotators
-
-The Fusepool P3 Annotation Model is used by all Annotator implementations of the Fusepool Platform. Annotators and transformers together build the components of the Transformation API.
-
-An introduction to this model can be found in deliverable D5.1, the final specification of FAM is presented as part of deliverable D3.1. An online documentation of the model can be found in the corresponding Github repository[^famgh].
-
-### Public Transportation Schedules
-
-Information about public transportation schedules and associated geographic information is made available in the General Transit Feed Specification (GTFS)[^gtfsgg]. GTFS "feeds" allow public transit agencies to publish their transit data and developers to write applications that consume that data in an interoperable way.
-
-A GTFS feed is a collection of CSV files in a common format. There are several transformers available that convert GTFS to RDF, one of them is integrated by Virtuoso and used within the Fusepool P3 platform. While there is no official RDF schema from Google some volunteers created an RDF specification; it is available at `vocab.gtfs.org`[^gtfs].
-
-### Weather Information Representation
-
-Surprisingly it seems to be particularly hard to find a widely used ontology that is suitable for weather information representation. We found several examples of weather representations in RDF but most of them use ad-hoc vocabularies. After asking around in the Semantic Web scene we could identify an OWL ontology by using the LOV[^lov] search functionality.
-
-Paul Staroch developed this ontology within his master thesis [Staroch2013]. The thesis, a presentation and the ontology itself is available at his homepage[^staroch]. The ontology makes a very complete impression and is to our knowledge currently the best choice for representing weather data in RDF. In LUV we could find two ontologies, one within the `www.auto.tuwien.ac.at` namespace. From what we can see this seems to be an earlier, incomplete version of the Smart Home Weather ontology and should not be used. The most recent version can be found at `http://paul.staroch.name/thesis/SmartHomeWeather.owl#`. Unfortunately we could not reach the author to verify this.
-
-### Data Provenance
-
-Fusepool P3 is supporting open data publishers and users in creating Linked Data. It is important to keep track of the purpose and provenance of the data so both the users and the publishers can keep track of the available data sets.
-
-In the Semantic Web world there are well-established ontologies that support us in this process:
-
-* VoID[^void] is used for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets.
-* Prov[^prov] can be used to represent and interchange provenance information generated in different systems and under different contexts.
-* DCAT[^dcat] facilitates interoperability between data catalogs published on the web. Publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs.
-
-Fusepool P3 does not add any of these information by default. It is the responsibility of the user to add specific information to the data describing its use and provenance. Automatically adding specific metadata to the triples was discussed within developers but is currently not supported in the platform. However, it might be added in the future where appropriate and feasible.
-
-## Data Preparation
-
->T1.4 - Prepare the data: Adopt and implement consistent representations of data resources along with their human and machine readable descriptions, evaluate and specify appropriate data publication licenses as well as appropriate hosting solutions and regular maintenance intervals.
-
-### Open Data License
-
-Both PAT and RET decided to use liberal Creative Commons[^cc] licenses. Most of the content for PAT and RET is released under a CC-BY[^ccby] license. For RET this was a decision of a permanent working group, which is in charge of facilitating the process to liberate data as open date in the Regione Toscana. In PAT the working group went as far as defining a law[^patlaw] that requires the use of useful open data licenses. Some of the content is also released under CC0[^cc0]. CC0 is basically giving up all rights on the data, from the definition on the Creative Commons homepage:
-
->The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
-
->You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
-
-CC-BY is still a very liberal license and allows to share and/or adapt the data for any purpose, even commercially. However:
-
->You must give appropriate credit, provide a link to the license, and indicate if changes were made.
-
-PAT is currently investigating about an issue to be compatible with OpenStreetMap[^osm], which is using the ODbL[^odbl] license. This license is comparable with CC-BY, from the OpenStreetMap homepage:
-
->You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence. 
-
-In the human readable definition[^odblhr] it clarifies additional statements about adapting and using the work:
-
->Attribute: You must attribute any public use of the database, or works produced from the database, in the manner specified in the ODbL. For any use or redistribution of the database, or works produced from it, you must make clear to others the license of the database and keep intact any notices on the original database.
-
->Share-Alike: If you publicly use any adapted version of this database, or works produced from an adapted database, you must also offer that adapted database under the ODbL.
-
->Keep open: If you redistribute the database, or an adapted version of it, then you may use technological measures that restrict the work (such as DRM) as long as you also redistribute a version without such measures.
-
-This is a smart move as it clearly encourages using the data for commercial purposes but at the same time requires that changes are released under the same license and restricted versions of the work are also available in a public version. OpenStreetMap was initially using a Creative Commons license but they run into issues they did not think of before and where Creative Commons is not appropriate enough for complete database dumps. These reasons are well outlined in an article at O'Reilly Radar[^osmchange]. As a conclusion, most of the content for PAT and RET can be used under CC-BY or CC0 license, which currently provides one of the best choices for open data.
-
-### Fusepool P3 as a Service
-
-In discussions with PAT and RET it became clear that they do not intend to compile and run development versions of the Fusepool P3 platform on their own. To make sure they can test the platform on a regular base and give feedback to the developers, the Fusepool P3 team provides a public version of the platform[^sandbox]. This version is used by the Fusepool P3 team, PAT and RET and in 2015 also by other stakeholders which will be involved with the project.
-
-It is also important to make sure that developers can run their own versions of the platform. But not everyone wants to compile the whole stack on his own; for that reason the Fusepool P3 team decided to use continuous integration[^ci] tools available on the Github platform, which are using Travis CI[^travisci] in the background. New releases of the software are automatically built by Travis CI and made available as binary on Github.
-
-One of the feature requests by PAT and RET is to make it easy to discover and source data from CKAN open data portals into Fusepool P3. Within Q2 we will evaluate the complexity of this feature and implement it if feasible.
 
 ## References
 
