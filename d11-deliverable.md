@@ -24,7 +24,7 @@ Deliverable 1.1
 | v1.3 | Adrian Gschwend | 16.03.2015  | Adding use cases based on midterm review feedback |  
 | v1.4 | Adrian Gschwend | 14.04.2015  | More use cases for WWW2015 |  
 | v1.5 | Johannes Hercher | 08.06.2015 | Use Case: Library Keyword Clustering |
-| v1.6 | Adrian Gschwend | 15.06.2015  | Moved Developement Roadmap to Appendix A  |  
+| v1.6 | Adrian Gschwend | 15.06.2015  | Moved Development Roadmap to Appendix A  |  
 
 
 
@@ -219,7 +219,7 @@ But the regions realized that publishing data itself is not enough, they also ne
 
 The regions also hope to change the culture in administrations in positive ways. Currently many administrations seem to be afraid of opening up data, for example because one could find errors in the public data sets. By showing them that third parties start to use their data in a different, productive way they can slowly change this culture and motivate administrations to release even more data. Providing the right set of technologies that facilitates the open data publishing process also supports this culture change.
 
-### Use Cases
+### Stakeholders
 
 To answer the questions risen in T1.1 we had to enter into a dialogue with PAT and RET to understand what, why and how they publish open data about their provinces. The provinces are represented by multiple persons working for them. All of them are at the end of the publishing chain and responsible for publishing data sets from other divisions and groups as open data. Changes in the data sets can be requested but our partners have limited influence on if and how fast this will happen. All of them work with IT and have a profound technical understanding of what is needed to publish open data. While they do see the potential, they do not have a lot of hands-on experience with Linked Data yet; this is one of the motivations for them to be partner in Fusepool P3.
 
