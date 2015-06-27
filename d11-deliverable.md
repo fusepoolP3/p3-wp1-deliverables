@@ -470,6 +470,11 @@ Integration of the described information is feasible for technically educated pe
 
 In turn this is a complicated situation for a software developer that needs to make sure that everything is in place and updated in a reliable workflow. Also, having the data at a central hub makes it more convenient to access information with less http-requests, and therefore speeds up data intensive apps. Developers might be easily able to build interfaces on the data to browse Authorities.
 
+For instance a sample annotation client ([Library Enrichment Engine (LEE)](https://github.com/jhercher/LEE)) was build upon the [FP1 Plattform](https://github.com/fusepool). The LEE showcased the convenient use of the dictionary annotator and the platforms' REST APIS to extract subject headings from raw texts and to provide further search possibilities for the end users (cf. figure below). However, additional developments were limited, because of the size of the datasets used. We intent to improve the application with data provided by this use case.
+![The Library Enrichment Engine (LEE) is a sample annotation client which was build upon the tools provided by the Fusepool Project in 2014. It extracts GND concepts from raw texts and provides further search possibilities for the endusers.][lee-project-fp1]
+
+[lee-project-fp1]: img/lee-screenshot.png "The Library Enrichment Engine (LEE) is a sample annotation client which was build upon the tools provided by the Fusepool Project in 2014. It extracts GND concepts from raw texts and provides further search possibilities for the endusers."
+
 Within this objective FP3 platform shows its capability to process huge data sets and to integrate data from multiple sources. More precisely a union catalogue for library data ([b3kat](http://lod.b3kat.de)), an Authority File ([GND][]), and data from [DBpedia][]. Transformation and update routines are not implemented, due to their complexity and limited time within the project.
 
 ###### (B) Analyze of coocurrences of concepts (keyword cluster) 
