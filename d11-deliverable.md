@@ -25,6 +25,7 @@ Deliverable 1.1
 | v1.4 | Adrian Gschwend | 14.04.2015  | More use cases for WWW2015 |  
 | v1.5 | Johannes Hercher | 08.06.2015 | Use Case: Library Keyword Clustering |
 | v1.6 | Adrian Gschwend | 15.06.2015  | Moved Development Roadmap to Appendix A  |  
+| v1.7 | Adrian Gschwend | 17.08.2015  | Use Case: Swiss Archive Interlinking  |  
 
 
 
@@ -424,6 +425,30 @@ The Galileo Museum in Florence is providing a [catalogue of pieces](http://dati.
 Requirements:
 
 * Interlink the textual descriptions (mainly titles) with external data sources like Wikipedia/DBpedia, Wikidata and custom thesauri/vocabularies if available
+
+##### Swiss Archive Interlinking
+
+Since autumn 2014 the Swiss Federal archive and the archives of four cantons (Basel, Geneva, Neuchâtel, Valais) run a common platform and SPARQL endpoint where they experiment with providing archival data as Linked Data.
+
+The goal of the prototype is to understand the requirements and opportunities of providing archival information as Linked Data. The primary goals of the prototype are:
+
+* explore opportunities of Linked Data for archives
+* understand the technical requiements for creating and providing Linked Data
+* develop "best practices" for publishing archival data as Linked Data
+* test the value of integrating data about related topics from multiple, decentralized sources
+* with a clear focus on improving ease of access for the users of these archives
+* share the know-how with other archives worldwide
+
+In the prototype the focus is on two historical topics found among all involved archives, in particular [Helvetic Republic](https://en.wikipedia.org/wiki/Helvetic_Republic) and the [Act of Mediation](https://en.wikipedia.org/wiki/Act_of_Mediation).
+
+The data itself is provided under a separate (sub-) domain for each particular partner to mimic a decentralized setup. These domains are [data.alod.ch](http://data.alod.ch), [data.ge.alod.ch](http://data.ge.alod.ch), [data.ne.alod.ch](http://data.ne.alod.ch), [data.vs.alod.ch](http://data.vs.alod.ch), [data.staatsarchiv-bs.ch](http://data.staatsarchiv-bs.ch).
+
+
+TODO. However, interlinking the archival data with external reference data sets is harder than expected. In most cases the original data does not provide keywords which can be used for interlinking. The only way to currently search in the data set is to search for keywords in short textual descriptions. With these descriptions we get some basic metadata like what year the entry is from. 
+
+
+
+
 
 ##### OpenExpo2015
 
