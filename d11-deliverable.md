@@ -433,7 +433,7 @@ Since autumn 2014 the Swiss Federal archive and the archives of four cantons (Ba
 The goal of the prototype is to understand the requirements and opportunities of providing archival information as Linked Data. The primary goals of the prototype are:
 
 * explore opportunities of Linked Data for archives
-* understand the technical requiements for creating and providing Linked Data
+* understand the technical requirements for creating and providing Linked Data
 * develop "best practices" for publishing archival data as Linked Data
 * test the value of integrating data about related topics from multiple, decentralized sources
 * with a clear focus on improving ease of access for the users of these archives
@@ -441,14 +441,11 @@ The goal of the prototype is to understand the requirements and opportunities of
 
 In the prototype the focus is on two historical topics found among all involved archives, in particular [Helvetic Republic](https://en.wikipedia.org/wiki/Helvetic_Republic) and the [Act of Mediation](https://en.wikipedia.org/wiki/Act_of_Mediation).
 
-The data itself is provided under a separate (sub-) domain for each particular partner to mimic a decentralized setup. These domains are [data.alod.ch](http://data.alod.ch), [data.ge.alod.ch](http://data.ge.alod.ch), [data.ne.alod.ch](http://data.ne.alod.ch), [data.vs.alod.ch](http://data.vs.alod.ch), [data.staatsarchiv-bs.ch](http://data.staatsarchiv-bs.ch).
+The data itself is provided under a separate (sub-) domain for each particular partner to mimic a decentralized setup. These domains are [data.alod.ch](http://data.alod.ch), [data.ge.alod.ch](http://data.ge.alod.ch), [data.ne.alod.ch](http://data.ne.alod.ch), [data.vs.alod.ch](http://data.vs.alod.ch) and [data.staatsarchiv-bs.ch](http://data.staatsarchiv-bs.ch).
 
+One goal of the prototype is to show that  data maintained decentralized can be better searched by providing Linked Data. Currently the user has to search in five different user interfaces and systems to find information. However, interlinking the archival data within each other and with external reference data sets is harder than expected. In most cases the original data does not provide keywords that can be used for interlinking. The only way to currently search in the data set is to search for keywords in short textual descriptions. Additionally to these descriptions there is some basic metadata like what year the entry is from.
 
-TODO. However, interlinking the archival data with external reference data sets is harder than expected. In most cases the original data does not provide keywords which can be used for interlinking. The only way to currently search in the data set is to search for keywords in short textual descriptions. With these descriptions we get some basic metadata like what year the entry is from. 
-
-
-
-
+For that reason the archivists proposed to interlink the data with external reference data sets like [GND](https://de.wikipedia.org/wiki/Gemeinsame_Normdatei) (German: Gemeinsame Normdatei, also known as: Universal Authority File). In this use case Fusepool P3 will be used to interlink the descriptions about the archival entry by using an Apache Stanbol enhancer which is providing a GND index. The results will be analyzed by archivists behind the ALOD project to see how it improves ease of access of archival data.
 
 ##### OpenExpo2015
 
