@@ -447,14 +447,10 @@ One goal of the prototype is to show that  data maintained decentralized can be 
 
 For that reason the archivists proposed to interlink the data with external reference data sets like [GND](https://de.wikipedia.org/wiki/Gemeinsame_Normdatei) (German: Gemeinsame Normdatei, also known as: Universal Authority File). In this use case Fusepool P3 will be used to interlink the descriptions about the archival entry by using an Apache Stanbol enhancer which is providing a GND index. The results will be analyzed by archivists behind the ALOD project to see how it improves ease of access of archival data.
 
-##### OpenExpo2015
-
-TODO add story about [OpenExpo2015](http://dati.openexpo2015.it/) (told by Matteo Brunati, SPAZIO)
-
 ### Large Scale Validation Use Case: Library Keyword Clustering 
 
 #### Introduction  
-Libraries are under pressure. With the advent of the Internet most of the metadata of e.g. text books are available through amazon, Google scholar, or the publishers itself, which causes that the usage of library (e-)resources declines. Although librarians put much intellectual effort into the description of contents with controlled vocabularies ([Authority Files][]), their benefits to the end users are rarely visible.
+Libraries are under pressure. With the advent of the Internet most of the metadata of e.g. text books are available through amazon, Google scholar, or the publishers itself, which causes that the usage of library (e-)resources declines. Although librarians put much intellectual effort into the description of contents with controlled vocabularies Authority Files, their benefits to the end users are rarely visible.
 
 Librarians put much effort into the acquisition and management of library resources. While thousands of librarians are in charge to handle licensing concerns, loan management, cataloguing, and exchange of basic metadata between libraries, they pay only little attention to enhance the intellectual process content description (subject indexing). 
 We organize this report as follows. To underline the importance of the presented use case we recon the process of subject indexing from a librarians perspective, identify needs, and outline intentions to improve both the librarians' and patrons' situation. We present the recommended developments together with a short analysis of their outcome for the stakeholders, and related them to the necessity of a tool (FP3 platform), that is capable to consolidate multiple data processing and update tasks in a unified workflow.
